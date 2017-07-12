@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Br" access="FIELD">
+     <table name="tbr" />
+
+     <attributes>
+        <id name="brId">
+            <column name="br_id" />
+            <generated-value strategy="TABLE" generator="TBR_SEQ" />
+            <table-generator name="TBR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tbr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="brStartDate">
+            <column name="br_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="brEndDate">
+            <column name="br_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="grantHrnDate">
+            <column name="grant_hrn_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="grantJjoSurname">
+            <column name="grant_jjo_surname" />
+        </basic>
+
+        <basic name="rptOnMonFlag">
+            <column name="rpt_on_mon_flag" />
+        </basic>
+
+        <basic name="rptOnTueFlag">
+            <column name="rpt_on_tue_flag" />
+        </basic>
+
+        <basic name="rptOnWedFlag">
+            <column name="rpt_on_wed_flag" />
+        </basic>
+
+        <basic name="rptOnThuFlag">
+            <column name="rpt_on_thu_flag" />
+        </basic>
+
+        <basic name="rptOnFriFlag">
+            <column name="rpt_on_fri_flag" />
+        </basic>
+
+        <basic name="rptOnSatFlag">
+            <column name="rpt_on_sat_flag" />
+        </basic>
+
+        <basic name="rptOnSunFlag">
+            <column name="rpt_on_sun_flag" />
+        </basic>
+
+        <basic name="rptExcpPerd">
+            <column name="rpt_excp_perd" />
+        </basic>
+
+        <basic name="bailRsltDate">
+            <column name="bail_rslt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="bailVoidDate">
+            <column name="bail_void_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="fulfillBailCondFlag">
+            <column name="fulfill_bail_cond_flag" />
+        </basic>
+
+        <basic name="rptToPolStaStartDate">
+            <column name="rpt_to_pol_sta_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="rptToPolStaStartTime">
+            <column name="rpt_to_pol_sta_start_time" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="rptToPolStaEndDate">
+            <column name="rpt_to_pol_sta_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="rptToPolStaEndTime">
+            <column name="rpt_to_pol_sta_end_time" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="grantJjoGivenName">
+            <column name="grant_jjo_given_name" />
+        </basic>
+
+        <basic name="specialArrang">
+            <column name="special_arrang" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="brPerdType" fetch="LAZY">
+        <join-column name="br_perd_type_id" referenced-column-name="br_perd_type_id" />
+    </many-to-one>
+
+    <many-to-one name="bailType" fetch="LAZY">
+        <join-column name="bail_type_id" referenced-column-name="bail_type_id" />
+    </many-to-one>
+
+    <many-to-one name="detainCentre" fetch="LAZY">
+        <join-column name="detain_centre_id" referenced-column-name="detain_centre_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+    <many-to-one name="rptFreqType" fetch="LAZY">
+        <join-column name="rpt_freq_type_id" referenced-column-name="rpt_freq_type_id" />
+    </many-to-one>
+
+    <many-to-one name="rptPolSta" fetch="LAZY">
+        <join-column name="rpt_pol_sta_id" referenced-column-name="rpt_pol_sta_id" />
+    </many-to-one>
+
+    <many-to-one name="bailRsltType" fetch="LAZY">
+        <join-column name="bail_rslt_type_id" referenced-column-name="bail_rslt_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="bailCond"  mapped-by="br" fetch="LAZY" />
+    <one-to-many name="moneBailCond"  mapped-by="br" fetch="LAZY" />
+    <one-to-many name="brToPartcp"  mapped-by="br" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

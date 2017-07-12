@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCjr028Dtl1" access="FIELD">
+     <table name="tmi_dc_cjr_028_dtl_1" />
+
+     <attributes>
+        <id name="miDcCjr028Dtl1Id">
+            <column name="mi_dc_cjr_028_dtl_1_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CJR_028_DTL_1_SEQ" />
+            <table-generator name="TMI_DC_CJR_028_DTL_1_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cjr_028_dtl_1_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="caseFilingDate">
+            <column name="case_filing_date" />
+        </basic>
+
+        <basic name="caseTypeGrp">
+            <column name="case_type_grp" />
+        </basic>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="docFilingDate">
+            <column name="doc_filing_date" />
+        </basic>
+
+        <basic name="folioNo">
+            <column name="folio_no" />
+        </basic>
+
+        <basic name="docCd">
+            <column name="doc_cd" />
+        </basic>
+
+        <basic name="docName">
+            <column name="doc_name" />
+        </basic>
+
+        <basic name="adminOptCd">
+            <column name="admin_opt_cd" />
+        </basic>
+
+        <basic name="claimType">
+            <column name="claim_type" />
+        </basic>
+
+        <basic name="noOfDefts">
+            <column name="no_of_defts" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

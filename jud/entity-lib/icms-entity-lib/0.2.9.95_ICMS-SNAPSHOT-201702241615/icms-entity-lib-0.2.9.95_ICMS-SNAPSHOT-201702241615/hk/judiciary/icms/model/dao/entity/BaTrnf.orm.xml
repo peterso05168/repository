@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BaTrnf" access="FIELD">
+     <table name="tba_trnf" />
+
+     <attributes>
+        <id name="baTrnfId">
+            <column name="ba_trnf_id" />
+            <generated-value strategy="TABLE" generator="TBA_TRNF_SEQ" />
+            <table-generator name="TBA_TRNF_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tba_trnf_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="baTrnfClsgDate">
+            <column name="ba_trnf_clsg_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="baTrnfDt">
+            <column name="ba_trnf_dt" />
+        </basic>
+
+        <basic name="trnfAmt">
+            <column name="trnf_amt" />
+        </basic>
+
+        <basic name="chqNo">
+            <column name="chq_no" />
+        </basic>
+
+        <basic name="baTrnfDesc">
+            <column name="ba_trnf_desc" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="baTrnfType" fetch="LAZY">
+        <join-column name="ba_trnf_type_id" referenced-column-name="ba_trnf_type_id" />
+    </many-to-one>
+
+    <many-to-one name="baCashBk" fetch="LAZY">
+        <join-column name="ba_cash_bk_id" referenced-column-name="ba_cash_bk_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

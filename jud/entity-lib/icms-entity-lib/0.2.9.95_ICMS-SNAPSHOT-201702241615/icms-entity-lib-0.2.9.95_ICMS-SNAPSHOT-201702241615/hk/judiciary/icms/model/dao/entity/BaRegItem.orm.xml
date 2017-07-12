@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BaRegItem" access="FIELD">
+     <table name="tba_reg_item" />
+
+     <attributes>
+        <id name="baRegItemId">
+            <column name="ba_reg_item_id" />
+            <generated-value strategy="TABLE" generator="TBA_REG_ITEM_SEQ" />
+            <table-generator name="TBA_REG_ITEM_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tba_reg_item_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="polBailItemId">
+            <column name="pol_bail_item_id" />
+        </basic>
+
+        <basic name="moneBailCondId">
+            <column name="mone_bail_cond_id" />
+        </basic>
+
+        <basic name="baRegItemTxnDt">
+            <column name="ba_reg_item_txn_dt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="baReg" fetch="LAZY">
+        <join-column name="ba_reg_id" referenced-column-name="ba_reg_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtInTxn" fetch="LAZY">
+        <join-column name="pymt_in_txn_id" referenced-column-name="pymt_in_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtOutTxn" fetch="LAZY">
+        <join-column name="pymt_out_txn_id" referenced-column-name="pymt_out_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="baCashBk" fetch="LAZY">
+        <join-column name="ba_cash_bk_id" referenced-column-name="ba_cash_bk_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtInItem" fetch="LAZY">
+        <join-column name="pymt_in_item_id" referenced-column-name="pymt_in_item_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtOutItem" fetch="LAZY">
+        <join-column name="pymt_out_item_id" referenced-column-name="pymt_out_item_id" />
+    </many-to-one>
+
+    <many-to-one name="baRegAct" fetch="LAZY">
+        <join-column name="ba_reg_act_id" referenced-column-name="ba_reg_act_id" />
+    </many-to-one>
+
+    <many-to-one name="baDeporRecip" fetch="LAZY">
+        <join-column name="ba_depor_recip_id" referenced-column-name="ba_depor_recip_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

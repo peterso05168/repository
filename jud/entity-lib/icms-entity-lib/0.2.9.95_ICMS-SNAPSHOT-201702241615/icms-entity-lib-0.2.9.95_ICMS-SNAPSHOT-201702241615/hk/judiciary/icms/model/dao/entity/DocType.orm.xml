@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DocType" access="FIELD">
+     <table name="cdoc_type" />
+
+     <attributes>
+        <id name="docTypeId">
+            <column name="doc_type_id" />
+            <generated-value strategy="TABLE" generator="CDOC_TYPE_SEQ" />
+            <table-generator name="CDOC_TYPE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="cdoc_type_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="docTypeCd">
+            <column name="doc_type_cd" />
+        </basic>
+
+        <basic name="docTypeDesc">
+            <column name="doc_type_desc" />
+        </basic>
+
+        <basic name="caseDispTrigFlag">
+            <column name="case_disp_trig_flag" />
+        </basic>
+
+        <basic name="needPymt">
+            <column name="need_pymt" />
+        </basic>
+
+        <basic name="substantialAct">
+            <column name="substantial_act" />
+        </basic>
+
+        <basic name="orsOrdr">
+            <column name="ors_ordr" />
+        </basic>
+
+        <basic name="orsRule">
+            <column name="ors_rule" />
+        </basic>
+
+        <basic name="orsSubRule">
+            <column name="ors_sub_rule" />
+        </basic>
+
+        <basic name="chapNo">
+            <column name="chap_no" />
+        </basic>
+
+        <basic name="sectNo">
+            <column name="sect_no" />
+        </basic>
+
+        <basic name="subsectNo">
+            <column name="subsect_no" />
+        </basic>
+
+        <basic name="caseInitFlag">
+            <column name="case_init_flag" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="dfltFlr" fetch="LAZY">
+        <join-column name="dflt_flr_id" referenced-column-name="flr_id" />
+    </many-to-one>
+
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="caseTypeToDocType"  mapped-by="docType" fetch="LAZY" />
+    <one-to-many name="docGrpToDocType"  mapped-by="docType" fetch="LAZY" />
+    <one-to-many name="docRtePath"  mapped-by="docType" fetch="LAZY" />
+    <one-to-many name="docPymt"  mapped-by="docType" fetch="LAZY" />
+    <one-to-many name="docTypePymtCdMap"  mapped-by="docType" fetch="LAZY" />
+    <one-to-many name="mcAppNatToDocType"  mapped-by="docType" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

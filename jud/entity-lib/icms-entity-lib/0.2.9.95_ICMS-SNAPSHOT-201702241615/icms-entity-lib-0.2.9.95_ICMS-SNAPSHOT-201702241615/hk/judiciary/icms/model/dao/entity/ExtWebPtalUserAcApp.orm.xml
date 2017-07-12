@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ExtWebPtalUserAcApp" access="FIELD">
+     <table name="text_web_ptal_user_ac_app" />
+
+     <attributes>
+        <id name="ewpUserAcAppId">
+            <column name="ewp_user_ac_app_id" />
+            <generated-value strategy="TABLE" generator="TEXT_WEB_PTAL_USER_AC_APP_SEQ" />
+            <table-generator name="TEXT_WEB_PTAL_USER_AC_APP_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="text_web_ptal_user_ac_app_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="txnRefNo">
+            <column name="txn_ref_no" />
+        </basic>
+
+        <basic name="orgName">
+            <column name="org_name" />
+        </basic>
+
+        <basic name="orgNameChin">
+            <column name="org_name_chin" />
+        </basic>
+
+        <basic name="orgCertNo">
+            <column name="org_cert_no" />
+        </basic>
+
+        <basic name="submitDate">
+            <column name="submit_date" />
+        </basic>
+
+        <basic name="orgCd">
+            <column name="org_cd" />
+        </basic>
+
+        <basic name="addrAliasName">
+            <column name="addr_alias_name" />
+        </basic>
+
+        <basic name="addrLine1">
+            <column name="addr_line_1" />
+        </basic>
+
+        <basic name="addrLine1Chin">
+            <column name="addr_line_1_chin" />
+        </basic>
+
+        <basic name="addrLine2">
+            <column name="addr_line_2" />
+        </basic>
+
+        <basic name="addrLine2Chin">
+            <column name="addr_line_2_chin" />
+        </basic>
+
+        <basic name="addrLine3">
+            <column name="addr_line_3" />
+        </basic>
+
+        <basic name="addrLine3Chin">
+            <column name="addr_line_3_chin" />
+        </basic>
+
+        <basic name="fgnAddrFlag">
+            <column name="fgn_addr_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="orgCertType" fetch="LAZY">
+        <join-column name="org_cert_type_id" referenced-column-name="org_cert_type_id" />
+    </many-to-one>
+
+    <many-to-one name="submitCh" fetch="LAZY">
+        <join-column name="submit_ch_id" referenced-column-name="submit_ch_id" />
+    </many-to-one>
+
+    <many-to-one name="appStatus" fetch="LAZY">
+        <join-column name="app_status_id" referenced-column-name="app_status_id" />
+    </many-to-one>
+
+    <many-to-one name="hkDist" fetch="LAZY">
+        <join-column name="hk_dist_id" referenced-column-name="hk_dist_id" />
+    </many-to-one>
+
+    <many-to-one name="rgn" fetch="LAZY">
+        <join-column name="rgn_id" referenced-column-name="hk_rgn_id" />
+    </many-to-one>
+
+    <many-to-one name="ewpOrg" fetch="LAZY">
+        <join-column name="ewp_org_id" referenced-column-name="ewp_org_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="extUserAc"  mapped-by="ewpUserAcApp" fetch="LAZY" />
+    <one-to-many name="extWebPtalUserAcAppv"  mapped-by="ewpUserAcApp" fetch="LAZY" />
+    <one-to-many name="extWebPtalDoc"  mapped-by="ewpUserAcApp" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

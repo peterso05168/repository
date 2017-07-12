@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfAsgset" access="FIELD">
+     <table name="tblf_asgset" />
+
+     <attributes>
+        <id name="blfAsgsetId">
+            <column name="blf_asgset_id" />
+            <generated-value strategy="TABLE" generator="TBLF_ASGSET_SEQ" />
+            <table-generator name="TBLF_ASGSET_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_asgset_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="asgsetDate">
+            <column name="asgset_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfAssign" fetch="LAZY">
+        <join-column name="blf_assign_id" referenced-column-name="blf_assign_id" />
+    </many-to-one>
+
+    <many-to-one name="asgsetStatusType" fetch="LAZY">
+        <join-column name="asgset_status_type_id" referenced-column-name="blf_asgset_status_type_id" />
+    </many-to-one>
+
+    <many-to-one name="confirmedBy" fetch="LAZY">
+        <join-column name="confirmed_by" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="blfOffice" fetch="LAZY">
+        <join-column name="blf_office_id" referenced-column-name="blf_office_id" />
+    </many-to-one>
+
+    <many-to-one name="blfAssignTrnf" fetch="LAZY">
+        <join-column name="blf_assign_trnf_id" referenced-column-name="blf_assign_trnf_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="blfAsgmnt"  mapped-by="blfAsgset" fetch="LAZY" />
+    <one-to-many name="blfMealDtl"  mapped-by="blfAsgset" fetch="LAZY" />
+    <one-to-many name="blfTaskSecuGuard"  mapped-by="asgset" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

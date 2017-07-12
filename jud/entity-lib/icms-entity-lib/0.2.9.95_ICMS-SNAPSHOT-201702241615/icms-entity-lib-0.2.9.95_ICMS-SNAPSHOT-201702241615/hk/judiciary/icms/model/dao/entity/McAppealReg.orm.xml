@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.McAppealReg" access="FIELD">
+     <table name="tmc_appeal_reg" />
+
+     <attributes>
+        <id name="mcAppealRegId">
+            <column name="mc_appeal_reg_id" />
+            <generated-value strategy="TABLE" generator="TMC_APPEAL_REG_SEQ" />
+            <table-generator name="TMC_APPEAL_REG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmc_appeal_reg_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="tdltId">
+            <column name="tdlt_id" />
+        </basic>
+
+        <basic name="appealRegedNo">
+            <column name="appeal_reged_no" />
+        </basic>
+
+        <basic name="cfiCaesNo">
+            <column name="cfi_caes_no" />
+        </basic>
+
+        <basic name="cfiJjo">
+            <column name="cfi_jjo" />
+        </basic>
+
+        <basic name="cfiAppealHrnRslt">
+            <column name="cfi_appeal_hrn_rslt" />
+        </basic>
+
+        <basic name="appealHrnDt">
+            <column name="appeal_hrn_dt" />
+        </basic>
+
+        <basic name="trailRsltOfMagCourts">
+            <column name="trail_rslt_of_mag_courts" />
+        </basic>
+
+        <basic name="msgToJjo">
+            <column name="msg_to_jjo" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="appealIntlNo">
+            <column name="appeal_intl_no" />
+        </basic>
+
+        <basic name="lastRecvDate">
+            <column name="last_recv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="appealNatType" fetch="LAZY">
+        <join-column name="appeal_nat_type_id" referenced-column-name="mc_appeal_nat_type_id" />
+    </many-to-one>
+
+    <many-to-one name="appealStatus" fetch="LAZY">
+        <join-column name="appeal_status_id" referenced-column-name="mc_appeal_status_type_id" />
+    </many-to-one>
+
+    <many-to-one name="jjoProfile" fetch="LAZY">
+        <join-column name="jjo_profile_id" referenced-column-name="jjo_profile_id" />
+    </many-to-one>
+
+    <many-to-one name="appealHrnRsltType" fetch="LAZY">
+        <join-column name="appeal_hrn_rslt_type_id" referenced-column-name="mc_appeal_hrn_rslt_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="mcApps"  mapped-by="relMcAppealReg" fetch="LAZY" />
+    <one-to-many name="mcAppealRegCaseMap"  mapped-by="mcAppealReg" fetch="LAZY" />
+    <one-to-many name="mcAppealRegPrepDoc"  mapped-by="mcAppealReg" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

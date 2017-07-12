@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.GovDeptRef" access="FIELD">
+     <table name="tgov_dept_ref" />
+
+     <attributes>
+        <id name="govDeptRefId">
+            <column name="gov_dept_ref_id" />
+            <generated-value strategy="TABLE" generator="TGOV_DEPT_REF_SEQ" />
+            <table-generator name="TGOV_DEPT_REF_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tgov_dept_ref_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="refNo">
+            <column name="ref_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="govDept" fetch="LAZY">
+        <join-column name="gov_dept_id" referenced-column-name="gov_dept_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfWthltForVssl" access="FIELD">
+     <table name="tblf_wthlt_for_vssl" />
+
+     <attributes>
+        <id name="blfWthltForVsslId">
+            <column name="blf_wthlt_for_vssl_id" />
+            <generated-value strategy="TABLE" generator="TBLF_WTHLT_FOR_VSSL_SEQ" />
+            <table-generator name="TBLF_WTHLT_FOR_VSSL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_wthlt_for_vssl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="name">
+            <column name="name" />
+        </basic>
+
+        <basic name="callSignNo">
+            <column name="call_sign_no" />
+        </basic>
+
+        <basic name="wthltedDate">
+            <column name="wthlted_date" />
+        </basic>
+
+        <basic name="withdrawnDate">
+            <column name="withdrawn_date" />
+        </basic>
+
+        <basic name="note">
+            <column name="note" />
+        </basic>
+
+        <basic name="caseNo">
+            <column name="case_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfVsslWthltStatustype" fetch="LAZY">
+        <join-column name="blf_vssl_wthlt_statustype_id" referenced-column-name="blf_vssl_wthlt_statustype_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

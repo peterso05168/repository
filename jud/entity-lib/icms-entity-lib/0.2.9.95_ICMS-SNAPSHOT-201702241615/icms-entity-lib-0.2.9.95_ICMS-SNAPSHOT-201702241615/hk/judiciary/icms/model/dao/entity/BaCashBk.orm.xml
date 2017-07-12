@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BaCashBk" access="FIELD">
+     <table name="tba_cash_bk" />
+
+     <attributes>
+        <id name="baCashBkId">
+            <column name="ba_cash_bk_id" />
+            <generated-value strategy="TABLE" generator="TBA_CASH_BK_SEQ" />
+            <table-generator name="TBA_CASH_BK_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tba_cash_bk_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="cashBkClsgDate">
+            <column name="cash_bk_clsg_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="totalCrBailAmt">
+            <column name="total_cr_bail_amt" />
+        </basic>
+
+        <basic name="totalCrAmendAmt">
+            <column name="total_cr_amend_amt" />
+        </basic>
+
+        <basic name="totalCrCashAmt">
+            <column name="total_cr_cash_amt" />
+        </basic>
+
+        <basic name="totalCrEpsAmt">
+            <column name="total_cr_eps_amt" />
+        </basic>
+
+        <basic name="totalCrBankAmt">
+            <column name="total_cr_bank_amt" />
+        </basic>
+
+        <basic name="totalDrAmendAmt">
+            <column name="total_dr_amend_amt" />
+        </basic>
+
+        <basic name="totalDrBailAmt">
+            <column name="total_dr_bail_amt" />
+        </basic>
+
+        <basic name="totalDrBankAmt">
+            <column name="total_dr_bank_amt" />
+        </basic>
+
+        <basic name="totalDrEpsAmt">
+            <column name="total_dr_eps_amt" />
+        </basic>
+
+        <basic name="totalDrCashAmt">
+            <column name="total_dr_cash_amt" />
+        </basic>
+
+        <basic name="clsgEpsAmt">
+            <column name="clsg_eps_amt" />
+        </basic>
+
+        <basic name="clsgBankAmt">
+            <column name="clsg_bank_amt" />
+        </basic>
+
+        <basic name="clsgCashAmt">
+            <column name="clsg_cash_amt" />
+        </basic>
+
+        <basic name="clsgAmendAmt">
+            <column name="clsg_amend_amt" />
+        </basic>
+
+        <basic name="clsgBailAmt">
+            <column name="clsg_bail_amt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="centre" fetch="LAZY">
+        <join-column name="centre_id" referenced-column-name="centre_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="baRegItem"  mapped-by="baCashBk" fetch="LAZY" />
+    <one-to-many name="baTrnf"  mapped-by="baCashBk" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

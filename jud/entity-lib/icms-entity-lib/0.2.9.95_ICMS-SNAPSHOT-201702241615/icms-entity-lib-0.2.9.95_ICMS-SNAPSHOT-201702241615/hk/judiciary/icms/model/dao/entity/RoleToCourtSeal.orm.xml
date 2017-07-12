@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.RoleToCourtSeal" access="FIELD">
+     <table name="trole_to_court_seal" />
+
+     <attributes>
+        <id name="roleToCourtSealId">
+            <column name="role_to_court_seal_id" />
+            <generated-value strategy="TABLE" generator="TROLE_TO_COURT_SEAL_SEQ" />
+            <table-generator name="TROLE_TO_COURT_SEAL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="trole_to_court_seal_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="effvStartDt">
+            <column name="effv_start_dt" />
+        </basic>
+
+        <basic name="effvEndDt">
+            <column name="effv_end_dt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="intlUserGrp" fetch="LAZY">
+        <join-column name="intl_user_grp_id" referenced-column-name="intl_user_grp_id" />
+    </many-to-one>
+
+    <many-to-one name="intlGrpSect" fetch="LAZY">
+        <join-column name="intl_grp_sect_id" referenced-column-name="intl_grp_sect_id" />
+    </many-to-one>
+
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+    <many-to-one name="courtSeal" fetch="LAZY">
+        <join-column name="court_seal_id" referenced-column-name="court_seal_id" />
+    </many-to-one>
+
+    <many-to-one name="intlRole" fetch="LAZY">
+        <join-column name="intl_role_id" referenced-column-name="intl_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

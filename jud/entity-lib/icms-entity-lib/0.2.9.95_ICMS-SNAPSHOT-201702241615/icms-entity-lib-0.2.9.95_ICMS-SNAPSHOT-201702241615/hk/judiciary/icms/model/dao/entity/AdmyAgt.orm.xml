@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.AdmyAgt" access="FIELD">
+     <table name="tadmy_agt" />
+
+     <attributes>
+        <id name="admiratlyAgtId">
+            <column name="admiratly_agt_id" />
+            <generated-value strategy="TABLE" generator="TADMY_AGT_SEQ" />
+            <table-generator name="TADMY_AGT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tadmy_agt_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="agtTypeId">
+            <column name="agt_type_id" />
+        </basic>
+
+        <basic name="name">
+            <column name="name" />
+        </basic>
+
+        <basic name="tel">
+            <column name="tel" />
+        </basic>
+
+        <basic name="mobi">
+            <column name="mobi" />
+        </basic>
+
+        <basic name="email">
+            <column name="email" />
+        </basic>
+
+        <basic name="ctatPerson">
+            <column name="ctat_person" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="reqs" fetch="LAZY">
+        <join-column name="reqs_id" referenced-column-name="reqs_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

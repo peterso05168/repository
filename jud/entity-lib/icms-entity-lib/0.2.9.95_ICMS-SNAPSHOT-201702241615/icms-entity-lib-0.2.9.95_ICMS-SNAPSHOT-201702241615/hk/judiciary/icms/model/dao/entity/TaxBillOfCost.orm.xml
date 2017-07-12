@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.TaxBillOfCost" access="FIELD">
+     <table name="ttax_bill_of_cost" />
+
+     <attributes>
+        <id name="taxBillOfCostId">
+            <column name="tax_bill_of_cost_id" />
+            <generated-value strategy="TABLE" generator="TTAX_BILL_OF_COST_SEQ" />
+            <table-generator name="TTAX_BILL_OF_COST_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="ttax_bill_of_cost_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="taxBillNo">
+            <column name="tax_bill_no" />
+        </basic>
+
+        <basic name="taxBillDate">
+            <column name="tax_bill_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="taxBillDesc">
+            <column name="tax_bill_desc" />
+        </basic>
+
+        <basic name="lglAidDeptRefNo">
+            <column name="lgl_aid_dept_ref_no" />
+        </basic>
+
+        <basic name="taxBillOfCostDepAmt">
+            <column name="tax_bill_of_cost_dep_amt" />
+        </basic>
+
+        <basic name="supplDep">
+            <column name="suppl_dep" />
+        </basic>
+
+        <basic name="taxBillOfCostDfctAmt">
+            <column name="tax_bill_of_cost_dfct_amt" />
+        </basic>
+
+        <basic name="taxBillOfCostStatus">
+            <column name="tax_bill_of_cost_status" />
+        </basic>
+
+        <basic name="taxBillOfCostStatusDate">
+            <column name="tax_bill_of_cost_status_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="intmAllorDate">
+            <column name="intm_allor_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="allorDate">
+            <column name="allor_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="provisTaxDate">
+            <column name="provis_tax_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="provisNotiDate">
+            <column name="provis_noti_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="provisAllorDate">
+            <column name="provis_allor_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="provisInd">
+            <column name="provis_ind" />
+        </basic>
+
+        <basic name="billOfCostRmk">
+            <column name="bill_of_cost_rmk" />
+        </basic>
+
+        <basic name="claimAmt">
+            <column name="claim_amt" />
+        </basic>
+
+        <basic name="taxBillOfCostRefunDate">
+            <column name="tax_bill_of_cost_refun_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="lettAllorDate">
+            <column name="lett_allor_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="solProfitCost">
+            <column name="sol_profit_cost" />
+        </basic>
+
+        <basic name="senrCounlFee">
+            <column name="senr_counl_fee" />
+        </basic>
+
+        <basic name="junrCounlFee">
+            <column name="junr_counl_fee" />
+        </basic>
+
+        <basic name="taxBillOfCostDisbmt">
+            <column name="tax_bill_of_cost_disbmt" />
+        </basic>
+
+        <basic name="costOfTax">
+            <column name="cost_of_tax" />
+        </basic>
+
+        <basic name="tgtTaxFee">
+            <column name="tgt_tax_fee" />
+        </basic>
+
+        <basic name="supplTaxFee">
+            <column name="suppl_tax_fee" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="taxApp" fetch="LAZY">
+        <join-column name="tax_app_id" referenced-column-name="tax_app_id" />
+    </many-to-one>
+
+    <many-to-one name="docIdOfBillOfCost" fetch="LAZY">
+        <join-column name="doc_id_of_bill_of_cost" referenced-column-name="doc_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="taxBillOfCostItem"  mapped-by="taxBillOfCost" fetch="LAZY" />
+    <one-to-many name="taxPartcp"  mapped-by="billOfCost" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.VexsLitiBlkFrHc" access="FIELD">
+     <table name="tvexs_liti_blk_fr_hc" />
+
+     <attributes>
+        <id name="vexsLitiBlkFrHcId">
+            <column name="vexs_liti_blk_fr_hc_id" />
+            <generated-value strategy="TABLE" generator="TVEXS_LITI_BLK_FR_HC_SEQ" />
+            <table-generator name="TVEXS_LITI_BLK_FR_HC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tvexs_liti_blk_fr_hc_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="fullTermOrdrTxt">
+            <column name="full_term_ordr_txt" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="desigtJudge1">
+            <column name="desigt_judge_1" />
+        </basic>
+
+        <basic name="desigtJudge2">
+            <column name="desigt_judge_2" />
+        </basic>
+
+        <basic name="desigtJudge3">
+            <column name="desigt_judge_3" />
+        </basic>
+
+        <basic name="ordrDate">
+            <column name="ordr_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ordrBy">
+            <column name="ordr_by" />
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="ordrFr" fetch="LAZY">
+        <join-column name="ordr_fr" referenced-column-name="vexs_liti_blk_ordr_fr_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRoleType" fetch="LAZY">
+        <join-column name="partcp_role_type_id" referenced-column-name="partcp_role_type_id" />
+    </many-to-one>
+
+    <many-to-one name="blkType" fetch="LAZY">
+        <join-column name="blk_type_id" referenced-column-name="blk_type_id" />
+    </many-to-one>
+
+    <many-to-one name="vexsLitiFrHc" fetch="LAZY">
+        <join-column name="vexs_liti_fr_hc_id" referenced-column-name="vexs_liti_fr_hc_id" />
+    </many-to-one>
+
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="caseType" fetch="LAZY">
+        <join-column name="case_type_id" referenced-column-name="case_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="vexsLitiBlkCourtFrHc"  mapped-by="vexsLitiBlkFrHc" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

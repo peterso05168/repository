@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.VexsLiti" access="FIELD">
+     <table name="tvexs_liti" />
+
+     <attributes>
+        <id name="vexsLitiId">
+            <column name="vexs_liti_id" />
+            <generated-value strategy="TABLE" generator="TVEXS_LITI_SEQ" />
+            <table-generator name="TVEXS_LITI_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tvexs_liti_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="faxNo">
+            <column name="fax_no" />
+        </basic>
+
+        <basic name="telNo">
+            <column name="tel_no" />
+        </basic>
+
+        <basic name="name">
+            <column name="name" />
+        </basic>
+
+        <basic name="nameChin">
+            <column name="name_chin" />
+        </basic>
+
+        <basic name="personIdentNo">
+            <column name="person_ident_no" />
+        </basic>
+
+        <basic name="addrLine1">
+            <column name="addr_line_1" />
+        </basic>
+
+        <basic name="addrLine2">
+            <column name="addr_line_2" />
+        </basic>
+
+        <basic name="addrLine3">
+            <column name="addr_line_3" />
+        </basic>
+
+        <basic name="addrLine1Chin">
+            <column name="addr_line_1_chin" />
+        </basic>
+
+        <basic name="addrLine2Chin">
+            <column name="addr_line_2_chin" />
+        </basic>
+
+        <basic name="addrLine3Chin">
+            <column name="addr_line_3_chin" />
+        </basic>
+
+        <basic name="fgnAddrFlag">
+            <column name="fgn_addr_flag" />
+        </basic>
+
+        <basic name="syncStatusInd">
+            <column name="sync_status_ind" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="gendrType" fetch="LAZY">
+        <join-column name="gendr_type_id" referenced-column-name="gendr_type_id" />
+    </many-to-one>
+
+    <many-to-one name="rgn" fetch="LAZY">
+        <join-column name="rgn_id" referenced-column-name="hk_rgn_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="vexsLitiBlk"  mapped-by="vexsLiti" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PymtInTxnItemHist" access="FIELD">
+     <table name="tpymt_in_txn_item_hist" />
+
+     <attributes>
+        <id name="pymtInTxnItemHistId">
+            <column name="pymt_in_txn_item_hist_id" />
+            <generated-value strategy="TABLE" generator="TPYMT_IN_TXN_ITEM_HIST_SEQ" />
+            <table-generator name="TPYMT_IN_TXN_ITEM_HIST_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpymt_in_txn_item_hist_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtInTxn" fetch="LAZY">
+        <join-column name="pymt_in_txn_id" referenced-column-name="pymt_in_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="instal" fetch="LAZY">
+        <join-column name="instal_id" referenced-column-name="pymt_instal_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtInItem" fetch="LAZY">
+        <join-column name="pymt_in_item_id" referenced-column-name="pymt_in_item_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

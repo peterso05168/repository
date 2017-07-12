@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCwt003Criminal" access="FIELD">
+     <table name="tmi_dc_cwt_003_criminal" />
+
+     <attributes>
+        <id name="miDcCwt003CriminalId">
+            <column name="mi_dc_cwt_003_criminal_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CWT_003_CRIMINAL_SEQ" />
+            <table-generator name="TMI_DC_CWT_003_CRIMINAL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cwt_003_criminal_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="caseNo">
+            <column name="case_no" />
+        </basic>
+
+        <basic name="bailFlag">
+            <column name="bail_flag" />
+        </basic>
+
+        <basic name="noOfHrnDay">
+            <column name="no_of_hrn_day" />
+        </basic>
+
+        <basic name="firstApprDate">
+            <column name="first_appr_date" />
+        </basic>
+
+        <basic name="dateOfLst">
+            <column name="date_of_lst" />
+        </basic>
+
+        <basic name="trialDate">
+            <column name="trial_date" />
+        </basic>
+
+        <basic name="ffd">
+            <column name="ffd" />
+        </basic>
+
+        <basic name="trialBookVactdFlag">
+            <column name="trial_book_vactd_flag" />
+        </basic>
+
+        <basic name="firstTrialBookFlag">
+            <column name="first_trial_book_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

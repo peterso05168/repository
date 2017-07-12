@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.FpTxn" access="FIELD">
+     <table name="tfp_txn" />
+
+     <attributes>
+        <id name="fpTxnId">
+            <column name="fp_txn_id" />
+            <generated-value strategy="TABLE" generator="TFP_TXN_SEQ" />
+            <table-generator name="TFP_TXN_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tfp_txn_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="fpTxnAmt">
+            <column name="fp_txn_amt" />
+        </basic>
+
+        <basic name="fpTxnDt">
+            <column name="fp_txn_dt" />
+        </basic>
+
+        <basic name="procBy">
+            <column name="proc_by" />
+        </basic>
+
+        <basic name="fpTxnClsgDate">
+            <column name="fp_txn_clsg_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="fpTxnClsgStatus">
+            <column name="fp_txn_clsg_status" />
+        </basic>
+
+        <basic name="procDt">
+            <column name="proc_dt" />
+        </basic>
+
+        <basic name="reptNo">
+            <column name="rept_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtWs" fetch="LAZY">
+        <join-column name="pymt_ws_id" referenced-column-name="pymt_ws_id" />
+    </many-to-one>
+
+    <many-to-one name="centre" fetch="LAZY">
+        <join-column name="centre_id" referenced-column-name="centre_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtPty" fetch="LAZY">
+        <join-column name="pymt_pty_id" referenced-column-name="pymt_pty_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtWsStatus" fetch="LAZY">
+        <join-column name="pymt_ws_status_id" referenced-column-name="pymt_ws_status_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtWsOprMode" fetch="LAZY">
+        <join-column name="pymt_ws_opr_mode_id" referenced-column-name="pymt_ws_opr_mode_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtTxnStatus" fetch="LAZY">
+        <join-column name="pymt_txn_status_id" referenced-column-name="pymt_txn_status_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="fpTktTxnHist"  mapped-by="fpTxn" fetch="LAZY" />
+    <one-to-many name="fpTxnDtl"  mapped-by="fpTxn" fetch="LAZY" />
+    <one-to-many name="fpTxnSumy"  mapped-by="fpTxn" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="rvseReg"  mapped-by="fpTxn" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

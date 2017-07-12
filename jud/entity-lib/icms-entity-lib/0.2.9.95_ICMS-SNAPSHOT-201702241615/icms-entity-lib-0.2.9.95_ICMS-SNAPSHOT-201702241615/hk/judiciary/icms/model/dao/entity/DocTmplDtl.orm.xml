@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DocTmplDtl" access="FIELD">
+     <table name="tdoc_tmpl_dtl" />
+
+     <attributes>
+        <id name="docTmplDtlId">
+            <column name="doc_tmpl_dtl_id" />
+            <generated-value strategy="TABLE" generator="TDOC_TMPL_DTL_SEQ" />
+            <table-generator name="TDOC_TMPL_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdoc_tmpl_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="pageMgnBottom">
+            <column name="page_mgn_bottom" />
+        </basic>
+
+        <basic name="pageMgnLeft">
+            <column name="page_mgn_left" />
+        </basic>
+
+        <basic name="pageMgnRight">
+            <column name="page_mgn_right" />
+        </basic>
+
+        <basic name="pageMgnTop">
+            <column name="page_mgn_top" />
+        </basic>
+
+        <basic name="path">
+            <column name="path" />
+        </basic>
+
+        <basic name="effvEndDt">
+            <column name="effv_end_dt" />
+        </basic>
+
+        <basic name="showPageNoFlag">
+            <column name="show_page_no_flag" />
+        </basic>
+
+        <basic name="effvStartDt">
+            <column name="effv_start_dt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="docPageSizeType" fetch="LAZY">
+        <join-column name="doc_page_size_type_id" referenced-column-name="doc_page_size_type_id" />
+    </many-to-one>
+
+    <many-to-one name="docPageHdrTmpl" fetch="LAZY">
+        <join-column name="doc_page_hdr_tmpl_id" referenced-column-name="doc_page_hdr_tmpl_id" />
+    </many-to-one>
+
+    <many-to-one name="docTmpl" fetch="LAZY">
+        <join-column name="doc_tmpl_id" referenced-column-name="doc_tmpl_id" />
+    </many-to-one>
+
+    <many-to-one name="docPageOrienType" fetch="LAZY">
+        <join-column name="doc_page_orien_type_id" referenced-column-name="doc_page_orien_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="docGenReqs"  mapped-by="docTmplDtl" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.JjoNoteTmpl" access="FIELD">
+     <table name="cjjo_note_tmpl" />
+
+     <attributes>
+        <id name="jjoNoteTmplId">
+            <column name="jjo_note_tmpl_id" />
+            <generated-value strategy="TABLE" generator="CJJO_NOTE_TMPL_SEQ" />
+            <table-generator name="CJJO_NOTE_TMPL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="cjjo_note_tmpl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="jjoNoteTmplName">
+            <column name="jjo_note_tmpl_name" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="jjoNoteTmplType">
+            <column name="jjo_note_tmpl_type" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

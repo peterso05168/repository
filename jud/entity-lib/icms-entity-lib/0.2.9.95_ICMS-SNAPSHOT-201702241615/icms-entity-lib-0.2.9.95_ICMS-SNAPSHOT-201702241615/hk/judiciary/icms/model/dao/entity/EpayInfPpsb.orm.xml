@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EpayInfPpsb" access="FIELD">
+     <table name="tepay_inf_ppsb" />
+
+     <attributes>
+        <id name="epayInfPpsbId">
+            <column name="epay_inf_ppsb_id" />
+            <generated-value strategy="TABLE" generator="TEPAY_INF_PPSB_SEQ" />
+            <table-generator name="TEPAY_INF_PPSB_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tepay_inf_ppsb_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="ppsbTxnCd">
+            <column name="ppsb_txn_cd" />
+        </basic>
+
+        <basic name="ppsbTxnAmt">
+            <column name="ppsb_txn_amt" />
+        </basic>
+
+        <basic name="txnStatus">
+            <column name="txn_status" />
+        </basic>
+
+        <basic name="billAc">
+            <column name="bill_ac" />
+        </basic>
+
+        <basic name="bankAcNo">
+            <column name="bank_ac_no" />
+        </basic>
+
+        <basic name="posId">
+            <column name="pos_id" />
+        </basic>
+
+        <basic name="epayInfPpsbInputDay">
+            <column name="epay_inf_ppsb_input_day" />
+        </basic>
+
+        <basic name="epayInfPpsbInputTime">
+            <column name="epay_inf_ppsb_input_time" />
+        </basic>
+
+        <basic name="isn">
+            <column name="isn" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="epayInfExpt"  mapped-by="epayInfPpsb" fetch="LAZY" />
+    <one-to-one name="epayOnlineTxn"  mapped-by="epayInfPpsb" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCjr026DtlPostcjr" access="FIELD">
+     <table name="tmi_dc_cjr_026_dtl_postcjr" />
+
+     <attributes>
+        <id name="miDcCjr026DtlPostcjrId">
+            <column name="mi_dc_cjr_026_dtl_postcjr_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CJR_026_DTL_POSTCJR_SEQ" />
+            <table-generator name="TMI_DC_CJR_026_DTL_POSTCJR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cjr_026_dtl_postcjr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="firstHrnTypeCd">
+            <column name="first_hrn_type_cd" />
+        </basic>
+
+        <basic name="firstHrnTypeDesc">
+            <column name="first_hrn_type_desc" />
+        </basic>
+
+        <basic name="lastHrnTypeCd">
+            <column name="last_hrn_type_cd" />
+        </basic>
+
+        <basic name="lastHrnTypeDesc">
+            <column name="last_hrn_type_desc" />
+        </basic>
+
+        <basic name="lstDate">
+            <column name="lst_date" />
+        </basic>
+
+        <basic name="judgeOrMasterName">
+            <column name="judge_or_master_name" />
+        </basic>
+
+        <basic name="lastHrnDate">
+            <column name="last_hrn_date" />
+        </basic>
+
+        <basic name="bookedDur">
+            <column name="booked_dur" />
+        </basic>
+
+        <basic name="durUnit">
+            <column name="dur_unit" />
+        </basic>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="judgeType">
+            <column name="judge_type" />
+        </basic>
+
+        <basic name="actlTimeSpent">
+            <column name="actl_time_spent" />
+        </basic>
+
+        <basic name="vactRsn">
+            <column name="vact_rsn" />
+        </basic>
+
+        <basic name="rmk">
+            <column name="rmk" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

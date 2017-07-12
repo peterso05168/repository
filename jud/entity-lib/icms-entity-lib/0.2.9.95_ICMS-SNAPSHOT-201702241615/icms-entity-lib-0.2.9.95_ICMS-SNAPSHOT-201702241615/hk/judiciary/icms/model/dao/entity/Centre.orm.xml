@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Centre" access="FIELD">
+     <table name="ccentre" />
+
+     <attributes>
+        <id name="centreId">
+            <column name="centre_id" />
+            <generated-value strategy="TABLE" generator="CCENTRE_SEQ" />
+            <table-generator name="CCENTRE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="ccentre_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="centreDesc">
+            <column name="centre_desc" />
+        </basic>
+
+        <basic name="centreChinDesc">
+            <column name="centre_chin_desc" />
+        </basic>
+
+        <basic name="centreNo">
+            <column name="centre_no" />
+        </basic>
+
+        <basic name="gfmisCollectCentreCd">
+            <column name="gfmis_collect_centre_cd" />
+        </basic>
+
+        <basic name="src">
+            <column name="src" />
+        </basic>
+
+        <basic name="prepr">
+            <column name="prepr" />
+        </basic>
+
+        <basic name="appvr">
+            <column name="appvr" />
+        </basic>
+
+        <basic name="ctatNo">
+            <column name="ctat_no" />
+        </basic>
+
+        <basic name="fundCd">
+            <column name="fund_cd" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="centreStatus" fetch="LAZY">
+        <join-column name="centre_status_id" referenced-column-name="centre_status_id" />
+    </many-to-one>
+
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="collectPymt"  mapped-by="centre" fetch="LAZY" />
+    <one-to-many name="pymtWs"  mapped-by="centre" fetch="LAZY" />
+    <one-to-many name="gfmisRevuCd"  mapped-by="centre" fetch="LAZY" />
+    <one-to-many name="epayTxnccMap"  mapped-by="centre" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

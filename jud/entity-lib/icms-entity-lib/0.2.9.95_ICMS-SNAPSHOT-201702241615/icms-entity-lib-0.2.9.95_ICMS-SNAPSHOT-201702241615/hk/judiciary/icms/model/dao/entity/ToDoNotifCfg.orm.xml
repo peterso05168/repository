@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ToDoNotifCfg" access="FIELD">
+     <table name="cto_do_notif_cfg" />
+
+     <attributes>
+        <id name="tdltCfgId">
+            <column name="tdlt_cfg_id" />
+            <generated-value strategy="TABLE" generator="CTO_DO_NOTIF_CFG_SEQ" />
+            <table-generator name="CTO_DO_NOTIF_CFG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="cto_do_notif_cfg_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="prty">
+            <column name="prty" />
+        </basic>
+
+        <basic name="subjAreaInfo">
+            <column name="subj_area_info" />
+        </basic>
+
+        <basic name="effvEndDt">
+            <column name="effv_end_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvFrDt">
+            <column name="effv_fr_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="actId">
+            <column name="act_id" />
+        </basic>
+
+        <basic name="actType">
+            <column name="act_type" />
+        </basic>
+
+        <basic name="nextFuncId">
+            <column name="next_func_id" />
+        </basic>
+
+        <basic name="nextActId">
+            <column name="next_act_id" />
+        </basic>
+
+        <basic name="sendType">
+            <column name="send_type" />
+        </basic>
+
+        <basic name="tgtCmplDateCnt">
+            <column name="tgt_cmpl_date_cnt" />
+        </basic>
+
+        <basic name="funcId">
+            <column name="func_id" />
+        </basic>
+
+        <basic name="subjAreaCd">
+            <column name="subj_area_cd" />
+        </basic>
+
+        <basic name="taskDesc">
+            <column name="task_desc" />
+        </basic>
+
+        <basic name="tgtProjCd">
+            <column name="tgt_proj_cd" />
+        </basic>
+
+        <basic name="tgtFuncId">
+            <column name="tgt_func_id" />
+        </basic>
+
+        <basic name="dfltIndToSendToDoItem">
+            <column name="dflt_ind_to_send_to_do_item" />
+        </basic>
+
+        <basic name="taskName">
+            <column name="task_name" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

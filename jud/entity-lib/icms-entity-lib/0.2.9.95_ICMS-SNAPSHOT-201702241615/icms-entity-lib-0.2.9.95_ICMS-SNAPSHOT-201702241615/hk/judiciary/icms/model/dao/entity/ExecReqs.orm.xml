@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ExecReqs" access="FIELD">
+     <table name="texec_reqs" />
+
+     <attributes>
+        <id name="execReqsId">
+            <column name="exec_reqs_id" />
+            <generated-value strategy="TABLE" generator="TEXEC_REQS_SEQ" />
+            <table-generator name="TEXEC_REQS_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="texec_reqs_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="apptReqFlag">
+            <column name="appt_req_flag" />
+        </basic>
+
+        <basic name="labrClaimCaseFlag">
+            <column name="labr_claim_case_flag" />
+        </basic>
+
+        <basic name="withSecuGuardFlag">
+            <column name="with_secu_guard_flag" />
+        </basic>
+
+        <basic name="telNoForAppt">
+            <column name="tel_no_for_appt" />
+        </basic>
+
+        <basic name="faxNoForAppt">
+            <column name="fax_no_for_appt" />
+        </basic>
+
+        <basic name="telNoForUrgentInstr">
+            <column name="tel_no_for_urgent_instr" />
+        </basic>
+
+        <basic name="writIssueDate">
+            <column name="writ_issue_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="writNo">
+            <column name="writ_no" />
+        </basic>
+
+        <basic name="lbltyDisclaimFlag">
+            <column name="lblty_disclaim_flag" />
+        </basic>
+
+        <basic name="apptDateConfrmFlag">
+            <column name="appt_date_confrm_flag" />
+        </basic>
+
+        <basic name="costUndrtkingFlag">
+            <column name="cost_undrtking_flag" />
+        </basic>
+
+        <basic name="salePstpnmntFlag">
+            <column name="sale_pstpnmnt_flag" />
+        </basic>
+
+        <basic name="ctatPersonForAppt">
+            <column name="ctat_person_for_appt" />
+        </basic>
+
+        <basic name="personForUrgentInstr">
+            <column name="person_for_urgent_instr" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="docType" fetch="LAZY">
+        <join-column name="doc_type_id" referenced-column-name="doc_type_id" />
+    </many-to-one>
+
+    <many-to-one name="bankruptcyRec" fetch="LAZY">
+        <join-column name="bankruptcy_rec_id" referenced-column-name="bankruptcy_rec_id" />
+    </many-to-one>
+
+    <many-to-one name="prty" fetch="LAZY">
+        <join-column name="prty_id" referenced-column-name="reqs_prty_type_id" />
+    </many-to-one>
+
+    <many-to-one name="docForClass" fetch="LAZY">
+        <join-column name="doc_for_class_id" referenced-column-name="blf_doc_for_class_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="reqs" fetch="LAZY">
+        <join-column name="reqs_id" referenced-column-name="reqs_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

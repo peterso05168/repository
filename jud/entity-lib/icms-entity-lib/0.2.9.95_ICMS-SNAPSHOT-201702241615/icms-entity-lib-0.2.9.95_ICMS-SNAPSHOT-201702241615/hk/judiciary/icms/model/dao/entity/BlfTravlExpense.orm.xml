@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfTravlExpense" access="FIELD">
+     <table name="tblf_travl_expense" />
+
+     <attributes>
+        <id name="travlExpenseId">
+            <column name="travl_expense_id" />
+            <generated-value strategy="TABLE" generator="TBLF_TRAVL_EXPENSE_SEQ" />
+            <table-generator name="TBLF_TRAVL_EXPENSE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_travl_expense_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="travlExpenseSeqNo">
+            <column name="travl_expense_seq_no" />
+        </basic>
+
+        <basic name="travlExpenseAmt">
+            <column name="travl_expense_amt" />
+        </basic>
+
+        <basic name="lastRtnTripInd">
+            <column name="last_rtn_trip_ind" />
+        </basic>
+
+        <basic name="mileage">
+            <column name="mileage" />
+        </basic>
+
+        <basic name="ancillaryChrgTypeId">
+            <column name="ancillary_chrg_type_id" />
+        </basic>
+
+        <basic name="ancillaryChrgAmt">
+            <column name="ancillary_chrg_amt" />
+        </basic>
+
+        <basic name="note">
+            <column name="note" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfAsgmnt" fetch="LAZY">
+        <join-column name="blf_asgmnt_id" referenced-column-name="blf_asgmnt_id" />
+    </many-to-one>
+
+    <many-to-one name="transpType" fetch="LAZY">
+        <join-column name="transp_type_id" referenced-column-name="transp_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PymtSubCd" access="FIELD">
+     <table name="cpymt_sub_cd" />
+
+     <attributes>
+        <id name="pymtSubCdId">
+            <column name="pymt_sub_cd_id" />
+            <generated-value strategy="TABLE" generator="CPYMT_SUB_CD_SEQ" />
+            <table-generator name="CPYMT_SUB_CD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="cpymt_sub_cd_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="pymtSubCd">
+            <column name="pymt_sub_cd" />
+        </basic>
+
+        <basic name="pymtSubCdDesc">
+            <column name="pymt_sub_cd_desc" />
+        </basic>
+
+        <basic name="docRelFlag">
+            <column name="doc_rel_flag" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtCd" fetch="LAZY">
+        <join-column name="pymt_cd_id" referenced-column-name="pymt_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="docPymt"  mapped-by="pymtSubCd" fetch="LAZY" />
+    <one-to-many name="pymtAmt"  mapped-by="pymtSubCd" fetch="LAZY" />
+    <one-to-many name="docTypePymtCdMap"  mapped-by="pymtSubCd" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

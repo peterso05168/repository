@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.RvseReg" access="FIELD">
+     <table name="trvse_reg" />
+
+     <attributes>
+        <id name="rvseRegId">
+            <column name="rvse_reg_id" />
+            <generated-value strategy="TABLE" generator="TRVSE_REG_SEQ" />
+            <table-generator name="TRVSE_REG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="trvse_reg_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="rvseDt">
+            <column name="rvse_dt" />
+        </basic>
+
+        <basic name="rvseDesc">
+            <column name="rvse_desc" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="txn" fetch="LAZY">
+        <join-column name="txn_id" referenced-column-name="pymt_in_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="rvseRsn" fetch="LAZY">
+        <join-column name="rvse_rsn_id" referenced-column-name="rvse_rsn_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="pymtOutTxn" fetch="LAZY">
+        <join-column name="pymt_out_txn_id" referenced-column-name="pymt_out_txn_id" />
+    </one-to-one>
+
+    <one-to-one name="fpTxn" fetch="LAZY">
+        <join-column name="fp_txn_id" referenced-column-name="fp_txn_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

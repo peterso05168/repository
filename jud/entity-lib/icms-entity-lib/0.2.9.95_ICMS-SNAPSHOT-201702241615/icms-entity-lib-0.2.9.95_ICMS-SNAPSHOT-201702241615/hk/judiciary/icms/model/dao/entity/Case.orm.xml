@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Case" access="FIELD">
+     <table name="tcase" />
+
+     <attributes>
+        <id name="caseId">
+            <column name="case_id" />
+            <generated-value strategy="TABLE" generator="TCASE_SEQ" />
+            <table-generator name="TCASE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tcase_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="caseRestDate">
+            <column name="case_rest_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="caseExtLocDesc">
+            <column name="case_ext_loc_desc" />
+        </basic>
+
+        <basic name="hpCaseFlag">
+            <column name="hp_case_flag" />
+        </basic>
+
+        <basic name="sensCaseFlag">
+            <column name="sens_case_flag" />
+        </basic>
+
+        <basic name="leadCaseFlag">
+            <column name="lead_case_flag" />
+        </basic>
+
+        <basic name="ackServFlag">
+            <column name="ack_serv_flag" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="recvDate">
+            <column name="recv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="initDate">
+            <column name="init_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="severaSeq">
+            <column name="severa_seq" />
+        </basic>
+
+        <basic name="withStmtOfClaimFlag">
+            <column name="with_stmt_of_claim_flag" />
+        </basic>
+
+        <basic name="withCnterClaimFlag">
+            <column name="with_cnter_claim_flag" />
+        </basic>
+
+        <basic name="pymtReptNo">
+            <column name="pymt_rept_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="caseType" fetch="LAZY">
+        <join-column name="case_type_id" referenced-column-name="case_type_id" />
+    </many-to-one>
+
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+    <many-to-one name="notiBd" fetch="LAZY">
+        <join-column name="noti_bd_id" referenced-column-name="noti_bd_id" />
+    </many-to-one>
+
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="dailyCauseList"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="dstrntEpAppList"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="ffdRej"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="hrnSchd"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="listSchd"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="pendList"  mapped-by="vcase" fetch="LAZY" />
+ <!--
+    <one-to-many name="runList"  mapped-by="vcase" fetch="LAZY" />
+ -->
+
+    <one-to-many name="warnedList"  mapped-by="vcase" fetch="LAZY" />
+ <!--
+    <one-to-many name="claimRslt"  mapped-by="vcase" fetch="LAZY" />
+ -->
+
+    <one-to-many name="dir"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="hrnDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="ordr"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="stnceOrdr"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="taxApp"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="witnList"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="caseHghlt"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="caseMediAtmpt"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="caseMediDoc"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="casePtyDisp"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="stayOfProcsExec"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="caseToCaseCaseId"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="caseToCaseRelCaseId"  mapped-by="relCase" fetch="LAZY" />
+    <one-to-many name="chrgApp"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="claimApp"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="moneClaim"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="ecfFlr"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="phyCaseFileDocMove"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="phyCaseFileDocReqs"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="subFlr"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="partcpRole"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="reqs"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="epayInfEpsco"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="epayInfJetco"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="pymtInItem"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="polBailRegItem"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="valbItemReptReg"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="valbItemRecvReg"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="valbItemRlseReg"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="valbItemVochReg"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="caseNotiBd"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="lawAndLglRef"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="snpshtAmendHist"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="govDeptRef"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="sodVarValue"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="dopHist"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="exbtList"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="eoDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="bringUpItem"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="mcApps"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="mcAppealRegCaseMap"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="sysInfRec"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="hrnSchdHist"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="fpAppPropOrdr"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="pymtReqs"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="buItemViewHist"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="hrnPrtyListSeq"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="dopDisqualOrdr"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="mcAppsCaseMap"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="caseEnqHist"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-many name="adjtmentRegItem"  mapped-by="vcase" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="caseFileDisp"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="summonNoti"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="war"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="civilActDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="dstrntCaseDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="eccDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="mpDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="piDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="saDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="oaDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="paDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="maDtl"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="chrgNat"  mapped-by="vcase" fetch="LAZY" />
+    <one-to-one name="warApp"  mapped-by="vcase" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

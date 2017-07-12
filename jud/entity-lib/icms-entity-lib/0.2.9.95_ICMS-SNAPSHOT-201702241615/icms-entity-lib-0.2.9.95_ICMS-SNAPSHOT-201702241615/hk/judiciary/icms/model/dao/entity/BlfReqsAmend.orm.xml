@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfReqsAmend" access="FIELD">
+     <table name="tblf_reqs_amend" />
+
+     <attributes>
+        <id name="blfReqsAmendId">
+            <column name="blf_reqs_amend_id" />
+            <generated-value strategy="TABLE" generator="TBLF_REQS_AMEND_SEQ" />
+            <table-generator name="TBLF_REQS_AMEND_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_reqs_amend_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="amendDt">
+            <column name="amend_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="amendDtl">
+            <column name="amend_dtl" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="intlUserAc" fetch="LAZY">
+        <join-column name="intl_user_ac_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="reqs" fetch="LAZY">
+        <join-column name="reqs_id" referenced-column-name="reqs_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

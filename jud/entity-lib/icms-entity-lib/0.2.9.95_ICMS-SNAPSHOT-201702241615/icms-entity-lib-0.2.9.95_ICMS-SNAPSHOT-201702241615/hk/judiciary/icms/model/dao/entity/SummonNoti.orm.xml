@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.SummonNoti" access="FIELD">
+     <table name="tsummon_noti" />
+
+     <attributes>
+        <id name="summonNotiId">
+            <column name="summon_noti_id" />
+            <generated-value strategy="TABLE" generator="TSUMMON_NOTI_SEQ" />
+            <table-generator name="TSUMMON_NOTI_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tsummon_noti_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="manuSchdFlag">
+            <column name="manu_schd_flag" />
+        </basic>
+
+        <basic name="atthFlag">
+            <column name="atth_flag" />
+        </basic>
+
+        <basic name="pdCaseGrp">
+            <column name="pd_case_grp" />
+        </basic>
+
+        <basic name="tktNo">
+            <column name="tkt_no" />
+        </basic>
+
+        <basic name="summonDemandNoteNo">
+            <column name="summon_demand_note_no" />
+        </basic>
+
+        <basic name="summonDemandNoteIssueDate">
+            <column name="summon_demand_note_issue_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="fpnDisptDate">
+            <column name="fpn_dispt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="pgblAllow">
+            <column name="pgbl_allow" />
+        </basic>
+
+        <basic name="discDate">
+            <column name="disc_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="vehicleRegMark">
+            <column name="vehicle_reg_mark" />
+        </basic>
+
+        <basic name="motorcycleFlag">
+            <column name="motorcycle_flag" />
+        </basic>
+
+        <basic name="dicCmplDate">
+            <column name="dic_cmpl_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="viDurMinute">
+            <column name="vi_dur_minute" />
+        </basic>
+
+        <basic name="viDurSec">
+            <column name="vi_dur_sec" />
+        </basic>
+
+        <basic name="prefWarType">
+            <column name="pref_war_type" />
+        </basic>
+
+        <basic name="fpnDisptFlag">
+            <column name="fpn_dispt_flag" />
+        </basic>
+
+        <basic name="summonNotiIssueDate">
+            <column name="summon_noti_issue_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="valIvInfOfncCd">
+            <column name="val_iv_inf_ofnc_cd" />
+        </basic>
+
+        <basic name="dopAdvDate">
+            <column name="dop_adv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="fptDisptDate">
+            <column name="fpt_dispt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="fpAppNatType" fetch="LAZY">
+        <join-column name="fp_app_nat_type_id" referenced-column-name="fp_app_nat_type_id" />
+    </many-to-one>
+
+    <many-to-one name="pnltyWgt" fetch="LAZY">
+        <join-column name="pnlty_wgt_id" referenced-column-name="pnlty_wgt_id" />
+    </many-to-one>
+
+    <many-to-one name="timeBarCalcType" fetch="LAZY">
+        <join-column name="time_bar_calc_type_id" referenced-column-name="time_bar_calc_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

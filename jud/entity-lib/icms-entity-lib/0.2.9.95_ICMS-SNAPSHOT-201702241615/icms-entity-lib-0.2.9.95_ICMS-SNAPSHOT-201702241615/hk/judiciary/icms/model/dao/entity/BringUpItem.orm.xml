@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BringUpItem" access="FIELD">
+     <table name="tbring_up_item" />
+
+     <attributes>
+        <id name="bringUpItemId">
+            <column name="bring_up_item_id" />
+            <generated-value strategy="TABLE" generator="TBRING_UP_ITEM_SEQ" />
+            <table-generator name="TBRING_UP_ITEM_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tbring_up_item_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="viewKey">
+            <column name="view_key" />
+        </basic>
+
+        <basic name="appKey">
+            <column name="app_key" />
+        </basic>
+
+        <basic name="bringUpMode">
+            <column name="bring_up_mode" />
+        </basic>
+
+        <basic name="bringUpKeyRtnFrWebServ">
+            <column name="bring_up_key_rtn_fr_web_serv" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="endDate">
+            <column name="end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="prty">
+            <column name="prty" />
+        </basic>
+
+        <basic name="actDesc">
+            <column name="act_desc" />
+        </basic>
+
+        <basic name="recip">
+            <column name="recip" />
+        </basic>
+
+        <basic name="subjIdCd">
+            <column name="subj_id_cd" />
+        </basic>
+
+        <basic name="tgtCmplDate">
+            <column name="tgt_cmpl_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="startDate">
+            <column name="start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="buItemAssoHrnSchd"  mapped-by="bringUpItem" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

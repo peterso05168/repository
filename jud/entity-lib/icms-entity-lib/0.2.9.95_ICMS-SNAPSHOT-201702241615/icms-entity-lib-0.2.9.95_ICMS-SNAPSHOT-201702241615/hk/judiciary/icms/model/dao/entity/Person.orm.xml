@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Person" access="FIELD">
+     <table name="tperson" />
+
+     <attributes>
+        <id name="personId">
+            <column name="person_id" />
+            <generated-value strategy="TABLE" generator="TPERSON_SEQ" />
+            <table-generator name="TPERSON_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tperson_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="givenName">
+            <column name="given_name" />
+        </basic>
+
+        <basic name="surname">
+            <column name="surname" />
+        </basic>
+
+        <basic name="givenNameChin">
+            <column name="given_name_chin" />
+        </basic>
+
+        <basic name="surnameChin">
+            <column name="surname_chin" />
+        </basic>
+
+        <basic name="personIdentNo">
+            <column name="person_ident_no" />
+        </basic>
+
+        <basic name="dobDate">
+            <column name="dob_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="dobInd">
+            <column name="dob_ind" />
+        </basic>
+
+        <basic name="personAge">
+            <column name="person_age" />
+        </basic>
+
+        <basic name="juvFlag">
+            <column name="juv_flag" />
+        </basic>
+
+        <basic name="aliasName">
+            <column name="alias_name" />
+        </basic>
+
+        <basic name="aliasNameChin">
+            <column name="alias_name_chin" />
+        </basic>
+
+        <basic name="telNo">
+            <column name="tel_no" />
+        </basic>
+
+        <basic name="faxNo">
+            <column name="fax_no" />
+        </basic>
+
+        <basic name="mobiNo">
+            <column name="mobi_no" />
+        </basic>
+
+        <basic name="emailAddr">
+            <column name="email_addr" />
+        </basic>
+
+        <basic name="chinNameImageFlag">
+            <column name="chin_name_image_flag" />
+        </basic>
+
+        <basic name="chinAliasNameImageFlag">
+            <column name="chin_alias_name_image_flag" />
+        </basic>
+
+        <basic name="maskEffvEndDate">
+            <column name="mask_effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="maskNameChin">
+            <column name="mask_name_chin" />
+        </basic>
+
+        <basic name="maskNameEng">
+            <column name="mask_name_eng" />
+        </basic>
+
+        <basic name="maskFlag">
+            <column name="mask_flag" />
+        </basic>
+
+        <basic name="maskEffvStartDate">
+            <column name="mask_effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="titleType" fetch="LAZY">
+        <join-column name="title_type_id" referenced-column-name="title_type_id" />
+    </many-to-one>
+
+    <many-to-one name="personIdType" fetch="LAZY">
+        <join-column name="person_id_type_id" referenced-column-name="person_id_type_id" />
+    </many-to-one>
+
+    <many-to-one name="gendrType" fetch="LAZY">
+        <join-column name="gendr_type_id" referenced-column-name="gendr_type_id" />
+    </many-to-one>
+
+    <many-to-one name="langType" fetch="LAZY">
+        <join-column name="lang_type_id" referenced-column-name="lang_type_id" />
+    </many-to-one>
+
+    <many-to-one name="extUserAc" fetch="LAZY">
+        <join-column name="ext_user_ac_id" referenced-column-name="ext_user_ac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="perslPartcr"  mapped-by="person" fetch="LAZY" />
+    <one-to-many name="personImage"  mapped-by="person" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="partcp"  mapped-by="person" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

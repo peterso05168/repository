@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcOth002CaseDtl" access="FIELD">
+     <table name="tmi_dc_oth_002_case_dtl" />
+
+     <attributes>
+        <id name="miDcOth002CaseDtlId">
+            <column name="mi_dc_oth_002_case_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_OTH_002_CASE_DTL_SEQ" />
+            <table-generator name="TMI_DC_OTH_002_CASE_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_oth_002_case_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="taxBillNo">
+            <column name="tax_bill_no" />
+        </basic>
+
+        <basic name="claimNatDesc">
+            <column name="claim_nat_desc" />
+        </basic>
+
+        <basic name="billDate">
+            <column name="bill_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="billDesc">
+            <column name="bill_desc" />
+        </basic>
+
+        <basic name="provisFlag">
+            <column name="provis_flag" />
+        </basic>
+
+        <basic name="claimAmt">
+            <column name="claim_amt" />
+        </basic>
+
+        <basic name="taxDate">
+            <column name="tax_date" />
+        </basic>
+
+        <basic name="profitCost">
+            <column name="profit_cost" />
+        </basic>
+
+        <basic name="disbmt">
+            <column name="disbmt" />
+        </basic>
+
+        <basic name="taxFee">
+            <column name="tax_fee" />
+        </basic>
+
+        <basic name="totalCostOfTheBill">
+            <column name="total_cost_of_the_bill" />
+        </basic>
+
+        <basic name="totalCostOfTax">
+            <column name="total_cost_of_tax" />
+        </basic>
+
+        <basic name="preCjrTotalCostEtf">
+            <column name="pre_cjr_total_cost_etf" />
+        </basic>
+
+        <basic name="postCjrTotalCostEtf">
+            <column name="post_cjr_total_cost_etf" />
+        </basic>
+
+        <basic name="billsPrePostTotalCostEtf">
+            <column name="bills_pre_post_total_cost_etf" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

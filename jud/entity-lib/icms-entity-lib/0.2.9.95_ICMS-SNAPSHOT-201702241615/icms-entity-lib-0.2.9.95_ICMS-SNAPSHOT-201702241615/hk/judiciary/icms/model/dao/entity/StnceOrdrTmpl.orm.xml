@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.StnceOrdrTmpl" access="FIELD">
+     <table name="tstnce_ordr_tmpl" />
+
+     <attributes>
+        <id name="stnceOrdrTmplId">
+            <column name="stnce_ordr_tmpl_id" />
+            <generated-value strategy="TABLE" generator="TSTNCE_ORDR_TMPL_SEQ" />
+            <table-generator name="TSTNCE_ORDR_TMPL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tstnce_ordr_tmpl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="payUnpaidAmtFlag">
+            <column name="pay_unpaid_amt_flag" />
+        </basic>
+
+        <basic name="plusCostFlag">
+            <column name="plus_cost_flag" />
+        </basic>
+
+        <basic name="plusCost">
+            <column name="plus_cost" />
+        </basic>
+
+        <basic name="payOutstandingFineFlag">
+            <column name="pay_outstanding_fine_flag" />
+        </basic>
+
+        <basic name="outstandingFine">
+            <column name="outstanding_fine" />
+        </basic>
+
+        <basic name="bailForfeitedFlag">
+            <column name="bail_forfeited_flag" />
+        </basic>
+
+        <basic name="bailForfeitedAmt">
+            <column name="bail_forfeited_amt" />
+        </basic>
+
+        <basic name="issueWarFlag">
+            <column name="issue_war_flag" />
+        </basic>
+
+        <basic name="notAcceptedPleaGuiltyFlag">
+            <column name="not_accepted_plea_guilty_flag" />
+        </basic>
+
+        <basic name="stnceOrdrTmplRsnCdTxt">
+            <column name="stnce_ordr_tmpl_rsn_cd_txt" />
+        </basic>
+
+        <basic name="seledHrnDt">
+            <column name="seled_hrn_dt" />
+        </basic>
+
+        <basic name="seledHrnVenue">
+            <column name="seled_hrn_venue" />
+        </basic>
+
+        <basic name="seledHrnCourtRm">
+            <column name="seled_hrn_court_rm" />
+        </basic>
+
+        <basic name="provideCopyToProsFlag">
+            <column name="provide_copy_to_pros_flag" />
+        </basic>
+
+        <basic name="caseChrgWithdrawnFlag">
+            <column name="case_chrg_withdrawn_flag" />
+        </basic>
+
+        <basic name="payToCourtFlag">
+            <column name="pay_to_court_flag" />
+        </basic>
+
+        <basic name="noOfDayToPay">
+            <column name="no_of_day_to_pay" />
+        </basic>
+
+        <basic name="payFineAndCostFlag">
+            <column name="pay_fine_and_cost_flag" />
+        </basic>
+
+        <basic name="fine">
+            <column name="fine" />
+        </basic>
+
+        <basic name="cost">
+            <column name="cost" />
+        </basic>
+
+        <basic name="payBuinessRegFlag">
+            <column name="pay_buiness_reg_flag" />
+        </basic>
+
+        <basic name="busRegFee">
+            <column name="bus_reg_fee" />
+        </basic>
+
+        <basic name="fileReqRtnFlag">
+            <column name="file_req_rtn_flag" />
+        </basic>
+
+        <basic name="noOfDayForFilingReqRtn">
+            <column name="no_of_day_for_filing_req_rtn" />
+        </basic>
+
+        <basic name="makeAppForBusRegFlag">
+            <column name="make_app_for_bus_reg_flag" />
+        </basic>
+
+        <basic name="noOfDayForBusRegApp">
+            <column name="no_of_day_for_bus_reg_app" />
+        </basic>
+
+        <basic name="informCourtAdjudicationFlag">
+            <column name="inform_court_adjudication_flag" />
+        </basic>
+
+        <basic name="issueWarDuePymtFlag">
+            <column name="issue_war_due_pymt_flag" />
+        </basic>
+
+        <basic name="deftToPayFlag">
+            <column name="deft_to_pay_flag" />
+        </basic>
+
+        <basic name="fp">
+            <column name="fp" />
+        </basic>
+
+        <basic name="addlPnlty">
+            <column name="addl_pnlty" />
+        </basic>
+
+        <basic name="servedNotiOfConvictionFlag">
+            <column name="served_noti_of_conviction_flag" />
+        </basic>
+
+        <basic name="unpaidAmt">
+            <column name="unpaid_amt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="stnceOrdr" fetch="LAZY">
+        <join-column name="stnce_ordr_id" referenced-column-name="stnce_ordr_id" />
+    </many-to-one>
+
+    <many-to-one name="warType" fetch="LAZY">
+        <join-column name="war_type_id" referenced-column-name="case_type_id" />
+    </many-to-one>
+
+    <many-to-one name="stnceOrdrTmplType" fetch="LAZY">
+        <join-column name="stnce_ordr_tmpl_type_id" referenced-column-name="stnce_ordr_tmpl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="stnceOrdrTmplRsnCd" fetch="LAZY">
+        <join-column name="stnce_ordr_tmpl_rsn_cd_id" referenced-column-name="stnce_ordr_tmpl_rsn_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="seledHrnSchd" fetch="LAZY">
+        <join-column name="seled_hrn_schd_id" referenced-column-name="hrn_schd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="pymtOrdr" fetch="LAZY">
+        <join-column name="pymt_ordr_id" referenced-column-name="pymt_ordr_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

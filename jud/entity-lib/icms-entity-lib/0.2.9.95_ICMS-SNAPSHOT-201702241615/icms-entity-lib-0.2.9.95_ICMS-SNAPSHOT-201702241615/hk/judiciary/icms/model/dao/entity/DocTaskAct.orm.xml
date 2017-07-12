@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DocTaskAct" access="FIELD">
+     <table name="tdoc_task_act" />
+
+     <attributes>
+        <id name="docTaskActId">
+            <column name="doc_task_act_id" />
+            <generated-value strategy="TABLE" generator="TDOC_TASK_ACT_SEQ" />
+            <table-generator name="TDOC_TASK_ACT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdoc_task_act_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="actSeqNo">
+            <column name="act_seq_no" />
+        </basic>
+
+        <basic name="docTaskActDesc">
+            <column name="doc_task_act_desc" />
+        </basic>
+
+        <basic name="docTaskActLastUpdDate">
+            <column name="doc_task_act_last_upd_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docTaskActDfFlag">
+            <column name="doc_task_act_df_flag" />
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="cmplUserAc" fetch="LAZY">
+        <join-column name="cmpl_user_ac_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="propTaskAct" fetch="LAZY">
+        <join-column name="prop_task_act_id" referenced-column-name="prop_task_act_id" />
+    </many-to-one>
+
+    <many-to-one name="doc" fetch="LAZY">
+        <join-column name="doc_id" referenced-column-name="doc_id" />
+    </many-to-one>
+
+    <many-to-one name="docStop" fetch="LAZY">
+        <join-column name="doc_stop_id" referenced-column-name="doc_stop_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="expectOutpDoc" fetch="LAZY">
+        <join-column name="expect_outp_doc_id" referenced-column-name="expect_outp_doc_type_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

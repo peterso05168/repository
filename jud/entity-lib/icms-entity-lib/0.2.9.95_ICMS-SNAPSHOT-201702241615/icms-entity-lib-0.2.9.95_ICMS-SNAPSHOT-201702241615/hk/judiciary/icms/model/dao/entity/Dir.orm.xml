@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Dir" access="FIELD">
+     <table name="tdir" />
+
+     <attributes>
+        <id name="dirId">
+            <column name="dir_id" />
+            <generated-value strategy="TABLE" generator="TDIR_SEQ" />
+            <table-generator name="TDIR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdir_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="dirCd">
+            <column name="dir_cd" />
+        </basic>
+
+        <basic name="dirDate">
+            <column name="dir_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="dirOrsOrdr">
+            <column name="dir_ors_ordr" />
+        </basic>
+
+        <basic name="dirOrsRule">
+            <column name="dir_ors_rule" />
+        </basic>
+
+        <basic name="dirOrsSubRule">
+            <column name="dir_ors_sub_rule" />
+        </basic>
+
+        <basic name="dirCssCap">
+            <column name="dir_css_cap" />
+        </basic>
+
+        <basic name="dirCssSectNo">
+            <column name="dir_css_sect_no" />
+        </basic>
+
+        <basic name="dirCssSubsectNo">
+            <column name="dir_css_subsect_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+    <many-to-one name="jjoAc" fetch="LAZY">
+        <join-column name="jjo_ac_id" referenced-column-name="jjo_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="dirType" fetch="LAZY">
+        <join-column name="dir_type_id" referenced-column-name="dir_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="dirToDoc"  mapped-by="dir" fetch="LAZY" />
+    <one-to-many name="dirToPartcp"  mapped-by="dir" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCjr019Dtl" access="FIELD">
+     <table name="tmi_dc_cjr_019_dtl" />
+
+     <attributes>
+        <id name="miDcCjr019DtlId">
+            <column name="mi_dc_cjr_019_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CJR_019_DTL_SEQ" />
+            <table-generator name="TMI_DC_CJR_019_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cjr_019_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="taxBillNo">
+            <column name="tax_bill_no" />
+        </basic>
+
+        <basic name="billDate">
+            <column name="bill_date" />
+        </basic>
+
+        <basic name="taxBillDesc">
+            <column name="tax_bill_desc" />
+        </basic>
+
+        <basic name="solProfitCost">
+            <column name="sol_profit_cost" />
+        </basic>
+
+        <basic name="senrCounlFee">
+            <column name="senr_counl_fee" />
+        </basic>
+
+        <basic name="junrCounlFee">
+            <column name="junr_counl_fee" />
+        </basic>
+
+        <basic name="disbmt">
+            <column name="disbmt" />
+        </basic>
+
+        <basic name="claimAmt">
+            <column name="claim_amt" />
+        </basic>
+
+        <basic name="claimAmtGrp">
+            <column name="claim_amt_grp" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

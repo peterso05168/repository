@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ToDoNotifTxn" access="FIELD">
+     <table name="tto_do_notif_txn" />
+
+     <attributes>
+        <id name="toDoNotifTxnId">
+            <column name="to_do_notif_txn_id" />
+            <generated-value strategy="TABLE" generator="TTO_DO_NOTIF_TXN_SEQ" />
+            <table-generator name="TTO_DO_NOTIF_TXN_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tto_do_notif_txn_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="funcId">
+            <column name="func_id" />
+        </basic>
+
+        <basic name="actId">
+            <column name="act_id" />
+        </basic>
+
+        <basic name="viewKey">
+            <column name="view_key" />
+        </basic>
+
+        <basic name="appKey">
+            <column name="app_key" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

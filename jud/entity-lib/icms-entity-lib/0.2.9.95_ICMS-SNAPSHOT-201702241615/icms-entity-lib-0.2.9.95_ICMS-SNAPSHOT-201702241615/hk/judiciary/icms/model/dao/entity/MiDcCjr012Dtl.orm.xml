@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCjr012Dtl" access="FIELD">
+     <table name="tmi_dc_cjr_012_dtl" />
+
+     <attributes>
+        <id name="miDcCjr012DtlId">
+            <column name="mi_dc_cjr_012_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CJR_012_DTL_SEQ" />
+            <table-generator name="TMI_DC_CJR_012_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cjr_012_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="ordrDate">
+            <column name="ordr_date" />
+        </basic>
+
+        <basic name="ordrType">
+            <column name="ordr_type" />
+        </basic>
+
+        <basic name="ordrCd">
+            <column name="ordr_cd" />
+        </basic>
+
+        <basic name="ordrDesc">
+            <column name="ordr_desc" />
+        </basic>
+
+        <basic name="ordrHrnNatCd">
+            <column name="ordr_hrn_nat_cd" />
+        </basic>
+
+        <basic name="ordrHrnNat">
+            <column name="ordr_hrn_nat" />
+        </basic>
+
+        <basic name="docTypeCd">
+            <column name="doc_type_cd" />
+        </basic>
+
+        <basic name="docName">
+            <column name="doc_name" />
+        </basic>
+
+        <basic name="folioNo">
+            <column name="folio_no" />
+        </basic>
+
+        <basic name="judge">
+            <column name="judge" />
+        </basic>
+
+        <basic name="procBy">
+            <column name="proc_by" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

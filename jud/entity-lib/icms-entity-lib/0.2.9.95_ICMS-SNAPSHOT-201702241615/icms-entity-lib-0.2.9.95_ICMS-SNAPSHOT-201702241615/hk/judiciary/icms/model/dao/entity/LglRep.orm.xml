@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.LglRep" access="FIELD">
+     <table name="tlgl_rep" />
+
+     <attributes>
+        <id name="lglRepId">
+            <column name="lgl_rep_id" />
+            <generated-value strategy="TABLE" generator="TLGL_REP_SEQ" />
+            <table-generator name="TLGL_REP_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tlgl_rep_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="notiRecvDate">
+            <column name="noti_recv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="lglRepApptDate">
+            <column name="lgl_rep_appt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="lglRepCeaseDate">
+            <column name="lgl_rep_cease_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="lglAidInd">
+            <column name="lgl_aid_ind" />
+        </basic>
+
+        <basic name="lglFirmRef">
+            <column name="lgl_firm_ref" />
+        </basic>
+
+        <basic name="lglAidRefNo">
+            <column name="lgl_aid_ref_no" />
+        </basic>
+
+        <basic name="dutyLawyerServFlag">
+            <column name="duty_lawyer_serv_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="brch" fetch="LAZY">
+        <join-column name="brch_id" referenced-column-name="lgl_firm_brch_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

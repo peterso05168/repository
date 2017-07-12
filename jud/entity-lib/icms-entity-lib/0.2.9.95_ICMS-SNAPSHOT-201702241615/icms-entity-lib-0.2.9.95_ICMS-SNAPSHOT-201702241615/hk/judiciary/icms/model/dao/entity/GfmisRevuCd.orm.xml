@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.GfmisRevuCd" access="FIELD">
+     <table name="cgfmis_revu_cd" />
+
+     <attributes>
+        <id name="gfmisRevuCdId">
+            <column name="gfmis_revu_cd_id" />
+            <generated-value strategy="TABLE" generator="CGFMIS_REVU_CD_SEQ" />
+            <table-generator name="CGFMIS_REVU_CD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="cgfmis_revu_cd_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="gfmisRevuCdDesc">
+            <column name="gfmis_revu_cd_desc" />
+        </basic>
+
+        <basic name="gfmisRevuCd">
+            <column name="gfmis_revu_cd" />
+        </basic>
+
+        <basic name="intFlag">
+            <column name="int_flag" />
+        </basic>
+
+        <basic name="anaAbbvPymtInCd">
+            <column name="ana_abbv_pymt_in_cd" />
+        </basic>
+
+        <basic name="anaAbbvPymtOutCd">
+            <column name="ana_abbv_pymt_out_cd" />
+        </basic>
+
+        <basic name="investmentFlagInd">
+            <column name="investment_flag_ind" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="centre" fetch="LAZY">
+        <join-column name="centre_id" referenced-column-name="centre_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtCd" fetch="LAZY">
+        <join-column name="pymt_cd_id" referenced-column-name="pymt_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

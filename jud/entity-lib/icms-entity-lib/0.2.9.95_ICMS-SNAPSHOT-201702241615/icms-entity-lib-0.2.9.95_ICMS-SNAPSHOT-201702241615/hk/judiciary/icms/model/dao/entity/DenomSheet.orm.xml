@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DenomSheet" access="FIELD">
+     <table name="tdenom_sheet" />
+
+     <attributes>
+        <id name="denomSheetId">
+            <column name="denom_sheet_id" />
+            <generated-value strategy="TABLE" generator="TDENOM_SHEET_SEQ" />
+            <table-generator name="TDENOM_SHEET_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdenom_sheet_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="submitDate">
+            <column name="submit_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="chqQty">
+            <column name="chq_qty" />
+        </basic>
+
+        <basic name="chqAmt">
+            <column name="chq_amt" />
+        </basic>
+
+        <basic name="epsQty">
+            <column name="eps_qty" />
+        </basic>
+
+        <basic name="epsAmt">
+            <column name="eps_amt" />
+        </basic>
+
+        <basic name="note1000Qty">
+            <column name="note_1000_qty" />
+        </basic>
+
+        <basic name="note500Qty">
+            <column name="note_500_qty" />
+        </basic>
+
+        <basic name="note100Qty">
+            <column name="note_100_qty" />
+        </basic>
+
+        <basic name="note50Qty">
+            <column name="note_50_qty" />
+        </basic>
+
+        <basic name="note20Qty">
+            <column name="note_20_qty" />
+        </basic>
+
+        <basic name="note10Qty">
+            <column name="note_10_qty" />
+        </basic>
+
+        <basic name="coin10Qty">
+            <column name="coin_10_qty" />
+        </basic>
+
+        <basic name="coin5Qty">
+            <column name="coin_5_qty" />
+        </basic>
+
+        <basic name="coin2Qty">
+            <column name="coin_2_qty" />
+        </basic>
+
+        <basic name="coin1Qty">
+            <column name="coin_1_qty" />
+        </basic>
+
+        <basic name="coinCents50Qty">
+            <column name="coin_cents_50_qty" />
+        </basic>
+
+        <basic name="coinCents20Qty">
+            <column name="coin_cents_20_qty" />
+        </basic>
+
+        <basic name="coinCents10Qty">
+            <column name="coin_cents_10_qty" />
+        </basic>
+
+        <basic name="lastSubmitBy">
+            <column name="last_submit_by" />
+        </basic>
+
+        <basic name="lastSubmitDt">
+            <column name="last_submit_dt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="centre" fetch="LAZY">
+        <join-column name="centre_id" referenced-column-name="centre_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtWs" fetch="LAZY">
+        <join-column name="pymt_ws_id" referenced-column-name="pymt_ws_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtCatCd" fetch="LAZY">
+        <join-column name="pymt_cat_cd_id" referenced-column-name="pymt_cat_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EpayInfJetco" access="FIELD">
+     <table name="tepay_inf_jetco" />
+
+     <attributes>
+        <id name="infJetcoId">
+            <column name="inf_jetco_id" />
+            <generated-value strategy="TABLE" generator="TEPAY_INF_JETCO_SEQ" />
+            <table-generator name="TEPAY_INF_JETCO_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tepay_inf_jetco_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="jetcoAtmPymtNo">
+            <column name="jetco_atm_pymt_no" />
+        </basic>
+
+        <basic name="jetcoReptIntlNo">
+            <column name="jetco_rept_intl_no" />
+        </basic>
+
+        <basic name="billType">
+            <column name="bill_type" />
+        </basic>
+
+        <basic name="jetcoClsgStatus">
+            <column name="jetco_clsg_status" />
+        </basic>
+
+        <basic name="jetcoCurcyCd">
+            <column name="jetco_curcy_cd" />
+        </basic>
+
+        <basic name="jetcoInfDate">
+            <column name="jetco_inf_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="jetcoPostingDate">
+            <column name="jetco_posting_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="mchCd">
+            <column name="mch_cd" />
+        </basic>
+
+        <basic name="pymtMeth">
+            <column name="pymt_meth" />
+        </basic>
+
+        <basic name="epayInfJetcoPrtDate">
+            <column name="epay_inf_jetco_prt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="epayInfJetcoPrtStatus">
+            <column name="epay_inf_jetco_prt_status" />
+        </basic>
+
+        <basic name="jetcoReptAmt">
+            <column name="jetco_rept_amt" />
+        </basic>
+
+        <basic name="jetcoReptCentreNo">
+            <column name="jetco_rept_centre_no" />
+        </basic>
+
+        <basic name="jetcoReptDate">
+            <column name="jetco_rept_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="jetcoReptStatus">
+            <column name="jetco_rept_status" />
+        </basic>
+
+        <basic name="jetcoClsgDate">
+            <column name="jetco_clsg_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="settleInd">
+            <column name="settle_ind" />
+        </basic>
+
+        <basic name="sysSeqNo">
+            <column name="sys_seq_no" />
+        </basic>
+
+        <basic name="jetcoTxnCd">
+            <column name="jetco_txn_cd" />
+        </basic>
+
+        <basic name="jetcoFileName">
+            <column name="jetco_file_name" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtInTxn" fetch="LAZY">
+        <join-column name="pymt_in_txn_id" referenced-column-name="pymt_in_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="epayInfExpt"  mapped-by="infJetco" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

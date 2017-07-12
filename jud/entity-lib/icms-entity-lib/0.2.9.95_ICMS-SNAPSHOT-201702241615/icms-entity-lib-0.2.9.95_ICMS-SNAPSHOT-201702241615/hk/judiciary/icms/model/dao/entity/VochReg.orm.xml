@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.VochReg" access="FIELD">
+     <table name="tvoch_reg" />
+
+     <attributes>
+        <id name="vochRegId">
+            <column name="voch_reg_id" />
+            <generated-value strategy="TABLE" generator="TVOCH_REG_SEQ" />
+            <table-generator name="TVOCH_REG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tvoch_reg_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="vochRegVochNo">
+            <column name="voch_reg_voch_no" />
+        </basic>
+
+        <basic name="vochRegPrtDt">
+            <column name="voch_reg_prt_dt" />
+        </basic>
+
+        <basic name="recipCtatInfo">
+            <column name="recip_ctat_info" />
+        </basic>
+
+        <basic name="recipGivenName">
+            <column name="recip_given_name" />
+        </basic>
+
+        <basic name="recipSurname">
+            <column name="recip_surname" />
+        </basic>
+
+        <basic name="vochRegDesc">
+            <column name="voch_reg_desc" />
+        </basic>
+
+        <basic name="recipOrgName">
+            <column name="recip_org_name" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtOutTxn" fetch="LAZY">
+        <join-column name="pymt_out_txn_id" referenced-column-name="pymt_out_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="recipRole" fetch="LAZY">
+        <join-column name="recip_role_id" referenced-column-name="pty_role_id" />
+    </many-to-one>
+
+    <many-to-one name="recipCompsCourt" fetch="LAZY">
+        <join-column name="recip_comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="unclBaBat"  mapped-by="toRevuVochReg" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

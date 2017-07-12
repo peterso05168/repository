@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCjr025Dtl" access="FIELD">
+     <table name="tmi_dc_cjr_025_dtl" />
+
+     <attributes>
+        <id name="miDcCjr025DtlId">
+            <column name="mi_dc_cjr_025_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CJR_025_DTL_SEQ" />
+            <table-generator name="TMI_DC_CJR_025_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cjr_025_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="dispDate">
+            <column name="disp_date" />
+        </basic>
+
+        <basic name="firstCmcDate">
+            <column name="first_cmc_date" />
+        </basic>
+
+        <basic name="cmcHrnNat">
+            <column name="cmc_hrn_nat" />
+        </basic>
+
+        <basic name="cmcJudge">
+            <column name="cmc_judge" />
+        </basic>
+
+        <basic name="trialInd">
+            <column name="trial_ind" />
+        </basic>
+
+        <basic name="trialHrnNat">
+            <column name="trial_hrn_nat" />
+        </basic>
+
+        <basic name="addlHrnNat">
+            <column name="addl_hrn_nat" />
+        </basic>
+
+        <basic name="trialStartDate">
+            <column name="trial_start_date" />
+        </basic>
+
+        <basic name="trialEndDate">
+            <column name="trial_end_date" />
+        </basic>
+
+        <basic name="trialJudge">
+            <column name="trial_judge" />
+        </basic>
+
+        <basic name="timeCmcToTrial">
+            <column name="time_cmc_to_trial" />
+        </basic>
+
+        <basic name="noOfChkltReviewHrn">
+            <column name="no_of_chklt_review_hrn" />
+        </basic>
+
+        <basic name="noOfPtrHrn">
+            <column name="no_of_ptr_hrn" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

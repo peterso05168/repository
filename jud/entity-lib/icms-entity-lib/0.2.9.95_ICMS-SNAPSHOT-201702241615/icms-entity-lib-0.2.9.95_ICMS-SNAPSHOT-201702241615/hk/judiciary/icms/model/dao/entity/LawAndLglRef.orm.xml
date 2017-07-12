@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.LawAndLglRef" access="FIELD">
+     <table name="claw_and_lgl_ref" />
+
+     <attributes>
+        <id name="lawAndLglRefId">
+            <column name="law_and_lgl_ref_id" />
+            <generated-value strategy="TABLE" generator="CLAW_AND_LGL_REF_SEQ" />
+            <table-generator name="CLAW_AND_LGL_REF_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="claw_and_lgl_ref_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="lawDesc">
+            <column name="law_desc" />
+        </basic>
+
+        <basic name="chapNo">
+            <column name="chap_no" />
+        </basic>
+
+        <basic name="sectNo">
+            <column name="sect_no" />
+        </basic>
+
+        <basic name="subsectNo">
+            <column name="subsect_no" />
+        </basic>
+
+        <basic name="breachModeFlag">
+            <column name="breach_mode_flag" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="legComLaw" fetch="LAZY">
+        <join-column name="leg_com_law_id" referenced-column-name="leg_com_law_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

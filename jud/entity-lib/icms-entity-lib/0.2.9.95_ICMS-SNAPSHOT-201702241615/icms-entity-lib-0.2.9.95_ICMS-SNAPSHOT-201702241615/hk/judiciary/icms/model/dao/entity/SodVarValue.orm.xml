@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.SodVarValue" access="FIELD">
+     <table name="tsod_var_value" />
+
+     <attributes>
+        <id name="sodVarValueId">
+            <column name="sod_var_value_id" />
+            <generated-value strategy="TABLE" generator="TSOD_VAR_VALUE_SEQ" />
+            <table-generator name="TSOD_VAR_VALUE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tsod_var_value_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="varValue">
+            <column name="var_value" />
+        </basic>
+
+        <basic name="varValueChin">
+            <column name="var_value_chin" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="chrgToPartcp" fetch="LAZY">
+        <join-column name="chrg_to_partcp_id" referenced-column-name="chrg_to_partcp_id" />
+    </many-to-one>
+
+    <many-to-one name="sodVar" fetch="LAZY">
+        <join-column name="sod_var_id" referenced-column-name="sod_var_id" />
+    </many-to-one>
+
+    <many-to-one name="sodVarOpt" fetch="LAZY">
+        <join-column name="sod_var_opt_id" referenced-column-name="sod_var_opt_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

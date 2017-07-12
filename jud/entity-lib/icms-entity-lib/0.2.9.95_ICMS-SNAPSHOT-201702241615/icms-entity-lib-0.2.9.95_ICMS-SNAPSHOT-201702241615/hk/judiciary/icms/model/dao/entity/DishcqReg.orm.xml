@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DishcqReg" access="FIELD">
+     <table name="tdishcq_reg" />
+
+     <attributes>
+        <id name="dishcqRegId">
+            <column name="dishcq_reg_id" />
+            <generated-value strategy="TABLE" generator="TDISHCQ_REG_SEQ" />
+            <table-generator name="TDISHCQ_REG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdishcq_reg_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="dishcqNo">
+            <column name="dishcq_no" />
+        </basic>
+
+        <basic name="dishcqRecvDate">
+            <column name="dishcq_recv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="tickUpRefNo">
+            <column name="tick_up_ref_no" />
+        </basic>
+
+        <basic name="dwrBank">
+            <column name="dwr_bank" />
+        </basic>
+
+        <basic name="chqAmt">
+            <column name="chq_amt" />
+        </basic>
+
+        <basic name="recoveryActTake">
+            <column name="recovery_act_take" />
+        </basic>
+
+        <basic name="settleDt">
+            <column name="settle_dt" />
+        </basic>
+
+        <basic name="flwupActTake">
+            <column name="flwup_act_take" />
+        </basic>
+
+        <basic name="dishcqRegProcBy">
+            <column name="dishcq_reg_proc_by" />
+        </basic>
+
+        <basic name="dishcqRegProcDt">
+            <column name="dishcq_reg_proc_dt" />
+        </basic>
+
+        <basic name="dishcqRegDesc">
+            <column name="dishcq_reg_desc" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="curcyCd" fetch="LAZY">
+        <join-column name="curcy_cd_id" referenced-column-name="curcy_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="rsnForRtn" fetch="LAZY">
+        <join-column name="rsn_for_rtn" referenced-column-name="rsn_for_rtn_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="pymtMethDtl" fetch="LAZY">
+        <join-column name="pymt_meth_dtl_id" referenced-column-name="pymt_meth_dtl_id" />
+    </one-to-one>
+
+    <one-to-one name="fpTxnDtl" fetch="LAZY">
+        <join-column name="fp_txn_dtl_id" referenced-column-name="fp_txn_dtl_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

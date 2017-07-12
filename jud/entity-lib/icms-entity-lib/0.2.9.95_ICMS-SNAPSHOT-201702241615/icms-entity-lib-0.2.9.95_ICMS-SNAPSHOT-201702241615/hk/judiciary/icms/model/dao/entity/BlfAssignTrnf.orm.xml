@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfAssignTrnf" access="FIELD">
+     <table name="tblf_assign_trnf" />
+
+     <attributes>
+        <id name="blfAssignTrnfId">
+            <column name="blf_assign_trnf_id" />
+            <generated-value strategy="TABLE" generator="TBLF_ASSIGN_TRNF_SEQ" />
+            <table-generator name="TBLF_ASSIGN_TRNF_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_assign_trnf_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="trnfPerdToSess">
+            <column name="trnf_perd_to_sess" />
+        </basic>
+
+        <basic name="trnfPerdFr">
+            <column name="trnf_perd_fr" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="trnfPerdTo">
+            <column name="trnf_perd_to" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="trnfPerdFrSess">
+            <column name="trnf_perd_fr_sess" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfAssign" fetch="LAZY">
+        <join-column name="blf_assign_id" referenced-column-name="blf_assign_id" />
+    </many-to-one>
+
+    <many-to-one name="tgtBlfOffice" fetch="LAZY">
+        <join-column name="tgt_blf_office_id" referenced-column-name="blf_office_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="blfAsgset"  mapped-by="blfAssignTrnf" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfTask" access="FIELD">
+     <table name="tblf_task" />
+
+     <attributes>
+        <id name="blfTaskId">
+            <column name="blf_task_id" />
+            <generated-value strategy="TABLE" generator="TBLF_TASK_SEQ" />
+            <table-generator name="TBLF_TASK_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_task_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="blfTaskNo">
+            <column name="blf_task_no" />
+        </basic>
+
+        <basic name="blfApptDate">
+            <column name="blf_appt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="blfApptTime">
+            <column name="blf_appt_time" />
+        </basic>
+
+        <basic name="caseNo">
+            <column name="case_no" />
+        </basic>
+
+        <basic name="grpNo">
+            <column name="grp_no" />
+        </basic>
+
+        <basic name="reqNoOfSecuGuard">
+            <column name="req_no_of_secu_guard" />
+        </basic>
+
+        <basic name="reqNoOfPossessGuard">
+            <column name="req_no_of_possess_guard" />
+        </basic>
+
+        <basic name="jvReqsFlag">
+            <column name="jv_reqs_flag" />
+        </basic>
+
+        <basic name="allocDt">
+            <column name="alloc_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="expiringDate">
+            <column name="expiring_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="telNo">
+            <column name="tel_no" />
+        </basic>
+
+        <basic name="apptRefusalFlag">
+            <column name="appt_refusal_flag" />
+        </basic>
+
+        <basic name="ctatPerson">
+            <column name="ctat_person" />
+        </basic>
+
+        <basic name="rsnForNonAppt">
+            <column name="rsn_for_non_appt" />
+        </basic>
+
+        <basic name="jvReqsRsn">
+            <column name="jv_reqs_rsn" />
+        </basic>
+
+        <basic name="dateToOfferAppt">
+            <column name="date_to_offer_appt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfTaskStatusType" fetch="LAZY">
+        <join-column name="blf_task_status_type_id" referenced-column-name="blf_task_status_type_id" />
+    </many-to-one>
+
+    <many-to-one name="reqs" fetch="LAZY">
+        <join-column name="reqs_id" referenced-column-name="reqs_id" />
+    </many-to-one>
+
+    <many-to-one name="blfTaskType" fetch="LAZY">
+        <join-column name="blf_task_type_id" referenced-column-name="blf_task_type_id" />
+    </many-to-one>
+
+    <many-to-one name="allocBlfAssign" fetch="LAZY">
+        <join-column name="alloc_blf_assign" referenced-column-name="blf_assign_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsAddr" fetch="LAZY">
+        <join-column name="reqs_addr_id" referenced-column-name="reqs_addr_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="blfAsgmnt"  mapped-by="blfTask" fetch="LAZY" />
+    <one-to-many name="proofOfServReqs"  mapped-by="successTask" fetch="LAZY" />
+    <one-to-many name="blfTaskRslt"  mapped-by="blfTask" fetch="LAZY" />
+    <one-to-many name="reqsDoc"  mapped-by="blfTask" fetch="LAZY" />
+    <one-to-many name="blfTaskSecuGuard"  mapped-by="blfTask" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

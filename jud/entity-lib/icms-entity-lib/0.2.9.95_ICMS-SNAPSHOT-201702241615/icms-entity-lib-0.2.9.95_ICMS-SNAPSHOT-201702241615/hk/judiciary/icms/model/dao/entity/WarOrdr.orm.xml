@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.WarOrdr" access="FIELD">
+     <table name="twar_ordr" />
+
+     <attributes>
+        <id name="warOrdrId">
+            <column name="war_ordr_id" />
+            <generated-value strategy="TABLE" generator="TWAR_ORDR_SEQ" />
+            <table-generator name="TWAR_ORDR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="twar_ordr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="servProvedFlag">
+            <column name="serv_proved_flag" />
+        </basic>
+
+        <basic name="issueNewWarFlag">
+            <column name="issue_new_war_flag" />
+        </basic>
+
+        <basic name="withBailTermFlag">
+            <column name="with_bail_term_flag" />
+        </basic>
+
+        <basic name="bailAmt">
+            <column name="bail_amt" />
+        </basic>
+
+        <basic name="cancelWarFlag">
+            <column name="cancel_war_flag" />
+        </basic>
+
+        <basic name="withdrawWarFlag">
+            <column name="withdraw_war_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="stnceOrdr" fetch="LAZY">
+        <join-column name="stnce_ordr_id" referenced-column-name="stnce_ordr_id" />
+    </many-to-one>
+
+    <many-to-one name="newWarType" fetch="LAZY">
+        <join-column name="new_war_type" referenced-column-name="case_type_id" />
+    </many-to-one>
+
+    <many-to-one name="withdrawWar" fetch="LAZY">
+        <join-column name="withdraw_war_id" referenced-column-name="war_id" />
+    </many-to-one>
+
+    <many-to-one name="cancelWar" fetch="LAZY">
+        <join-column name="cancel_war_id" referenced-column-name="war_id" />
+    </many-to-one>
+
+    <many-to-one name="issueForPartcp" fetch="LAZY">
+        <join-column name="issue_for_partcp" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.AdmyReqs" access="FIELD">
+     <table name="tadmy_reqs" />
+
+     <attributes>
+        <id name="admyReqsId">
+            <column name="admy_reqs_id" />
+            <generated-value strategy="TABLE" generator="TADMY_REQS_SEQ" />
+            <table-generator name="TADMY_REQS_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tadmy_reqs_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="regedPort">
+            <column name="reged_port" />
+        </basic>
+
+        <basic name="vsslName">
+            <column name="vssl_name" />
+        </basic>
+
+        <basic name="callSignNo">
+            <column name="call_sign_no" />
+        </basic>
+
+        <basic name="entryOfCaveatFlag">
+            <column name="entry_of_caveat_flag" />
+        </basic>
+
+        <basic name="caveatCheckDt">
+            <column name="caveat_check_dt" />
+        </basic>
+
+        <basic name="imo">
+            <column name="imo" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="currLoc" fetch="LAZY">
+        <join-column name="curr_loc_id" referenced-column-name="admy_loc_id" />
+    </many-to-one>
+
+    <many-to-one name="locOfArrt" fetch="LAZY">
+        <join-column name="loc_of_arrt_id" referenced-column-name="admy_loc_id" />
+    </many-to-one>
+
+    <many-to-one name="blfCaveat" fetch="LAZY">
+        <join-column name="blf_caveat_id" referenced-column-name="blf_caveat_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="reqs" fetch="LAZY">
+        <join-column name="reqs_id" referenced-column-name="reqs_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

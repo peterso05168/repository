@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DstrntEpAppList" access="FIELD">
+     <table name="tdstrnt_ep_app_list" />
+
+     <attributes>
+        <id name="dstrntEpAppListId">
+            <column name="dstrnt_ep_app_list_id" />
+            <generated-value strategy="TABLE" generator="TDSTRNT_EP_APP_LIST_SEQ" />
+            <table-generator name="TDSTRNT_EP_APP_LIST_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdstrnt_ep_app_list_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="dstrntEpAppSchdDate">
+            <column name="dstrnt_ep_app_schd_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="dstrntAsgmntSeqNo">
+            <column name="dstrnt_asgmnt_seq_no" />
+        </basic>
+
+        <basic name="dstrntEpAppStatus">
+            <column name="dstrnt_ep_app_status" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="jjoAc" fetch="LAZY">
+        <join-column name="jjo_ac_id" referenced-column-name="jjo_ac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

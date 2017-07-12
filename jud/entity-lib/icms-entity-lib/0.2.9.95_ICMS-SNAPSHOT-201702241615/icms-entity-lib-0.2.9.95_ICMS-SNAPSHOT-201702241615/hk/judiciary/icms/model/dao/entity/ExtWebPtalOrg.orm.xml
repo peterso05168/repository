@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ExtWebPtalOrg" access="FIELD">
+     <table name="text_web_ptal_org" />
+
+     <attributes>
+        <id name="ewpOrgId">
+            <column name="ewp_org_id" />
+            <generated-value strategy="TABLE" generator="TEXT_WEB_PTAL_ORG_SEQ" />
+            <table-generator name="TEXT_WEB_PTAL_ORG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="text_web_ptal_org_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="orgCd">
+            <column name="org_cd" />
+        </basic>
+
+        <basic name="orgName">
+            <column name="org_name" />
+        </basic>
+
+        <basic name="orgNameChin">
+            <column name="org_name_chin" />
+        </basic>
+
+        <basic name="orgCertNo">
+            <column name="org_cert_no" />
+        </basic>
+
+        <basic name="orgStatus">
+            <column name="org_status" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="orgCertType" fetch="LAZY">
+        <join-column name="org_cert_type_id" referenced-column-name="org_cert_type_id" />
+    </many-to-one>
+
+    <many-to-one name="lglFirm" fetch="LAZY">
+        <join-column name="lgl_firm_id" referenced-column-name="lgl_firm_id" />
+    </many-to-one>
+
+    <many-to-one name="pd" fetch="LAZY">
+        <join-column name="pd_id" referenced-column-name="pd_id" />
+    </many-to-one>
+
+    <many-to-one name="govDept" fetch="LAZY">
+        <join-column name="gov_dept_id" referenced-column-name="gov_dept_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="extWebPtalUserAcApp"  mapped-by="ewpOrg" fetch="LAZY" />
+    <one-to-many name="orgAcLimit"  mapped-by="ewpOrg" fetch="LAZY" />
+    <one-to-many name="orgAcLimitApp"  mapped-by="ewpOrg" fetch="LAZY" />
+    <one-to-many name="extWebPtalOrgBrch"  mapped-by="ewpOrg" fetch="LAZY" />
+    <one-to-many name="extRole"  mapped-by="ewpOrg" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

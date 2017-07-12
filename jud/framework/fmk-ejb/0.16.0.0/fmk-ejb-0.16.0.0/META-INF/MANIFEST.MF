@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.3
+Created-By: 1.8.0_05-b13 (Oracle Corporation)
+Built-By: Judiciary Framework
+Built-On: 20-Jan-2017
+Built-At: 04:24:03 PM HKT
+Framework-Name: fmk-ejb
+Framework-Version: 0.16.0.0
+

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PymtInTxn" access="FIELD">
+     <table name="tpymt_in_txn" />
+
+     <attributes>
+        <id name="pymtInTxnId">
+            <column name="pymt_in_txn_id" />
+            <generated-value strategy="TABLE" generator="TPYMT_IN_TXN_SEQ" />
+            <table-generator name="TPYMT_IN_TXN_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpymt_in_txn_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="pymtInTxnAmt">
+            <column name="pymt_in_txn_amt" />
+        </basic>
+
+        <basic name="pymtInTxnDt">
+            <column name="pymt_in_txn_dt" />
+        </basic>
+
+        <basic name="pymtInTxnProcBy">
+            <column name="pymt_in_txn_proc_by" />
+        </basic>
+
+        <basic name="pymtInTxnProcDt">
+            <column name="pymt_in_txn_proc_dt" />
+        </basic>
+
+        <basic name="pymtInTxnAppvBy">
+            <column name="pymt_in_txn_appv_by" />
+        </basic>
+
+        <basic name="pymtInTxnAppvDt">
+            <column name="pymt_in_txn_appv_dt" />
+        </basic>
+
+        <basic name="pymtInTxnClsgDate">
+            <column name="pymt_in_txn_clsg_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="pymtInTxnClsgStatus">
+            <column name="pymt_in_txn_clsg_status" />
+        </basic>
+
+        <basic name="txnDesc">
+            <column name="txn_desc" />
+        </basic>
+
+        <basic name="casemanTxnUpdInd">
+            <column name="caseman_txn_upd_ind" />
+        </basic>
+
+        <basic name="reptNo">
+            <column name="rept_no" />
+        </basic>
+
+        <basic name="trnfToJsfasDt">
+            <column name="trnf_to_jsfas_dt" />
+        </basic>
+
+        <basic name="egisPymtFlag">
+            <column name="egis_pymt_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="curcyCd" fetch="LAZY">
+        <join-column name="curcy_cd_id" referenced-column-name="curcy_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="centre" fetch="LAZY">
+        <join-column name="centre_id" referenced-column-name="centre_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtWs" fetch="LAZY">
+        <join-column name="pymt_ws_id" referenced-column-name="pymt_ws_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtTxnStatus" fetch="LAZY">
+        <join-column name="pymt_txn_status_id" referenced-column-name="pymt_txn_status_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtWsOprMode" fetch="LAZY">
+        <join-column name="pymt_ws_opr_mode_id" referenced-column-name="pymt_ws_opr_mode_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="baRegItem"  mapped-by="pymtInTxn" fetch="LAZY" />
+    <one-to-many name="epayInfEpsco"  mapped-by="pymtInTxn" fetch="LAZY" />
+    <one-to-many name="epayInfJetco"  mapped-by="pymtInTxn" fetch="LAZY" />
+    <one-to-many name="pymtInTxnItemHist"  mapped-by="pymtInTxn" fetch="LAZY" />
+    <one-to-many name="pymtMethDtl"  mapped-by="pymtInTxn" fetch="LAZY" />
+    <one-to-many name="reptReg"  mapped-by="pymtInTxn" fetch="LAZY" />
+    <one-to-many name="refunReg"  mapped-by="txn" fetch="LAZY" />
+    <one-to-many name="rvseReg"  mapped-by="txn" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="epayOnlineTxn"  mapped-by="pymtInTxn" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

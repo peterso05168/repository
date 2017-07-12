@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EndorSheet" access="FIELD">
+     <table name="tendor_sheet" />
+
+     <attributes>
+        <id name="endorSheetId">
+            <column name="endor_sheet_id" />
+            <generated-value strategy="TABLE" generator="TENDOR_SHEET_SEQ" />
+            <table-generator name="TENDOR_SHEET_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tendor_sheet_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="endorSheetStatus">
+            <column name="endor_sheet_status" />
+        </basic>
+
+        <basic name="endorSheetStatusUpdBy">
+            <column name="endor_sheet_status_upd_by" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="endorSheetEvent"  mapped-by="endorSheet" fetch="LAZY" />
+    <one-to-many name="endorSheetStatusHist"  mapped-by="endorSheet" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

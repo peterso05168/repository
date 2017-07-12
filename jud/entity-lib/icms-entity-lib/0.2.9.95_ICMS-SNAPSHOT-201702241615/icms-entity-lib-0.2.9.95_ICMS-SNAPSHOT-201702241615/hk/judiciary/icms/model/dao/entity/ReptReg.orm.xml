@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ReptReg" access="FIELD">
+     <table name="trept_reg" />
+
+     <attributes>
+        <id name="reptRegId">
+            <column name="rept_reg_id" />
+            <generated-value strategy="TABLE" generator="TREPT_REG_SEQ" />
+            <table-generator name="TREPT_REG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="trept_reg_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="reptRegPrtDt">
+            <column name="rept_reg_prt_dt" />
+        </basic>
+
+        <basic name="reptRegReptNo">
+            <column name="rept_reg_rept_no" />
+        </basic>
+
+        <basic name="reptRegDesc">
+            <column name="rept_reg_desc" />
+        </basic>
+
+        <basic name="payerSurname">
+            <column name="payer_surname" />
+        </basic>
+
+        <basic name="payerGivenName">
+            <column name="payer_given_name" />
+        </basic>
+
+        <basic name="payerCtatInfo">
+            <column name="payer_ctat_info" />
+        </basic>
+
+        <basic name="origReptNo">
+            <column name="orig_rept_no" />
+        </basic>
+
+        <basic name="bundleReptNo">
+            <column name="bundle_rept_no" />
+        </basic>
+
+        <basic name="payerOrgName">
+            <column name="payer_org_name" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtInTxn" fetch="LAZY">
+        <join-column name="pymt_in_txn_id" referenced-column-name="pymt_in_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="payerRole" fetch="LAZY">
+        <join-column name="payer_role_id" referenced-column-name="pty_role_id" />
+    </many-to-one>
+
+    <many-to-one name="reptFmtType" fetch="LAZY">
+        <join-column name="rept_fmt_type_id" referenced-column-name="rept_fmt_type_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtCatCd" fetch="LAZY">
+        <join-column name="pymt_cat_cd_id" referenced-column-name="pymt_cat_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="reptType" fetch="LAZY">
+        <join-column name="rept_type_id" referenced-column-name="rept_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="adjtmentReg"  mapped-by="reptReg" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

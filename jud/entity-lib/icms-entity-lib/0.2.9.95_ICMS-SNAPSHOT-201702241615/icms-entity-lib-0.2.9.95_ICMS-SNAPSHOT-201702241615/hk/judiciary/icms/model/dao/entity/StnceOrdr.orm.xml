@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.StnceOrdr" access="FIELD">
+     <table name="tstnce_ordr" />
+
+     <attributes>
+        <id name="stnceOrdrId">
+            <column name="stnce_ordr_id" />
+            <generated-value strategy="TABLE" generator="TSTNCE_ORDR_SEQ" />
+            <table-generator name="TSTNCE_ORDR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tstnce_ordr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="stnceOrdrLenWeek">
+            <column name="stnce_ordr_len_week" />
+        </basic>
+
+        <basic name="stnceOrdrLenDay">
+            <column name="stnce_ordr_len_day" />
+        </basic>
+
+        <basic name="stnceOrdrLenMth">
+            <column name="stnce_ordr_len_mth" />
+        </basic>
+
+        <basic name="stnceOrdrLenYrNo">
+            <column name="stnce_ordr_len_yr_no" />
+        </basic>
+
+        <basic name="concurConsecFlag">
+            <column name="concur_consec_flag" />
+        </basic>
+
+        <basic name="stnceOrdrLenHr">
+            <column name="stnce_ordr_len_hr" />
+        </basic>
+
+        <basic name="pnltyAmt">
+            <column name="pnlty_amt" />
+        </basic>
+
+        <basic name="pnltyDueDate">
+            <column name="pnlty_due_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="jjoOrdrTxtDspInd">
+            <column name="jjo_ordr_txt_dsp_ind" />
+        </basic>
+
+        <basic name="nextHrnStartTime">
+            <column name="next_hrn_start_time" />
+        </basic>
+
+        <basic name="stnceOrdrStatus">
+            <column name="stnce_ordr_status" />
+        </basic>
+
+        <basic name="stnceOrdrTypeInd">
+            <column name="stnce_ordr_type_ind" />
+        </basic>
+
+        <basic name="hrnRsltAddlInfo">
+            <column name="hrn_rslt_addl_info" />
+        </basic>
+
+        <basic name="jjoOrdrTxt">
+            <column name="jjo_ordr_txt" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="stnceOrdrDate">
+            <column name="stnce_ordr_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+    <many-to-one name="jjoAc" fetch="LAZY">
+        <join-column name="jjo_ac_id" referenced-column-name="jjo_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnRsltCd" fetch="LAZY">
+        <join-column name="hrn_rslt_cd_id" referenced-column-name="hrn_rslt_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="nextHrnSchd" fetch="LAZY">
+        <join-column name="next_hrn_schd_id" referenced-column-name="hrn_schd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="stnceOrdrToDoc"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="ordrDate"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="taxDtl"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="pymtOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="mcAppealRegStnceOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="mcAppAgstStnceOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="stnceOrdrToChrgPartcp"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="drvImprvCourseOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="drvLicenceDisqualOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="bailOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="warOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="fpReviewOrdr"  mapped-by="stnceOrdr" fetch="LAZY" />
+    <one-to-many name="stnceOrdrTmpl"  mapped-by="stnceOrdr" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

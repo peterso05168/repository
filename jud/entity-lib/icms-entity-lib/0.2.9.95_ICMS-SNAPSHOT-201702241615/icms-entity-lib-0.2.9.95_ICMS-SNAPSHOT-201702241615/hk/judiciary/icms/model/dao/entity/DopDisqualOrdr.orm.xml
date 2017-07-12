@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DopDisqualOrdr" access="FIELD">
+     <table name="tdop_disqual_ordr" />
+
+     <attributes>
+        <id name="dopDisqualOrdrId">
+            <column name="dop_disqual_ordr_id" />
+            <generated-value strategy="TABLE" generator="TDOP_DISQUAL_ORDR_SEQ" />
+            <table-generator name="TDOP_DISQUAL_ORDR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdop_disqual_ordr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="previousPdRefNo">
+            <column name="previous_pd_ref_no" />
+        </basic>
+
+        <basic name="previousCaseNo">
+            <column name="previous_case_no" />
+        </basic>
+
+        <basic name="disqualOrdrDate">
+            <column name="disqual_ordr_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="disqualYr">
+            <column name="disqual_yr" />
+        </basic>
+
+        <basic name="disqualMonth">
+            <column name="disqual_month" />
+        </basic>
+
+        <basic name="disqualWeek">
+            <column name="disqual_week" />
+        </basic>
+
+        <basic name="disqualDay">
+            <column name="disqual_day" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

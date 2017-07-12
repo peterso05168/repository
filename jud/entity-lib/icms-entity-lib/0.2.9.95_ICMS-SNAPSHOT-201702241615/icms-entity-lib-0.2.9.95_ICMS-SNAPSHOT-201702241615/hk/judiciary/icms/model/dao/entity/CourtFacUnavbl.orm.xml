@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.CourtFacUnavbl" access="FIELD">
+     <table name="tcourt_fac_unavbl" />
+
+     <attributes>
+        <id name="courtFacUnavblId">
+            <column name="court_fac_unavbl_id" />
+            <generated-value strategy="TABLE" generator="TCOURT_FAC_UNAVBL_SEQ" />
+            <table-generator name="TCOURT_FAC_UNAVBL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tcourt_fac_unavbl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="courtFacUnavblEffvStartDt">
+            <column name="court_fac_unavbl_effv_start_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="courtFacUnavblEffvEndDt">
+            <column name="court_fac_unavbl_effv_end_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="courtFac" fetch="LAZY">
+        <join-column name="court_fac_id" referenced-column-name="court_fac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

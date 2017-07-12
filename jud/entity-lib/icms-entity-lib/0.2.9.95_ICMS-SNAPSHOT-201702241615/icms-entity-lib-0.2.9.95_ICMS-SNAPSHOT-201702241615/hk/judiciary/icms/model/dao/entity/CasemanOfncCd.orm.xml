@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.CasemanOfncCd" access="FIELD">
+     <table name="ccaseman_ofnc_cd" />
+
+     <attributes>
+        <id name="casemanOfncCdId">
+            <column name="caseman_ofnc_cd_id" />
+            <generated-value strategy="TABLE" generator="CCASEMAN_OFNC_CD_SEQ" />
+            <table-generator name="CCASEMAN_OFNC_CD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="ccaseman_ofnc_cd_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="ofncCd">
+            <column name="ofnc_cd" />
+        </basic>
+
+        <basic name="ofncVer">
+            <column name="ofnc_ver" />
+        </basic>
+
+        <basic name="chapNo">
+            <column name="chap_no" />
+        </basic>
+
+        <basic name="subLeg">
+            <column name="sub_leg" />
+        </basic>
+
+        <basic name="sectNo">
+            <column name="sect_no" />
+        </basic>
+
+        <basic name="subsectNo">
+            <column name="subsect_no" />
+        </basic>
+
+        <basic name="para">
+            <column name="para" />
+        </basic>
+
+        <basic name="subPara">
+            <column name="sub_para" />
+        </basic>
+
+        <basic name="supplCd">
+            <column name="suppl_cd" />
+        </basic>
+
+        <basic name="verNo">
+            <column name="ver_no" />
+        </basic>
+
+        <basic name="ofncType">
+            <column name="ofnc_type" />
+        </basic>
+
+        <basic name="ofncShortDesc">
+            <column name="ofnc_short_desc" />
+        </basic>
+
+        <basic name="ofncShortDescChin">
+            <column name="ofnc_short_desc_chin" />
+        </basic>
+
+        <basic name="law">
+            <column name="law" />
+        </basic>
+
+        <basic name="lawChin">
+            <column name="law_chin" />
+        </basic>
+
+        <basic name="ofncLongDesc">
+            <column name="ofnc_long_desc" />
+        </basic>
+
+        <basic name="ofncLongDescChin">
+            <column name="ofnc_long_desc_chin" />
+        </basic>
+
+        <basic name="atthReqFlag">
+            <column name="atth_req_flag" />
+        </basic>
+
+        <basic name="pgblAllowFlag">
+            <column name="pgbl_allow_flag" />
+        </basic>
+
+        <basic name="laidInfoPerd">
+            <column name="laid_info_perd" />
+        </basic>
+
+        <basic name="applyToCcFlag">
+            <column name="apply_to_cc_flag" />
+        </basic>
+
+        <basic name="applyToDnFlag">
+            <column name="apply_to_dn_flag" />
+        </basic>
+
+        <basic name="applyToDopFlag">
+            <column name="apply_to_dop_flag" />
+        </basic>
+
+        <basic name="applyToDsFlag">
+            <column name="apply_to_ds_flag" />
+        </basic>
+
+        <basic name="applyToFpFlag">
+            <column name="apply_to_fp_flag" />
+        </basic>
+
+        <basic name="dopIncur">
+            <column name="dop_incur" />
+        </basic>
+
+        <basic name="ofncVarCnt">
+            <column name="ofnc_var_cnt" />
+        </basic>
+
+        <basic name="serveMode">
+            <column name="serve_mode" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="ofncClassCd" fetch="LAZY">
+        <join-column name="ofnc_class_cd_id" referenced-column-name="ofnc_class_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnTimeWgt" fetch="LAZY">
+        <join-column name="hrn_time_wgt" referenced-column-name="hrn_time_wgt_id" />
+    </many-to-one>
+
+    <many-to-one name="pnltyWgt" fetch="LAZY">
+        <join-column name="pnlty_wgt" referenced-column-name="pnlty_wgt_id" />
+    </many-to-one>
+
+    <many-to-one name="fpAmt" fetch="LAZY">
+        <join-column name="fp_amt" referenced-column-name="fp_amt_id" />
+    </many-to-one>
+
+    <many-to-one name="fpCost" fetch="LAZY">
+        <join-column name="fp_cost" referenced-column-name="fp_cost_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

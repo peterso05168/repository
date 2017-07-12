@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.HrnAttd" access="FIELD">
+     <table name="thrn_attd" />
+
+     <attributes>
+        <id name="hrnAttdId">
+            <column name="hrn_attd_id" />
+            <generated-value strategy="TABLE" generator="THRN_ATTD_SEQ" />
+            <table-generator name="THRN_ATTD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="thrn_attd_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="hrnAttdArrvTime">
+            <column name="hrn_attd_arrv_time" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="unspecPosTypeTxt">
+            <column name="unspec_pos_type_txt" />
+        </basic>
+
+        <basic name="inPersonFlag">
+            <column name="in_person_flag" />
+        </basic>
+
+        <basic name="authorisationLettFlag">
+            <column name="authorisation_lett_flag" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="ptIntprRefNo">
+            <column name="pt_intpr_ref_no" />
+        </basic>
+
+        <basic name="relshpWithLglFirm">
+            <column name="relshp_with_lgl_firm" />
+        </basic>
+
+        <basic name="leadPosInd">
+            <column name="lead_pos_ind" />
+        </basic>
+
+        <basic name="thirdPtyRelshp">
+            <column name="third_pty_relshp" />
+        </basic>
+
+        <basic name="attdeeGivenName">
+            <column name="attdee_given_name" />
+        </basic>
+
+        <basic name="attdeeSurname">
+            <column name="attdee_surname" />
+        </basic>
+
+        <basic name="attdeeRoleCd">
+            <column name="attdee_role_cd" />
+        </basic>
+
+        <basic name="attdeeRoleRefId">
+            <column name="attdee_role_ref_id" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="titleType" fetch="LAZY">
+        <join-column name="title_type_id" referenced-column-name="title_type_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnAttdPd" fetch="LAZY">
+        <join-column name="hrn_attd_pd_id" referenced-column-name="pd_id" />
+    </many-to-one>
+
+    <many-to-one name="forPartcpRole" fetch="LAZY">
+        <join-column name="for_partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="posType" fetch="LAZY">
+        <join-column name="pos_type_id" referenced-column-name="pos_type_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnAttdLglFirm" fetch="LAZY">
+        <join-column name="hrn_attd_lgl_firm_id" referenced-column-name="lgl_firm_id" />
+    </many-to-one>
+
+    <many-to-one name="intprToLangType" fetch="LAZY">
+        <join-column name="intpr_to_lang_type_id" referenced-column-name="lang_type_id" />
+    </many-to-one>
+
+    <many-to-one name="intprFrLangType" fetch="LAZY">
+        <join-column name="intpr_fr_lang_type_id" referenced-column-name="lang_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="ptIntprAttdDtl"  mapped-by="hrnAttd" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

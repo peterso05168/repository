@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.JjoEngag" access="FIELD">
+     <table name="tjjo_engag" />
+
+     <attributes>
+        <id name="jjoEngagId">
+            <column name="jjo_engag_id" />
+            <generated-value strategy="TABLE" generator="TJJO_ENGAG_SEQ" />
+            <table-generator name="TJJO_ENGAG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tjjo_engag_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="privInd">
+            <column name="priv_ind" />
+        </basic>
+
+        <basic name="blkHrnSchdFlag">
+            <column name="blk_hrn_schd_flag" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="jjoEngagTypeUnspecTypeTxt">
+            <column name="jjo_engag_type_unspec_type_txt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="jjoEngagType" fetch="LAZY">
+        <join-column name="jjo_engag_type_id" referenced-column-name="jjo_engag_type_id" />
+    </many-to-one>
+
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+    <many-to-one name="jjoProfile" fetch="LAZY">
+        <join-column name="jjo_profile_id" referenced-column-name="jjo_profile_id" />
+    </many-to-one>
+
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

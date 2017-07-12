@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BailOrdr" access="FIELD">
+     <table name="tbail_ordr" />
+
+     <attributes>
+        <id name="bailOrdrId">
+            <column name="bail_ordr_id" />
+            <generated-value strategy="TABLE" generator="TBAIL_ORDR_SEQ" />
+            <table-generator name="TBAIL_ORDR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tbail_ordr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="rptOnFriFlag">
+            <column name="rpt_on_fri_flag" />
+        </basic>
+
+        <basic name="rptOnThuFlag">
+            <column name="rpt_on_thu_flag" />
+        </basic>
+
+        <basic name="rptOnSunFlag">
+            <column name="rpt_on_sun_flag" />
+        </basic>
+
+        <basic name="informPolPriorResidceChng">
+            <column name="inform_pol_prior_residce_chng" />
+        </basic>
+
+        <basic name="notCtatProsWitnFlag">
+            <column name="not_ctat_pros_witn_flag" />
+        </basic>
+
+        <basic name="bySelfCashFlag">
+            <column name="by_self_cash_flag" />
+        </basic>
+
+        <basic name="bailGrantInd">
+            <column name="bail_grant_ind" />
+        </basic>
+
+        <basic name="custodyTypeInd">
+            <column name="custody_type_ind" />
+        </basic>
+
+        <basic name="otherCondDesc">
+            <column name="other_cond_desc" />
+        </basic>
+
+        <basic name="otherCondFlag">
+            <column name="other_cond_flag" />
+        </basic>
+
+        <basic name="bySuretyCashFlag">
+            <column name="by_surety_cash_flag" />
+        </basic>
+
+        <basic name="selfCashAmt">
+            <column name="self_cash_amt" />
+        </basic>
+
+        <basic name="suretyDesc">
+            <column name="surety_desc" />
+        </basic>
+
+        <basic name="suretyCashAmt">
+            <column name="surety_cash_amt" />
+        </basic>
+
+        <basic name="ownRecognizanceAmt">
+            <column name="own_recognizance_amt" />
+        </basic>
+
+        <basic name="notLeaveHkFlag">
+            <column name="not_leave_hk_flag" />
+        </basic>
+
+        <basic name="surrenderAllTravelDocFlag">
+            <column name="surrender_all_travel_doc_flag" />
+        </basic>
+
+        <basic name="surrenderAllTravelDocDesc">
+            <column name="surrender_all_travel_doc_desc" />
+        </basic>
+
+        <basic name="obeyCurfewFlag">
+            <column name="obey_curfew_flag" />
+        </basic>
+
+        <basic name="curfewFrDateime">
+            <column name="curfew_fr_dateime" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="curfewToDateime">
+            <column name="curfew_to_dateime" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="rptPolStaFlag">
+            <column name="rpt_pol_sta_flag" />
+        </basic>
+
+        <basic name="rptPolStaFr">
+            <column name="rpt_pol_sta_fr" />
+        </basic>
+
+        <basic name="rptPolStaTo">
+            <column name="rpt_pol_sta_to" />
+        </basic>
+
+        <basic name="rptOnMonFlag">
+            <column name="rpt_on_mon_flag" />
+        </basic>
+
+        <basic name="rptOnTueFlag">
+            <column name="rpt_on_tue_flag" />
+        </basic>
+
+        <basic name="rptOnWedFlag">
+            <column name="rpt_on_wed_flag" />
+        </basic>
+
+        <basic name="rptOnSatFlag">
+            <column name="rpt_on_sat_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="informPolSta" fetch="LAZY">
+        <join-column name="inform_pol_sta_id" referenced-column-name="rpt_pol_sta_id" />
+    </many-to-one>
+
+    <many-to-one name="stnceOrdr" fetch="LAZY">
+        <join-column name="stnce_ordr_id" referenced-column-name="stnce_ordr_id" />
+    </many-to-one>
+
+    <many-to-one name="rptPolSta" fetch="LAZY">
+        <join-column name="rpt_pol_sta_id" referenced-column-name="rpt_pol_sta_id" />
+    </many-to-one>
+
+    <many-to-one name="rptFreqType" fetch="LAZY">
+        <join-column name="rpt_freq_type_id" referenced-column-name="rpt_freq_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

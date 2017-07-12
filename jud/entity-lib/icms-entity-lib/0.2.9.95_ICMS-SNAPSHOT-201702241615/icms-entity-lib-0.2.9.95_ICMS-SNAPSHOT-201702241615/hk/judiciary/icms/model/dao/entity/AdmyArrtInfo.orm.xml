@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.AdmyArrtInfo" access="FIELD">
+     <table name="tadmy_arrt_info" />
+
+     <attributes>
+        <id name="admyArrtInfoId">
+            <column name="admy_arrt_info_id" />
+            <generated-value strategy="TABLE" generator="TADMY_ARRT_INFO_SEQ" />
+            <table-generator name="TADMY_ARRT_INFO_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tadmy_arrt_info_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="dayOfFood">
+            <column name="day_of_food" />
+        </basic>
+
+        <basic name="foOilInBunker">
+            <column name="fo_oil_in_bunker" />
+        </basic>
+
+        <basic name="engineRunFlag">
+            <column name="engine_run_flag" />
+        </basic>
+
+        <basic name="dayOfDrinkWater">
+            <column name="day_of_drink_water" />
+        </basic>
+
+        <basic name="noteOfShipPaper">
+            <column name="note_of_ship_paper" />
+        </basic>
+
+        <basic name="noteOfFreight">
+            <column name="note_of_freight" />
+        </basic>
+
+        <basic name="vsslGrossTonn">
+            <column name="vssl_gross_tonn" />
+        </basic>
+
+        <basic name="vsslNetTonn">
+            <column name="vssl_net_tonn" />
+        </basic>
+
+        <basic name="vsslLen">
+            <column name="vssl_len" />
+        </basic>
+
+        <basic name="vsslBreadthMoulded">
+            <column name="vssl_breadth_moulded" />
+        </basic>
+
+        <basic name="crewLastPayDate">
+            <column name="crew_last_pay_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="crewInGoodHealth">
+            <column name="crew_in_good_health" />
+        </basic>
+
+        <basic name="keroseneOnVssl">
+            <column name="kerosene_on_vssl" />
+        </basic>
+
+        <basic name="doOilInBunker">
+            <column name="do_oil_in_bunker" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfTaskRslt" fetch="LAZY">
+        <join-column name="blf_task_rslt_id" referenced-column-name="blf_task_rslt_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

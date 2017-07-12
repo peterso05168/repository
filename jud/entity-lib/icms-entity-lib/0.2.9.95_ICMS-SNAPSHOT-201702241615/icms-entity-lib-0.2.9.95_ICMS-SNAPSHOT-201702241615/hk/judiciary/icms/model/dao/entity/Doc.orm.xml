@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Doc" access="FIELD">
+     <table name="tdoc" />
+
+     <attributes>
+        <id name="docId">
+            <column name="doc_id" />
+            <generated-value strategy="TABLE" generator="TDOC_SEQ" />
+            <table-generator name="TDOC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdoc_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="docRefNo">
+            <column name="doc_ref_no" />
+        </basic>
+
+        <basic name="docVerNo">
+            <column name="doc_ver_no" />
+        </basic>
+
+        <basic name="docConfidFlag">
+            <column name="doc_confid_flag" />
+        </basic>
+
+        <basic name="docUrgFlag">
+            <column name="doc_urg_flag" />
+        </basic>
+
+        <basic name="origAnnotFlag">
+            <column name="orig_annot_flag" />
+        </basic>
+
+        <basic name="docAddlName">
+            <column name="doc_addl_name" />
+        </basic>
+
+        <basic name="docAddlNameChin">
+            <column name="doc_addl_name_chin" />
+        </basic>
+
+        <basic name="docSubmitDate">
+            <column name="doc_submit_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docFileDate">
+            <column name="doc_file_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docCapDate">
+            <column name="doc_cap_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="orsOrdr">
+            <column name="ors_ordr" />
+        </basic>
+
+        <basic name="orsRule">
+            <column name="ors_rule" />
+        </basic>
+
+        <basic name="orsSubRule">
+            <column name="ors_sub_rule" />
+        </basic>
+
+        <basic name="chapNo">
+            <column name="chap_no" />
+        </basic>
+
+        <basic name="sectNo">
+            <column name="sect_no" />
+        </basic>
+
+        <basic name="subsectNo">
+            <column name="subsect_no" />
+        </basic>
+
+        <basic name="outDocSender">
+            <column name="out_doc_sender" />
+        </basic>
+
+        <basic name="outDocSendDate">
+            <column name="out_doc_send_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="oflIssueDate">
+            <column name="ofl_issue_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docDtl">
+            <column name="doc_dtl" />
+        </basic>
+
+        <basic name="phyFileCopyExistFlag">
+            <column name="phy_file_copy_exist_flag" />
+        </basic>
+
+        <basic name="insistFilingFlag">
+            <column name="insist_filing_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="docClass" fetch="LAZY">
+        <join-column name="doc_class_id" referenced-column-name="doc_class_id" />
+    </many-to-one>
+
+    <many-to-one name="docType" fetch="LAZY">
+        <join-column name="doc_type_id" referenced-column-name="doc_type_id" />
+    </many-to-one>
+
+    <many-to-one name="docStatus" fetch="LAZY">
+        <join-column name="doc_status_id" referenced-column-name="doc_status_id" />
+    </many-to-one>
+
+    <many-to-one name="storeDocFmt" fetch="LAZY">
+        <join-column name="store_doc_fmt_id" referenced-column-name="doc_fmt_id" />
+    </many-to-one>
+
+    <many-to-one name="docLangType" fetch="LAZY">
+        <join-column name="doc_lang_type_id" referenced-column-name="lang_type_id" />
+    </many-to-one>
+
+    <many-to-one name="inDocFmt" fetch="LAZY">
+        <join-column name="in_doc_fmt_id" referenced-column-name="doc_fmt_id" />
+    </many-to-one>
+
+    <many-to-one name="docCapUser" fetch="LAZY">
+        <join-column name="doc_cap_user_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="docRejRsnType" fetch="LAZY">
+        <join-column name="doc_rej_rsn_type_id" referenced-column-name="doc_rej_rsn_type_id" />
+    </many-to-one>
+
+    <many-to-one name="docVerByPty" fetch="LAZY">
+        <join-column name="doc_ver_by_pty_id" referenced-column-name="doc_ver_by_pty_id" />
+    </many-to-one>
+
+    <many-to-one name="prepByUser" fetch="LAZY">
+        <join-column name="prep_by_user_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="outDocFmt" fetch="LAZY">
+        <join-column name="out_doc_fmt_id" referenced-column-name="doc_fmt_id" />
+    </many-to-one>
+
+    <many-to-one name="fileByPartcpRole" fetch="LAZY">
+        <join-column name="file_by_partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="fileMoveLoc" fetch="LAZY">
+        <join-column name="file_move_loc_id" referenced-column-name="file_move_loc_id" />
+    </many-to-one>
+
+    <many-to-one name="moveStatus" fetch="LAZY">
+        <join-column name="move_status_id" referenced-column-name="move_status_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+ <!--
+    <one-to-many name="runList"  mapped-by="docIdOfTheDirToPutIntoRunList" fetch="LAZY" />
+ -->
+
+    <one-to-many name="chkltForm"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="dirToDoc"  mapped-by="docIdOfTheDirEcf" fetch="LAZY" />
+    <one-to-many name="headsheet"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="hrnAssoDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="ordrToDoc"  mapped-by="docIdOfTheOrdrEcf" fetch="LAZY" />
+    <one-to-many name="stnceOrdrToDoc"  mapped-by="docIdOfTheStnceOrdr" fetch="LAZY" />
+    <one-to-many name="taxBillOfCost"  mapped-by="docIdOfBillOfCost" fetch="LAZY" />
+    <one-to-many name="witnList"  mapped-by="subpoenaSummonToWitnDoc" fetch="LAZY" />
+    <one-to-many name="caseMediAtmptDocIdOfMediMins"  mapped-by="docIdOfMediMins" fetch="LAZY" />
+    <one-to-many name="caseMediAtmptDocIdOfMediCert"  mapped-by="docIdOfMediCert" fetch="LAZY" />
+    <one-to-many name="caseMediDoc"  mapped-by="docIdOfMediDoc" fetch="LAZY" />
+    <one-to-many name="chrgToDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="claimToDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docFlrAcsRight"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docAssoRelDocId"  mapped-by="relDoc" fetch="LAZY" />
+    <one-to-many name="docAssoFrDocId"  mapped-by="frDoc" fetch="LAZY" />
+    <one-to-many name="docFolio"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docInPartcpRole"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docOutRecip"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docOutSignSeal"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docRteHist"  mapped-by="inDoc" fetch="LAZY" />
+    <one-to-many name="docTaskAct"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="elecFileLoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="ordrToDocRelshp"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="phyCaseFileDocMove"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="phyCaseFileDocReqs"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="reqsDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="blfMediaRecor"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="pymtInItem"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="refunReg"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="extWebPtalDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="taxDtl"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="hrnSchdAssoDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="dfltJudgtRslt"  mapped-by="docInfo" fetch="LAZY" />
+    <one-to-many name="docToFilingPur"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docStopRqusDtl"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="docToRaoRpoMsg"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="mcApps"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="courtFacReqsGrp"  mapped-by="relDocementIdInEcf" fetch="LAZY" />
+    <one-to-many name="mcAppealRegPrepDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="pymtReqs"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="mcAppealRegCaseDoc"  mapped-by="doc" fetch="LAZY" />
+    <one-to-many name="hrnRsltDoc"  mapped-by="doc" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="ecfDocDtl"  mapped-by="doc" fetch="LAZY" />
+    <one-to-one name="docSecLvlDtl"  mapped-by="doc" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

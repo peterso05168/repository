@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ValbItemRecvReg" access="FIELD">
+     <table name="tvalb_item_recv_reg" />
+
+     <attributes>
+        <id name="valbItemRecvRegId">
+            <column name="valb_item_recv_reg_id" />
+            <generated-value strategy="TABLE" generator="TVALB_ITEM_RECV_REG_SEQ" />
+            <table-generator name="TVALB_ITEM_RECV_REG_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tvalb_item_recv_reg_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="valbItemRecvRegItem">
+            <column name="valb_item_recv_reg_item" />
+        </basic>
+
+        <basic name="valbItemRecvRegDesc">
+            <column name="valb_item_recv_reg_desc" />
+        </basic>
+
+        <basic name="valbItemRegRecvDate">
+            <column name="valb_item_reg_recv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ordrDate">
+            <column name="ordr_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ordrBy">
+            <column name="ordr_by" />
+        </basic>
+
+        <basic name="batNo">
+            <column name="bat_no" />
+        </basic>
+
+        <basic name="fullRlseInd">
+            <column name="full_rlse_ind" />
+        </basic>
+
+        <basic name="ptyGivenName">
+            <column name="pty_given_name" />
+        </basic>
+
+        <basic name="valbItemRecvOrdrDesc">
+            <column name="valb_item_recv_ordr_desc" />
+        </basic>
+
+        <basic name="ptySurname">
+            <column name="pty_surname" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="valbItemReptReg"  mapped-by="valbItemRecvReg" fetch="LAZY" />
+    <one-to-many name="valbItemRlseReg"  mapped-by="valbItemRecvReg" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

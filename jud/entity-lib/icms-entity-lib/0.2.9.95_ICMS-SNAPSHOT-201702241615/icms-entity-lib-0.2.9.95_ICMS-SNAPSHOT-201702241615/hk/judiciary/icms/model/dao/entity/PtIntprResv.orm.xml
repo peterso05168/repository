@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PtIntprResv" access="FIELD">
+     <table name="tpt_intpr_resv" />
+
+     <attributes>
+        <id name="ptIntprResvId">
+            <column name="pt_intpr_resv_id" />
+            <generated-value strategy="TABLE" generator="TPT_INTPR_RESV_SEQ" />
+            <table-generator name="TPT_INTPR_RESV_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpt_intpr_resv_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="compsCourtCd">
+            <column name="comps_court_cd" />
+        </basic>
+
+        <basic name="caseTypeCd">
+            <column name="case_type_cd" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="hrnDt">
+            <column name="hrn_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="hrnNatDesc">
+            <column name="hrn_nat_desc" />
+        </basic>
+
+        <basic name="unspecDurInd">
+            <column name="unspec_dur_ind" />
+        </basic>
+
+        <basic name="estTimeLenHr">
+            <column name="est_time_len_hr" />
+        </basic>
+
+        <basic name="estTimeLenMinute">
+            <column name="est_time_len_minute" />
+        </basic>
+
+        <basic name="caseNatDesc">
+            <column name="case_nat_desc" />
+        </basic>
+
+        <basic name="respondentSeqNo">
+            <column name="respondent_seq_no" />
+        </basic>
+
+        <basic name="surname">
+            <column name="surname" />
+        </basic>
+
+        <basic name="givenName">
+            <column name="given_name" />
+        </basic>
+
+        <basic name="jjoProfileId">
+            <column name="jjo_profile_id" />
+        </basic>
+
+        <basic name="refNote">
+            <column name="ref_note" />
+        </basic>
+
+        <basic name="assignIntprName">
+            <column name="assign_intpr_name" />
+        </basic>
+
+        <basic name="assignIntprIntlNo">
+            <column name="assign_intpr_intl_no" />
+        </basic>
+
+        <basic name="fiReqsRefNo">
+            <column name="fi_reqs_ref_no" />
+        </basic>
+
+        <basic name="ptIntprRefNo">
+            <column name="pt_intpr_ref_no" />
+        </basic>
+
+        <basic name="paidByFees">
+            <column name="paid_by_fees" />
+        </basic>
+
+        <basic name="prosRefNo">
+            <column name="pros_ref_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnCompsCourt" fetch="LAZY">
+        <join-column name="hrn_comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnCourtRmChmbr" fetch="LAZY">
+        <join-column name="hrn_court_rm_chmbr_id" referenced-column-name="court_rm_chmbr_id" />
+    </many-to-one>
+
+    <many-to-one name="toLangType" fetch="LAZY">
+        <join-column name="to_lang_type_id" referenced-column-name="trial_lang_id" />
+    </many-to-one>
+
+    <many-to-one name="frLangType" fetch="LAZY">
+        <join-column name="fr_lang_type_id" referenced-column-name="trial_lang_id" />
+    </many-to-one>
+
+    <many-to-one name="pd" fetch="LAZY">
+        <join-column name="pd_id" referenced-column-name="pd_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRoleType" fetch="LAZY">
+        <join-column name="partcp_role_type_id" referenced-column-name="partcp_role_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

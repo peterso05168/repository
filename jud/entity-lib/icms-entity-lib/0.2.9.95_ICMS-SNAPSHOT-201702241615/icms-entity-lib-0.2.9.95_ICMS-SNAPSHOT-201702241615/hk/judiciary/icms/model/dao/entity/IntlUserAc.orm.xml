@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.IntlUserAc" access="FIELD">
+     <table name="tintl_user_ac" />
+
+     <attributes>
+        <id name="intlUserAcId">
+            <column name="intl_user_ac_id" />
+            <generated-value strategy="TABLE" generator="TINTL_USER_AC_SEQ" />
+            <table-generator name="TINTL_USER_AC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tintl_user_ac_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="staffPostTitle">
+            <column name="staff_post_title" />
+        </basic>
+
+        <basic name="jjoRank">
+            <column name="jjo_rank" />
+        </basic>
+
+        <basic name="ipAddr">
+            <column name="ip_addr" />
+        </basic>
+
+        <basic name="loginName">
+            <column name="login_name" />
+        </basic>
+
+        <basic name="givenName">
+            <column name="given_name" />
+        </basic>
+
+        <basic name="surname">
+            <column name="surname" />
+        </basic>
+
+        <basic name="givenNameChin">
+            <column name="given_name_chin" />
+        </basic>
+
+        <basic name="surnameChin">
+            <column name="surname_chin" />
+        </basic>
+
+        <basic name="emailAddr">
+            <column name="email_addr" />
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+        <basic name="staffPostTitleChin">
+            <column name="staff_post_title_chin" />
+        </basic>
+
+        <basic name="jpmuCd">
+            <column name="jpmu_cd" />
+        </basic>
+
+        <basic name="acUid">
+            <column name="ac_uid" />
+        </basic>
+
+        <basic name="isJjoFlag">
+            <column name="is_jjo_flag" />
+        </basic>
+
+        <basic name="romaStaffId">
+            <column name="roma_staff_id" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="ws" fetch="LAZY">
+        <join-column name="ws_id" referenced-column-name="ws_id" />
+    </many-to-one>
+
+    <many-to-one name="titleType" fetch="LAZY">
+        <join-column name="title_type_id" referenced-column-name="title_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="dailyCauseListDailyCauseListAppvBy"  mapped-by="dailyCauseListAppvBy" fetch="LAZY" />
+    <one-to-many name="dailyCauseListDailyCauseListReviewBy"  mapped-by="dailyCauseListReviewBy" fetch="LAZY" />
+    <one-to-many name="dailyCauseListDailyCauseListGenReqsBy"  mapped-by="dailyCauseListGenReqsBy" fetch="LAZY" />
+    <one-to-many name="pendListPendListReviewBy"  mapped-by="pendListReviewBy" fetch="LAZY" />
+    <one-to-many name="pendListPendListGenReqsBy"  mapped-by="pendListGenReqsBy" fetch="LAZY" />
+    <one-to-many name="pendListPendListAppvBy"  mapped-by="pendListAppvBy" fetch="LAZY" />
+    <one-to-many name="warnedListWarnedListAppvBy"  mapped-by="warnedListAppvBy" fetch="LAZY" />
+    <one-to-many name="warnedListWarnedListGenReqsBy"  mapped-by="warnedListGenReqsBy" fetch="LAZY" />
+    <one-to-many name="warnedListWarnedListReviewBy"  mapped-by="warnedListReviewBy" fetch="LAZY" />
+    <one-to-many name="courtFacReqs"  mapped-by="reqsByUser" fetch="LAZY" />
+    <one-to-many name="docDocCapUserId"  mapped-by="docCapUser" fetch="LAZY" />
+    <one-to-many name="docPrepByUserId"  mapped-by="prepByUser" fetch="LAZY" />
+    <one-to-many name="docFlrAcsRight"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="docActAssign"  mapped-by="assignOfficer" fetch="LAZY" />
+    <one-to-many name="docOutSignSeal"  mapped-by="signSealByUserAc" fetch="LAZY" />
+    <one-to-many name="docStopPickUpUserAcId"  mapped-by="pickUpUserAc" fetch="LAZY" />
+    <one-to-many name="docStopCmplUserAcId"  mapped-by="cmplUserAc" fetch="LAZY" />
+    <one-to-many name="docTaskAct"  mapped-by="cmplUserAc" fetch="LAZY" />
+    <one-to-many name="phyCaseFileDocMove"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="phyCaseFileDocReqs"  mapped-by="reqsUserAc" fetch="LAZY" />
+    <one-to-many name="procGrpMbr"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="blfAssign"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="blfAsgset"  mapped-by="confirmedBy" fetch="LAZY" />
+    <one-to-many name="blfMsgMsgFrStaff"  mapped-by="msgFrStaff" fetch="LAZY" />
+    <one-to-many name="blfMsgMsgToStaff"  mapped-by="msgToStaff" fetch="LAZY" />
+    <one-to-many name="proofOfServReqs"  mapped-by="reqsBy" fetch="LAZY" />
+    <one-to-many name="blfStmtOfAcFinalBy"  mapped-by="finalBy" fetch="LAZY" />
+    <one-to-many name="blfStmtOfAcBlfStmtOfAcAppvBy"  mapped-by="blfStmtOfAcAppvBy" fetch="LAZY" />
+    <one-to-many name="blfStmtOfAcHistSubmitBy"  mapped-by="submitBy" fetch="LAZY" />
+    <one-to-many name="blfStmtOfAcHistReqsBy"  mapped-by="reqsBy" fetch="LAZY" />
+    <one-to-many name="blfStmtOfAcHistBlfStmtOfAcHistAppvBy"  mapped-by="blfStmtOfAcHistAppvBy" fetch="LAZY" />
+    <one-to-many name="blfStmtOfAcItem"  mapped-by="verifBy" fetch="LAZY" />
+    <one-to-many name="blfMediaRecor"  mapped-by="uldByIntlUserAc" fetch="LAZY" />
+    <one-to-many name="appUserGrpToIntlUser"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="apptToIntlUser"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="extWebPtalUserAcAppv"  mapped-by="procByIntlUserAc" fetch="LAZY" />
+    <one-to-many name="orgAcLimitAppv"  mapped-by="procByIntlUserAc" fetch="LAZY" />
+ <!--
+    <one-to-many name="docScanHist"  mapped-by="docCapUser" fetch="LAZY" />
+ -->
+
+    <one-to-many name="personImage"  mapped-by="imageCapUser" fetch="LAZY" />
+    <one-to-many name="affixDtl"  mapped-by="affixByIntlUserAc" fetch="LAZY" />
+    <one-to-many name="digitalCert"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="docGenReqs"  mapped-by="lastModUserAc" fetch="LAZY" />
+    <one-to-many name="docTmpl"  mapped-by="ownerIntlUserAc" fetch="LAZY" />
+    <one-to-many name="elecSign"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="dfltJudgtRslt"  mapped-by="procBy" fetch="LAZY" />
+    <one-to-many name="dfOrdrRslt"  mapped-by="procBy" fetch="LAZY" />
+    <one-to-many name="exparteAppRslt"  mapped-by="procBy" fetch="LAZY" />
+    <one-to-many name="admisRslt"  mapped-by="procBy" fetch="LAZY" />
+    <one-to-many name="admisStatusStayedBy"  mapped-by="stayedBy" fetch="LAZY" />
+    <one-to-many name="admisStatusUpliftedBy"  mapped-by="upliftedBy" fetch="LAZY" />
+    <one-to-many name="procGrpToPropStop"  mapped-by="procOfficer" fetch="LAZY" />
+ <!--
+    <one-to-many name="rptTypeToIntlUser"  mapped-by="intlUserAc" fetch="LAZY" />
+ -->
+
+    <one-to-many name="docStopRqusDtl"  mapped-by="officerBeingAssign" fetch="LAZY" />
+    <one-to-many name="intlUserActingApptIntlUserAcId"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="intlUserActingApptActingIntlUserAcId"  mapped-by="actingIntlUserAc" fetch="LAZY" />
+    <one-to-many name="actAssignToProcGrp"  mapped-by="officerBeingAssign" fetch="LAZY" />
+    <one-to-many name="intlUserCtat"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="userToFileMoveLoc"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="buItemViewHist"  mapped-by="viewUser" fetch="LAZY" />
+    <one-to-many name="pendIntlUapReqsBy"  mapped-by="reqsBy" fetch="LAZY" />
+    <one-to-many name="pendIntlUapIntlUserAcId"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="pendIntlUapAppvBy"  mapped-by="appvBy" fetch="LAZY" />
+    <one-to-many name="syncUap"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="intlUserToCgs"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="intlUap"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="pendIntlRpToFuncAppvBy"  mapped-by="appvBy" fetch="LAZY" />
+    <one-to-many name="pendIntlRpToFuncReqsBy"  mapped-by="reqsBy" fetch="LAZY" />
+    <one-to-many name="blfActy"  mapped-by="intlUserAc" fetch="LAZY" />
+    <one-to-many name="blfReqsAmend"  mapped-by="intlUserAc" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="jjoProfile"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-one name="elecSignProfile"  mapped-by="intlUserAc" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

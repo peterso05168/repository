@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EpayOnlineTxn" access="FIELD">
+     <table name="tepay_online_txn" />
+
+     <attributes>
+        <id name="epayOnlineTxnId">
+            <column name="epay_online_txn_id" />
+            <generated-value strategy="TABLE" generator="TEPAY_ONLINE_TXN_SEQ" />
+            <table-generator name="TEPAY_ONLINE_TXN_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tepay_online_txn_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="pymtTxnNo">
+            <column name="pymt_txn_no" />
+        </basic>
+
+        <basic name="appSysId">
+            <column name="app_sys_id" />
+        </basic>
+
+        <basic name="egisRefNo">
+            <column name="egis_ref_no" />
+        </basic>
+
+        <basic name="txnRefNo">
+            <column name="txn_ref_no" />
+        </basic>
+
+        <basic name="epayOnlineTxnPymtAmt">
+            <column name="epay_online_txn_pymt_amt" />
+        </basic>
+
+        <basic name="pymtItemDesc">
+            <column name="pymt_item_desc" />
+        </basic>
+
+        <basic name="reqsDt">
+            <column name="reqs_dt" />
+        </basic>
+
+        <basic name="epayOnlineTxnStatus">
+            <column name="epay_online_txn_status" />
+        </basic>
+
+        <basic name="epayOnlineTxnDt">
+            <column name="epay_online_txn_dt" />
+        </basic>
+
+        <basic name="fiCd">
+            <column name="fi_cd" />
+        </basic>
+
+        <basic name="reconStatus">
+            <column name="recon_status" />
+        </basic>
+
+        <basic name="reconDate">
+            <column name="recon_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="curcyCd" fetch="LAZY">
+        <join-column name="curcy_cd_id" referenced-column-name="curcy_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="instal" fetch="LAZY">
+        <join-column name="instal_id" referenced-column-name="pymt_instal_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtMeth" fetch="LAZY">
+        <join-column name="pymt_meth_id" referenced-column-name="pymt_meth_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="epayInfCc" fetch="LAZY">
+        <join-column name="epay_inf_cc_id" referenced-column-name="epay_inf_cc_id" />
+    </one-to-one>
+
+    <one-to-one name="epayInfPpsb" fetch="LAZY">
+        <join-column name="epay_inf_ppsb_id" referenced-column-name="epay_inf_ppsb_id" />
+    </one-to-one>
+
+    <one-to-one name="pymtInTxn" fetch="LAZY">
+        <join-column name="pymt_in_txn_id" referenced-column-name="pymt_in_txn_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

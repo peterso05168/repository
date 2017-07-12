@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DocInPartcpRole" access="FIELD">
+     <table name="tdoc_in_partcp_role" />
+
+     <attributes>
+        <id name="docInPartcpRoleId">
+            <column name="doc_in_partcp_role_id" />
+            <generated-value strategy="TABLE" generator="TDOC_IN_PARTCP_ROLE_SEQ" />
+            <table-generator name="TDOC_IN_PARTCP_ROLE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdoc_in_partcp_role_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="appByOrAgstFlag">
+            <column name="app_by_or_agst_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="doc" fetch="LAZY">
+        <join-column name="doc_id" referenced-column-name="doc_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

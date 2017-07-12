@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.HrnSchd" access="FIELD">
+     <table name="thrn_schd" />
+
+     <attributes>
+        <id name="hrnSchdId">
+            <column name="hrn_schd_id" />
+            <generated-value strategy="TABLE" generator="THRN_SCHD_SEQ" />
+            <table-generator name="THRN_SCHD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="thrn_schd_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="hrnStartTime">
+            <column name="hrn_start_time" />
+        </basic>
+
+        <basic name="hrnHrPerSess">
+            <column name="hrn_hr_per_sess" />
+        </basic>
+
+        <basic name="hrnMinPerSess">
+            <column name="hrn_min_per_sess" />
+        </basic>
+
+        <basic name="openToPublInd">
+            <column name="open_to_publ_ind" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="hrnSchdDate">
+            <column name="hrn_schd_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="totalNoOfHrnDay">
+            <column name="total_no_of_hrn_day" />
+        </basic>
+
+        <basic name="theXthDayOfHrn">
+            <column name="the_xth_day_of_hrn" />
+        </basic>
+
+        <basic name="addlNoOfHrnDay">
+            <column name="addl_no_of_hrn_day" />
+        </basic>
+
+        <basic name="substnvHrnInd">
+            <column name="substnv_hrn_ind" />
+        </basic>
+
+        <basic name="paperDispInd">
+            <column name="paper_disp_ind" />
+        </basic>
+
+        <basic name="befOrigJjoInd">
+            <column name="bef_orig_jjo_ind" />
+        </basic>
+
+        <basic name="inChmbrInd">
+            <column name="in_chmbr_ind" />
+        </basic>
+
+        <basic name="ffd">
+            <column name="ffd" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="refixSchdInd">
+            <column name="refix_schd_ind" />
+        </basic>
+
+        <basic name="openCourtInd">
+            <column name="open_court_ind" />
+        </basic>
+
+        <basic name="adjRsnUnspecRsnTxt">
+            <column name="adj_rsn_unspec_rsn_txt" />
+        </basic>
+
+        <basic name="vactRsnUnspecRsnTxt">
+            <column name="vact_rsn_unspec_rsn_txt" />
+        </basic>
+
+        <basic name="ffdRejRsnUnspecRsnTxt">
+            <column name="ffd_rej_rsn_unspec_rsn_txt" />
+        </basic>
+
+        <basic name="dateOfIndicationOfPlea">
+            <column name="date_of_indication_of_plea" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="hrnReminderByJjo">
+            <column name="hrn_reminder_by_jjo" />
+        </basic>
+
+        <basic name="hrnReminderByStaff">
+            <column name="hrn_reminder_by_staff" />
+        </basic>
+
+        <basic name="prtyInd">
+            <column name="prty_ind" />
+        </basic>
+
+        <basic name="schdTogetherGrpNo">
+            <column name="schd_together_grp_no" />
+        </basic>
+
+        <basic name="intlNo">
+            <column name="intl_no" />
+        </basic>
+
+        <basic name="bookDt">
+            <column name="book_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="hrnNatDspTxt">
+            <column name="hrn_nat_dsp_txt" />
+        </basic>
+
+        <basic name="notBefInd">
+            <column name="not_bef_ind" />
+        </basic>
+
+        <basic name="retrialInd">
+            <column name="retrial_ind" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="listSchd" fetch="LAZY">
+        <join-column name="list_schd_id" referenced-column-name="list_schd_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="trialLang" fetch="LAZY">
+        <join-column name="trial_lang_id" referenced-column-name="trial_lang_id" />
+    </many-to-one>
+
+    <many-to-one name="adjRsnType" fetch="LAZY">
+        <join-column name="adj_rsn_type_id" referenced-column-name="adj_rsn_type_id" />
+    </many-to-one>
+
+    <many-to-one name="vactRsnType" fetch="LAZY">
+        <join-column name="vact_rsn_type_id" referenced-column-name="vact_rsn_type_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnTimeWgt" fetch="LAZY">
+        <join-column name="hrn_time_wgt_id" referenced-column-name="hrn_time_wgt_id" />
+    </many-to-one>
+
+    <many-to-one name="ffdRejRsn" fetch="LAZY">
+        <join-column name="ffd_rej_rsn_id" referenced-column-name="ffd_rej_rsn_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="dailyCauseList"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="courtFacReqs"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnDtl"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="ptIntprReqs"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="stnceOrdr"  mapped-by="nextHrnSchd" fetch="LAZY" />
+    <one-to-many name="warToHrnSchd"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnSchdAssoHrnNat"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnSchdPartcp"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnSchdAssoDoc"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnAssoWitn"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnAssoExbt"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="buItemAssoHrnSchd"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnSchdHist"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="hrnPrtyListSeq"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="fpReviewOrdr"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-many name="stnceOrdrTmpl"  mapped-by="seledHrnSchd" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="hrnSeq"  mapped-by="hrnSchd" fetch="LAZY" />
+    <one-to-one name="mcAppsHrnSchdIdForReview"  mapped-by="hrnSchdIdForReview" fetch="LAZY" />
+    <one-to-one name="mcAppsHrnSchdIdForHrn"  mapped-by="hrnSchdIdForHrn" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

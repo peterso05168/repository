@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.CaseType" access="FIELD">
+     <table name="ccase_type" />
+
+     <attributes>
+        <id name="caseTypeId">
+            <column name="case_type_id" />
+            <generated-value strategy="TABLE" generator="CCASE_TYPE_SEQ" />
+            <table-generator name="CCASE_TYPE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="ccase_type_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="caseTypeCd">
+            <column name="case_type_cd" />
+        </basic>
+
+        <basic name="caseTypeDesc">
+            <column name="case_type_desc" />
+        </basic>
+
+        <basic name="caseConfidFlag">
+            <column name="case_confid_flag" />
+        </basic>
+
+        <basic name="seqNo">
+            <column name="seq_no" />
+        </basic>
+
+        <basic name="caseTypeDescChin">
+            <column name="case_type_desc_chin" />
+        </basic>
+
+        <basic name="caseTypeDescChinSimpl">
+            <column name="case_type_desc_chin_simpl" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="caseClass" fetch="LAZY">
+        <join-column name="case_class_id" referenced-column-name="case_class_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="caseTypeToDocType"  mapped-by="caseType" fetch="LAZY" />
+    <one-to-many name="caseTypeToFlr"  mapped-by="caseType" fetch="LAZY" />
+    <one-to-many name="claimAppNat"  mapped-by="caseType" fetch="LAZY" />
+    <one-to-many name="hrnNatType"  mapped-by="caseType" fetch="LAZY" />
+    <one-to-many name="partcpRoleType"  mapped-by="caseType" fetch="LAZY" />
+    <one-to-many name="hrnNat"  mapped-by="caseType" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

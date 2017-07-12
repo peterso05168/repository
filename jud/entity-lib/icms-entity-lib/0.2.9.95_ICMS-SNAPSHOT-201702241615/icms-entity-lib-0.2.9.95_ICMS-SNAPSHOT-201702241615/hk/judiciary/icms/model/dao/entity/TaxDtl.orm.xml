@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.TaxDtl" access="FIELD">
+     <table name="ttax_dtl" />
+
+     <attributes>
+        <id name="taxDtlId">
+            <column name="tax_dtl_id" />
+            <generated-value strategy="TABLE" generator="TTAX_DTL_SEQ" />
+            <table-generator name="TTAX_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="ttax_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="itemToBeTaxAmt">
+            <column name="item_to_be_tax_amt" />
+        </basic>
+
+        <basic name="taxAmt">
+            <column name="tax_amt" />
+        </basic>
+
+        <basic name="taxItemIncurDate">
+            <column name="tax_item_incur_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="taxOrdrDate">
+            <column name="tax_ordr_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="taxItem" fetch="LAZY">
+        <join-column name="tax_item_id" referenced-column-name="tax_item_id" />
+    </many-to-one>
+
+    <many-to-one name="doc" fetch="LAZY">
+        <join-column name="doc_id" referenced-column-name="doc_id" />
+    </many-to-one>
+
+    <many-to-one name="stnceOrdr" fetch="LAZY">
+        <join-column name="stnce_ordr_id" referenced-column-name="stnce_ordr_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="taxPartcp"  mapped-by="taxDtl" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

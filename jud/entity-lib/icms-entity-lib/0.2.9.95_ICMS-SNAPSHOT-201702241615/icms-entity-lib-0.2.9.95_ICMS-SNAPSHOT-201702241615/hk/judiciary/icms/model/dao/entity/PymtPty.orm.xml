@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PymtPty" access="FIELD">
+     <table name="tpymt_pty" />
+
+     <attributes>
+        <id name="pymtPtyId">
+            <column name="pymt_pty_id" />
+            <generated-value strategy="TABLE" generator="TPYMT_PTY_SEQ" />
+            <table-generator name="TPYMT_PTY_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpymt_pty_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="surname">
+            <column name="surname" />
+        </basic>
+
+        <basic name="givenName">
+            <column name="given_name" />
+        </basic>
+
+        <basic name="ctatInfo">
+            <column name="ctat_info" />
+        </basic>
+
+        <basic name="addrLine1">
+            <column name="addr_line_1" />
+        </basic>
+
+        <basic name="addrLine2">
+            <column name="addr_line_2" />
+        </basic>
+
+        <basic name="addrLine3">
+            <column name="addr_line_3" />
+        </basic>
+
+        <basic name="orgName">
+            <column name="org_name" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="intmCase" fetch="LAZY">
+        <join-column name="intm_case_id" referenced-column-name="intm_case_id" />
+    </many-to-one>
+
+    <many-to-one name="ptyRole" fetch="LAZY">
+        <join-column name="pty_role_id" referenced-column-name="pty_role_id" />
+    </many-to-one>
+
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="fpTxn"  mapped-by="pymtPty" fetch="LAZY" />
+    <one-to-many name="baDeporRecip"  mapped-by="pymtPty" fetch="LAZY" />
+    <one-to-many name="pymtOrdr"  mapped-by="pymtPty" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

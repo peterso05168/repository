@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.CourtVenue" access="FIELD">
+     <table name="ccourt_venue" />
+
+     <attributes>
+        <id name="courtVenueId">
+            <column name="court_venue_id" />
+            <generated-value strategy="TABLE" generator="CCOURT_VENUE_SEQ" />
+            <table-generator name="CCOURT_VENUE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="ccourt_venue_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="courtVenueName">
+            <column name="court_venue_name" />
+        </basic>
+
+        <basic name="courtVenueDesc">
+            <column name="court_venue_desc" />
+        </basic>
+
+        <basic name="courtVenueNameInChinTrad">
+            <column name="court_venue_name_in_chin_trad" />
+        </basic>
+
+        <basic name="courtVenueCd">
+            <column name="court_venue_cd" />
+        </basic>
+
+        <basic name="courtVenueNameInChinSimpl">
+            <column name="court_venue_name_in_chin_simpl" />
+        </basic>
+
+        <basic name="courtVenueDescInChinSimpl">
+            <column name="court_venue_desc_in_chin_simpl" />
+        </basic>
+
+        <basic name="courtVenueDescInChinTrad">
+            <column name="court_venue_desc_in_chin_trad" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="courtRmChmbr"  mapped-by="courtVenue" fetch="LAZY" />
+    <one-to-many name="addrRole"  mapped-by="courtVenue" fetch="LAZY" />
+    <one-to-many name="courtLvl"  mapped-by="courtVenue" fetch="LAZY" />
+    <one-to-many name="compsCourt"  mapped-by="courtVenue" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

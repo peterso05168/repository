@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfTaskRslt" access="FIELD">
+     <table name="tblf_task_rslt" />
+
+     <attributes>
+        <id name="blfTaskRsltId">
+            <column name="blf_task_rslt_id" />
+            <generated-value strategy="TABLE" generator="TBLF_TASK_RSLT_SEQ" />
+            <table-generator name="TBLF_TASK_RSLT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_task_rslt_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="actlStartTime">
+            <column name="actl_start_time" />
+        </basic>
+
+        <basic name="actlEndTime">
+            <column name="actl_end_time" />
+        </basic>
+
+        <basic name="blfTaskRsltNote">
+            <column name="blf_task_rslt_note" />
+        </basic>
+
+        <basic name="atmptNo">
+            <column name="atmpt_no" />
+        </basic>
+
+        <basic name="remoteArea">
+            <column name="remote_area" />
+        </basic>
+
+        <basic name="priFlag">
+            <column name="pri_flag" />
+        </basic>
+
+        <basic name="inputTime">
+            <column name="input_time" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfTask" fetch="LAZY">
+        <join-column name="blf_task_id" referenced-column-name="blf_task_id" />
+    </many-to-one>
+
+    <many-to-one name="rsltStatus" fetch="LAZY">
+        <join-column name="rslt_status_id" referenced-column-name="blf_task_rslt_status_id" />
+    </many-to-one>
+
+    <many-to-one name="rsltRsn" fetch="LAZY">
+        <join-column name="rslt_rsn_id" referenced-column-name="blf_task_rslt_rsn_id" />
+    </many-to-one>
+
+    <many-to-one name="blfAssign" fetch="LAZY">
+        <join-column name="blf_assign_id" referenced-column-name="blf_assign_id" />
+    </many-to-one>
+
+    <many-to-one name="newLoc" fetch="LAZY">
+        <join-column name="new_loc_id" referenced-column-name="admy_loc_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="blfTaskPartcp"  mapped-by="blfTaskRslt" fetch="LAZY" />
+    <one-to-many name="admyArrtInfo"  mapped-by="blfTaskRslt" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

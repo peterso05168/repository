@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PolBailRegItem" access="FIELD">
+     <table name="tpol_bail_reg_item" />
+
+     <attributes>
+        <id name="polBailItemId">
+            <column name="pol_bail_item_id" />
+            <generated-value strategy="TABLE" generator="TPOL_BAIL_REG_ITEM_SEQ" />
+            <table-generator name="TPOL_BAIL_REG_ITEM_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpol_bail_reg_item_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="bailAmt">
+            <column name="bail_amt" />
+        </basic>
+
+        <basic name="polBailRegItemDesc">
+            <column name="pol_bail_reg_item_desc" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="polBail" fetch="LAZY">
+        <join-column name="pol_bail_id" referenced-column-name="pol_bail_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

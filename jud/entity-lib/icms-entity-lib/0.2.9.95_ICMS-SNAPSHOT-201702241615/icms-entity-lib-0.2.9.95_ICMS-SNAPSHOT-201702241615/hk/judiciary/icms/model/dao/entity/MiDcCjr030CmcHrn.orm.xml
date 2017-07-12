@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCjr030CmcHrn" access="FIELD">
+     <table name="tmi_dc_cjr_030_cmc_hrn" />
+
+     <attributes>
+        <id name="miDcCjr030CmcHrnId">
+            <column name="mi_dc_cjr_030_cmc_hrn_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CJR_030_CMC_HRN_SEQ" />
+            <table-generator name="TMI_DC_CJR_030_CMC_HRN_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cjr_030_cmc_hrn_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="trialOrSubstnvInd">
+            <column name="trial_or_substnv_ind" />
+        </basic>
+
+        <basic name="caseFilingDateGrp">
+            <column name="case_filing_date_grp" />
+        </basic>
+
+        <basic name="caseFilingDate">
+            <column name="case_filing_date" />
+        </basic>
+
+        <basic name="dispDate">
+            <column name="disp_date" />
+        </basic>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="judgeOrMaster">
+            <column name="judge_or_master" />
+        </basic>
+
+        <basic name="lstDate">
+            <column name="lst_date" />
+        </basic>
+
+        <basic name="startHrnDate">
+            <column name="start_hrn_date" />
+        </basic>
+
+        <basic name="substnvInd">
+            <column name="substnv_ind" />
+        </basic>
+
+        <basic name="quotaInd">
+            <column name="quota_ind" />
+        </basic>
+
+        <basic name="listTypeCd">
+            <column name="list_type_cd" />
+        </basic>
+
+        <basic name="listTypeDesc">
+            <column name="list_type_desc" />
+        </basic>
+
+        <basic name="hrnNatCd">
+            <column name="hrn_nat_cd" />
+        </basic>
+
+        <basic name="hrnNatDesc">
+            <column name="hrn_nat_desc" />
+        </basic>
+
+        <basic name="addlHrnNatDesc">
+            <column name="addl_hrn_nat_desc" />
+        </basic>
+
+        <basic name="docName">
+            <column name="doc_name" />
+        </basic>
+
+        <basic name="judge">
+            <column name="judge" />
+        </basic>
+
+        <basic name="bookedDur">
+            <column name="booked_dur" />
+        </basic>
+
+        <basic name="durUnit">
+            <column name="dur_unit" />
+        </basic>
+
+        <basic name="vactdFlag">
+            <column name="vactd_flag" />
+        </basic>
+
+        <basic name="claimNatDesc">
+            <column name="claim_nat_desc" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

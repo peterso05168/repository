@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PymtCd" access="FIELD">
+     <table name="cpymt_cd" />
+
+     <attributes>
+        <id name="pymtCdId">
+            <column name="pymt_cd_id" />
+            <generated-value strategy="TABLE" generator="CPYMT_CD_SEQ" />
+            <table-generator name="CPYMT_CD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="cpymt_cd_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="pymtCdDesc">
+            <column name="pymt_cd_desc" />
+        </basic>
+
+        <basic name="pymtCd">
+            <column name="pymt_cd" />
+        </basic>
+
+        <basic name="pymtPrty">
+            <column name="pymt_prty" />
+        </basic>
+
+        <basic name="isPymtIn">
+            <column name="is_pymt_in" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtCatCd" fetch="LAZY">
+        <join-column name="pymt_cat_cd_id" referenced-column-name="pymt_cat_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="baType" fetch="LAZY">
+        <join-column name="ba_type_id" referenced-column-name="ba_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="pymtSubCd"  mapped-by="pymtCd" fetch="LAZY" />
+    <one-to-many name="hrnRsltCd"  mapped-by="mgcPymtCd" fetch="LAZY" />
+    <one-to-many name="baRegActBailPymtCdId"  mapped-by="bailPymtCd" fetch="LAZY" />
+    <one-to-many name="gfmisRevuCd"  mapped-by="pymtCd" fetch="LAZY" />
+    <one-to-many name="docTypePymtCdMap"  mapped-by="pymtCd" fetch="LAZY" />
+    <one-to-many name="hrnRsltPymtCdMap"  mapped-by="pymtCd" fetch="LAZY" />
+    <one-to-many name="jsfasInfCaseTypeMap"  mapped-by="pymtCd" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="baRegActAmendPymtCdId"  mapped-by="amendPymtCd" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

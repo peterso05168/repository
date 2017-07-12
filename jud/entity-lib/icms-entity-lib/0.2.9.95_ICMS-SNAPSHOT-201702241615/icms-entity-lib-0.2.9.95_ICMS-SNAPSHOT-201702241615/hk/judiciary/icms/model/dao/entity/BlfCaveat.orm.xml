@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfCaveat" access="FIELD">
+     <table name="tblf_caveat" />
+
+     <attributes>
+        <id name="blfCaveatId">
+            <column name="blf_caveat_id" />
+            <generated-value strategy="TABLE" generator="TBLF_CAVEAT_SEQ" />
+            <table-generator name="TBLF_CAVEAT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_caveat_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="intedAmt">
+            <column name="inted_amt" />
+        </basic>
+
+        <basic name="docRefNo">
+            <column name="doc_ref_no" />
+        </basic>
+
+        <basic name="regedPort">
+            <column name="reged_port" />
+        </basic>
+
+        <basic name="withdrawnBy">
+            <column name="withdrawn_by" />
+        </basic>
+
+        <basic name="imo">
+            <column name="imo" />
+        </basic>
+
+        <basic name="regedFlag">
+            <column name="reged_flag" />
+        </basic>
+
+        <basic name="vsslName">
+            <column name="vssl_name" />
+        </basic>
+
+        <basic name="callSignNo">
+            <column name="call_sign_no" />
+        </basic>
+
+        <basic name="caveatTypeId">
+            <column name="caveat_type_id" />
+        </basic>
+
+        <basic name="caveatSeqNo">
+            <column name="caveat_seq_no" />
+        </basic>
+
+        <basic name="caseNo">
+            <column name="case_no" />
+        </basic>
+
+        <basic name="batName">
+            <column name="bat_name" />
+        </basic>
+
+        <basic name="issueDate">
+            <column name="issue_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="exyDate">
+            <column name="exy_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="withdrawnDate">
+            <column name="withdrawn_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="curcyCd" fetch="LAZY">
+        <join-column name="curcy_cd_id" referenced-column-name="curcy_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="admyReqs"  mapped-by="blfCaveat" fetch="LAZY" />
+    <one-to-many name="blfCaveatPartcp"  mapped-by="blfCaveat" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

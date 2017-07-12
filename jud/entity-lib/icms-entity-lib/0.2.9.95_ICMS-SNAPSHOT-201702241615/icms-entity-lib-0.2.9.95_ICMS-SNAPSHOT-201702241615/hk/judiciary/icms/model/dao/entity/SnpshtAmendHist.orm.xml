@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.SnpshtAmendHist" access="FIELD">
+     <table name="tsnpsht_amend_hist" />
+
+     <attributes>
+        <id name="snpshtAmendHistId">
+            <column name="snpsht_amend_hist_id" />
+            <generated-value strategy="TABLE" generator="TSNPSHT_AMEND_HIST_SEQ" />
+            <table-generator name="TSNPSHT_AMEND_HIST_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tsnpsht_amend_hist_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="snpshtAmendDate">
+            <column name="snpsht_amend_date" />
+        </basic>
+
+        <basic name="snpshtAmendRsn">
+            <column name="snpsht_amend_rsn" />
+        </basic>
+
+        <basic name="snpshtOldValue">
+            <column name="snpsht_old_value" />
+        </basic>
+
+        <basic name="snpshtNewValue">
+            <column name="snpsht_new_value" />
+        </basic>
+
+        <basic name="snpshtActValue">
+            <column name="snpsht_act_value" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="snpshtDtl" fetch="LAZY">
+        <join-column name="snpsht_dtl_id" referenced-column-name="snpsht_dtl_id" />
+    </many-to-one>
+
+    <many-to-one name="snpshtActType" fetch="LAZY">
+        <join-column name="snpsht_act_type_id" referenced-column-name="snpsht_act_type_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

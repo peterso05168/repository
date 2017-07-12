@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.SnpshtCwtDtl" access="FIELD">
+     <table name="tsnpsht_cwt_dtl" />
+
+     <attributes>
+        <id name="snpshtCwtDtlId">
+            <column name="snpsht_cwt_dtl_id" />
+            <generated-value strategy="TABLE" generator="TSNPSHT_CWT_DTL_SEQ" />
+            <table-generator name="TSNPSHT_CWT_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tsnpsht_cwt_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="snpshtTotalWaitTime">
+            <column name="snpsht_total_wait_time" />
+        </basic>
+
+        <basic name="snpshtTotalCase">
+            <column name="snpsht_total_case" />
+        </basic>
+
+        <basic name="withinTgtCase">
+            <column name="within_tgt_case" />
+        </basic>
+
+        <basic name="withinFirstIntervalCase">
+            <column name="within_first_interval_case" />
+        </basic>
+
+        <basic name="withinSecIntervalCase">
+            <column name="within_sec_interval_case" />
+        </basic>
+
+        <basic name="withinThirdIntervalCase">
+            <column name="within_third_interval_case" />
+        </basic>
+
+        <basic name="aboveThirdIntervalCase">
+            <column name="above_third_interval_case" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="snpshtDtl" fetch="LAZY">
+        <join-column name="snpsht_dtl_id" referenced-column-name="snpsht_dtl_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

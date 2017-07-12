@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.IrdClaimPty" access="FIELD">
+     <table name="tird_claim_pty" />
+
+     <attributes>
+        <id name="irdClaimPtyId">
+            <column name="ird_claim_pty_id" />
+            <generated-value strategy="TABLE" generator="TIRD_CLAIM_PTY_SEQ" />
+            <table-generator name="TIRD_CLAIM_PTY_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tird_claim_pty_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="ptyNo">
+            <column name="pty_no" />
+        </basic>
+
+        <basic name="name">
+            <column name="name" />
+        </basic>
+
+        <basic name="nameChin">
+            <column name="name_chin" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="actNo">
+            <column name="act_no" />
+        </basic>
+
+        <basic name="nameCcc1">
+            <column name="name_ccc1" />
+        </basic>
+
+        <basic name="nameCcc2">
+            <column name="name_ccc2" />
+        </basic>
+
+        <basic name="nameCcc3">
+            <column name="name_ccc3" />
+        </basic>
+
+        <basic name="nameCcc4">
+            <column name="name_ccc4" />
+        </basic>
+
+        <basic name="nameCcc5">
+            <column name="name_ccc5" />
+        </basic>
+
+        <basic name="nameCcc6">
+            <column name="name_ccc6" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

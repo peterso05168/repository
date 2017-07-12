@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.LglFirmBrch" access="FIELD">
+     <table name="clgl_firm_brch" />
+
+     <attributes>
+        <id name="lglFirmBrchId">
+            <column name="lgl_firm_brch_id" />
+            <generated-value strategy="TABLE" generator="CLGL_FIRM_BRCH_SEQ" />
+            <table-generator name="CLGL_FIRM_BRCH_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="clgl_firm_brch_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="lglFirmBrchCd">
+            <column name="lgl_firm_brch_cd" />
+        </basic>
+
+        <basic name="lglFirmBrchDesc">
+            <column name="lgl_firm_brch_desc" />
+        </basic>
+
+        <basic name="lglFirmDtlIntlNo">
+            <column name="lgl_firm_dtl_intl_no" />
+        </basic>
+
+        <basic name="addr1">
+            <column name="addr_1" />
+        </basic>
+
+        <basic name="addr2">
+            <column name="addr_2" />
+        </basic>
+
+        <basic name="addr3">
+            <column name="addr_3" />
+        </basic>
+
+        <basic name="addr1Chin">
+            <column name="addr_1_chin" />
+        </basic>
+
+        <basic name="addr2Chin">
+            <column name="addr_2_chin" />
+        </basic>
+
+        <basic name="addr3Chin">
+            <column name="addr_3_chin" />
+        </basic>
+
+        <basic name="telNo1">
+            <column name="tel_no_1" />
+        </basic>
+
+        <basic name="telNo2">
+            <column name="tel_no_2" />
+        </basic>
+
+        <basic name="faxNo">
+            <column name="fax_no" />
+        </basic>
+
+        <basic name="hccmsLastUpdDt">
+            <column name="hccms_last_upd_dt" />
+        </basic>
+
+        <basic name="lglFirmDc">
+            <column name="lgl_firm_dc" />
+        </basic>
+
+        <basic name="probInd">
+            <column name="prob_ind" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="lglFirm" fetch="LAZY">
+        <join-column name="lgl_firm_id" referenced-column-name="lgl_firm_id" />
+    </many-to-one>
+
+    <many-to-one name="hkRgn" fetch="LAZY">
+        <join-column name="hk_rgn_id" referenced-column-name="hk_rgn_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

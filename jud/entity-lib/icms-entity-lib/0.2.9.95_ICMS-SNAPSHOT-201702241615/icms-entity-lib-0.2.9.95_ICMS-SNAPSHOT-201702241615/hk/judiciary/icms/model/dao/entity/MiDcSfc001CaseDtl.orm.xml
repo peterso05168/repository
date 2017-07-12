@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcSfc001CaseDtl" access="FIELD">
+     <table name="tmi_dc_sfc_001_case_dtl" />
+
+     <attributes>
+        <id name="miDcSfc001CaseDtlId">
+            <column name="mi_dc_sfc_001_case_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_SFC_001_CASE_DTL_SEQ" />
+            <table-generator name="TMI_DC_SFC_001_CASE_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_sfc_001_case_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="dateAHrnDate">
+            <column name="date_a_hrn_date" />
+        </basic>
+
+        <basic name="dateAHrnTypeCd">
+            <column name="date_a_hrn_type_cd" />
+        </basic>
+
+        <basic name="dateAHrnTypeDesc">
+            <column name="date_a_hrn_type_desc" />
+        </basic>
+
+        <basic name="dateASubstnvHrnFlag">
+            <column name="date_a_substnv_hrn_flag" />
+        </basic>
+
+        <basic name="dateABookedDur">
+            <column name="date_a_booked_dur" />
+        </basic>
+
+        <basic name="dateADurUnit">
+            <column name="date_a_dur_unit" />
+        </basic>
+
+        <basic name="dateAVactdFlag">
+            <column name="date_a_vactd_flag" />
+        </basic>
+
+        <basic name="dateBHrnDate">
+            <column name="date_b_hrn_date" />
+        </basic>
+
+        <basic name="dateBHrnTypeCd">
+            <column name="date_b_hrn_type_cd" />
+        </basic>
+
+        <basic name="dateBHrnTypeDesc">
+            <column name="date_b_hrn_type_desc" />
+        </basic>
+
+        <basic name="dateBVactdFlag">
+            <column name="date_b_vactd_flag" />
+        </basic>
+
+        <basic name="lapsTime">
+            <column name="laps_time" />
+        </basic>
+
+        <basic name="dispStatus">
+            <column name="disp_status" />
+        </basic>
+
+        <basic name="dispDate">
+            <column name="disp_date" />
+        </basic>
+
+        <basic name="dateAHrnNatCd">
+            <column name="date_a_hrn_nat_cd" />
+        </basic>
+
+        <basic name="dateAHrnNatDesc">
+            <column name="date_a_hrn_nat_desc" />
+        </basic>
+
+        <basic name="rvseFlag">
+            <column name="rvse_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

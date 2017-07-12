@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Reqs" access="FIELD">
+     <table name="treqs" />
+
+     <attributes>
+        <id name="reqsId">
+            <column name="reqs_id" />
+            <generated-value strategy="TABLE" generator="TREQS_SEQ" />
+            <table-generator name="TREQS_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="treqs_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="regSerNo">
+            <column name="reg_ser_no" />
+        </basic>
+
+        <basic name="submitDt">
+            <column name="submit_dt" />
+        </basic>
+
+        <basic name="acptDt">
+            <column name="acpt_dt" />
+        </basic>
+
+        <basic name="regDt">
+            <column name="reg_dt" />
+        </basic>
+
+        <basic name="regYr">
+            <column name="reg_yr" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="seqNoForCase">
+            <column name="seq_no_for_case" />
+        </basic>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="regNo">
+            <column name="reg_no" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="handlingAgt" fetch="LAZY">
+        <join-column name="handling_agt_id" referenced-column-name="handling_agt_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsStatus" fetch="LAZY">
+        <join-column name="reqs_status_id" referenced-column-name="reqs_status_type_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsType" fetch="LAZY">
+        <join-column name="reqs_type_id" referenced-column-name="reqs_type_id" />
+    </many-to-one>
+
+    <many-to-one name="blfOffice" fetch="LAZY">
+        <join-column name="blf_office_id" referenced-column-name="blf_office_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="reqsAddr"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-many name="blfProg"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-many name="blfTask"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-many name="reqsPartcpRole"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-many name="reqsDoc"  mapped-by="blfReqs" fetch="LAZY" />
+    <one-to-many name="admyAgt"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-many name="specialReqs"  mapped-by="reqs" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="admyReqs"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-one name="proofOfServReqs"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-one name="reqsRslt"  mapped-by="blfReqs" fetch="LAZY" />
+    <one-to-one name="blfStmtOfAc"  mapped-by="blfReqs" fetch="LAZY" />
+    <one-to-one name="execReqs"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-one name="servReqs"  mapped-by="reqs" fetch="LAZY" />
+    <one-to-one name="blfReqsAmend"  mapped-by="reqs" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.HrnRsltCd" access="FIELD">
+     <table name="chrn_rslt_cd" />
+
+     <attributes>
+        <id name="hrnRsltCdId">
+            <column name="hrn_rslt_cd_id" />
+            <generated-value strategy="TABLE" generator="CHRN_RSLT_CD_SEQ" />
+            <table-generator name="CHRN_RSLT_CD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="chrn_rslt_cd_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="hrnRsltCd">
+            <column name="hrn_rslt_cd" />
+        </basic>
+
+        <basic name="hrnRsltDesc">
+            <column name="hrn_rslt_desc" />
+        </basic>
+
+        <basic name="hrnRsltDescChin">
+            <column name="hrn_rslt_desc_chin" />
+        </basic>
+
+        <basic name="hrnRsltDescChinSimpl">
+            <column name="hrn_rslt_desc_chin_simpl" />
+        </basic>
+
+        <basic name="hrnRsltTypeInd">
+            <column name="hrn_rslt_type_ind" />
+        </basic>
+
+        <basic name="addlInfoInd">
+            <column name="addl_info_ind" />
+        </basic>
+
+        <basic name="seqNo">
+            <column name="seq_no" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="mgcPymtCd" fetch="LAZY">
+        <join-column name="mgc_pymt_cd_id" referenced-column-name="pymt_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

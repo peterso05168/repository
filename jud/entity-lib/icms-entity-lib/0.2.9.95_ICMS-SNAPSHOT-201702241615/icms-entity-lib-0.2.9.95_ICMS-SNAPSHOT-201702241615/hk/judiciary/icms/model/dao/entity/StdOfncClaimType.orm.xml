@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.StdOfncClaimType" access="FIELD">
+     <table name="cstd_ofnc_claim_type" />
+
+     <attributes>
+        <id name="stdOfncClaimTypeId">
+            <column name="std_ofnc_claim_type_id" />
+            <generated-value strategy="TABLE" generator="CSTD_OFNC_CLAIM_TYPE_SEQ" />
+            <table-generator name="CSTD_OFNC_CLAIM_TYPE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="cstd_ofnc_claim_type_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="stdOfncClaimTypeDesc">
+            <column name="std_ofnc_claim_type_desc" />
+        </basic>
+
+        <basic name="stdOfncClaimTypeCd">
+            <column name="std_ofnc_claim_type_cd" />
+        </basic>
+
+        <basic name="chapNo">
+            <column name="chap_no" />
+        </basic>
+
+        <basic name="subLeg">
+            <column name="sub_leg" />
+        </basic>
+
+        <basic name="sectNo">
+            <column name="sect_no" />
+        </basic>
+
+        <basic name="subsectNo">
+            <column name="subsect_no" />
+        </basic>
+
+        <basic name="para">
+            <column name="para" />
+        </basic>
+
+        <basic name="subPara">
+            <column name="sub_para" />
+        </basic>
+
+        <basic name="supplCd">
+            <column name="suppl_cd" />
+        </basic>
+
+        <basic name="verNo">
+            <column name="ver_no" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="effvDate">
+            <column name="effv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="caseClass" fetch="LAZY">
+        <join-column name="case_class_id" referenced-column-name="case_class_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

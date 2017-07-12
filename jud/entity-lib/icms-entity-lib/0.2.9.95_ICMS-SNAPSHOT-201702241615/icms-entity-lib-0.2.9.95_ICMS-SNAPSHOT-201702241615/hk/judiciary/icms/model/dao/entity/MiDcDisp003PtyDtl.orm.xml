@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcDisp003PtyDtl" access="FIELD">
+     <table name="tmi_dc_disp_003_pty_dtl" />
+
+     <attributes>
+        <id name="miDcDisp003PtyDtlId">
+            <column name="mi_dc_disp_003_pty_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_DISP_003_PTY_DTL_SEQ" />
+            <table-generator name="TMI_DC_DISP_003_PTY_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_disp_003_pty_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="ptyType">
+            <column name="pty_type" />
+        </basic>
+
+        <basic name="ptyNo">
+            <column name="pty_no" />
+        </basic>
+
+        <basic name="ptyName">
+            <column name="pty_name" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="miDcDisp003CaseDtl" fetch="LAZY">
+        <join-column name="mi_dc_disp_003_case_dtl_id" referenced-column-name="mi_dc_disp_003_case_dtl_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

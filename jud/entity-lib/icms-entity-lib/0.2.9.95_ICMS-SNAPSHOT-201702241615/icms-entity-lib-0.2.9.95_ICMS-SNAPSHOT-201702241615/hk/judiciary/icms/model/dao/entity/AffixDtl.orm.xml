@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.AffixDtl" access="FIELD">
+     <table name="taffix_dtl" />
+
+     <attributes>
+        <id name="affixDtlId">
+            <column name="affix_dtl_id" />
+            <generated-value strategy="TABLE" generator="TAFFIX_DTL_SEQ" />
+            <table-generator name="TAFFIX_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="taffix_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="affixDt">
+            <column name="affix_dt" />
+        </basic>
+
+        <basic name="affixTypeCd">
+            <column name="affix_type_cd" />
+        </basic>
+
+        <basic name="pageNo">
+            <column name="page_no" />
+        </basic>
+
+        <basic name="posX">
+            <column name="pos_x" />
+        </basic>
+
+        <basic name="posY">
+            <column name="pos_y" />
+        </basic>
+
+        <basic name="width">
+            <column name="width" />
+        </basic>
+
+        <basic name="height">
+            <column name="height" />
+        </basic>
+
+        <basic name="tagId">
+            <column name="tag_id" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="courtSeal" fetch="LAZY">
+        <join-column name="court_seal_id" referenced-column-name="court_seal_id" />
+    </many-to-one>
+
+    <many-to-one name="elecSign" fetch="LAZY">
+        <join-column name="elec_sign_id" referenced-column-name="elec_sign_id" />
+    </many-to-one>
+
+    <many-to-one name="affixByIntlUserAc" fetch="LAZY">
+        <join-column name="affix_by_intl_user_ac_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="docGenReqs" fetch="LAZY">
+        <join-column name="doc_gen_reqs_id" referenced-column-name="doc_gen_reqs_id" />
+    </many-to-one>
+
+    <many-to-one name="digitalCert" fetch="LAZY">
+        <join-column name="digital_cert_id" referenced-column-name="digital_cert_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

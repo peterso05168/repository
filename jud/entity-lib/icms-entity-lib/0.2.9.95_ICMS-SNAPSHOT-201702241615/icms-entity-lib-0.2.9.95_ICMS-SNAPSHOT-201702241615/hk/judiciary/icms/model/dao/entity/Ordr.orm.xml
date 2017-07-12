@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.Ordr" access="FIELD">
+     <table name="tordr" />
+
+     <attributes>
+        <id name="ordrId">
+            <column name="ordr_id" />
+            <generated-value strategy="TABLE" generator="TORDR_SEQ" />
+            <table-generator name="TORDR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tordr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="ordrCdId">
+            <column name="ordr_cd_id" />
+        </basic>
+
+        <basic name="ordrDate">
+            <column name="ordr_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ordrOrsOrdr">
+            <column name="ordr_ors_ordr" />
+        </basic>
+
+        <basic name="ordrOrsRule">
+            <column name="ordr_ors_rule" />
+        </basic>
+
+        <basic name="ordrOrsSubRule">
+            <column name="ordr_ors_sub_rule" />
+        </basic>
+
+        <basic name="ordrCssCap">
+            <column name="ordr_css_cap" />
+        </basic>
+
+        <basic name="ordrCssSectNo">
+            <column name="ordr_css_sect_no" />
+        </basic>
+
+        <basic name="ordrCssSubsectNo">
+            <column name="ordr_css_subsect_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="jjoAc" fetch="LAZY">
+        <join-column name="jjo_ac_id" referenced-column-name="jjo_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="ordrDateType" fetch="LAZY">
+        <join-column name="ordr_date_type_id" referenced-column-name="ordr_date_type_id" />
+    </many-to-one>
+
+    <many-to-one name="outcCd" fetch="LAZY">
+        <join-column name="outc_cd_id" referenced-column-name="outc_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="ordrToDoc"  mapped-by="ordr" fetch="LAZY" />
+    <one-to-many name="ordrToPartcp"  mapped-by="ordr" fetch="LAZY" />
+    <one-to-many name="rstrOrdr"  mapped-by="ordr" fetch="LAZY" />
+    <one-to-many name="taxApp"  mapped-by="relOrdr" fetch="LAZY" />
+    <one-to-many name="stayOfProcsExec"  mapped-by="extendOrUpliftOrdr" fetch="LAZY" />
+    <one-to-many name="ordrToDocRelshp"  mapped-by="ordr" fetch="LAZY" />
+    <one-to-many name="docSecLvlDtl"  mapped-by="ordr" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

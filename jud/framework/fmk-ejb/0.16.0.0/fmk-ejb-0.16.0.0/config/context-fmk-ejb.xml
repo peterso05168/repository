@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           				   http://www.springframework.org/schema/context 
+           				   http://www.springframework.org/schema/context/spring-context-3.2.xsd                            
+                           http://www.springframework.org/schema/aop  
+ 						   http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+		<!-- There are application objects , please do not update and remove this section   -->
+		<!-- Application Config (start)   -->
+			   <context:annotation-config />
+			   <bean id="applicationFmkBContextProvder" class="hk.judiciary.fmk.ejb.util.ApplicationFmkContextProvider"/>
+		<!-- Application Config (end)   -->
+
+	   <bean id="securityBO" class="hk.judiciary.fmk.model.security.biz.SecurityBO" scope="prototype"/>
+	   <bean id="fmkProjMsgCodeBO" class="hk.judiciary.fmk.model.application.biz.FmkProjMsgCodeBO" scope="prototype"/>
+	   <bean id="fmkActyTrailBO" class="hk.judiciary.fmk.model.application.biz.FmkActyTrailBO" scope="prototype"/>
+	   <bean id="fmkProjCfgCodeBO" class="hk.judiciary.fmk.model.application.biz.FmkProjCfgCodeBO" scope="prototype"/>
+	   <bean id="fmkCertBO" class="hk.judiciary.fmk.model.application.biz.FmkCertBO" scope="prototype"/>
+	   <bean id="fmkWebserviceCfgBO" class="hk.judiciary.fmk.model.application.biz.FmkWebserviceCfgBO" scope="prototype"/>
+	   <bean id="fmkApplicationBO" class="hk.judiciary.fmk.model.application.biz.FmkApplicationBO" scope="prototype"/>
+	   <bean id="fmkHolidayCodeBO" class="hk.judiciary.fmk.model.application.biz.FmkHolidayCodeBO" scope="prototype"/>
+	   <bean id="fmkAuditTrailSpecialCodeBO" class="hk.judiciary.fmk.model.application.biz.FmkAuditTrailSpecialCodeBO" scope="prototype"/>
+	   <bean id="fmkAuditTrailSearchCodeBO" class="hk.judiciary.fmk.model.application.biz.FmkAuditTrailSearchCodeBO" scope="prototype"/>
+	   <bean id="fmkRuleBO" class="hk.judiciary.fmk.model.application.biz.FmkRuleBO" scope="prototype"/>
+
+</beans>

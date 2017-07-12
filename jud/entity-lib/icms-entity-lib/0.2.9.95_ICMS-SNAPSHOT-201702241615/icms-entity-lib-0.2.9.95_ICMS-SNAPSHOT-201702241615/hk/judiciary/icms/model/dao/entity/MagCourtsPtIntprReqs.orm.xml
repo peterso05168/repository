@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MagCourtsPtIntprReqs" access="FIELD">
+     <table name="tmag_courts_pt_intpr_reqs" />
+
+     <attributes>
+        <id name="magCourtsPtIntprReqsId">
+            <column name="mag_courts_pt_intpr_reqs_id" />
+            <generated-value strategy="TABLE" generator="TMAG_COURTS_PT_INTPR_REQS_SEQ" />
+            <table-generator name="TMAG_COURTS_PT_INTPR_REQS_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmag_courts_pt_intpr_reqs_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="estTimeLenMinute">
+            <column name="est_time_len_minute" />
+        </basic>
+
+        <basic name="refNote">
+            <column name="ref_note" />
+        </basic>
+
+        <basic name="reqsStartDt">
+            <column name="reqs_start_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ptIntprReqsStatus">
+            <column name="pt_intpr_reqs_status" />
+        </basic>
+
+        <basic name="unspecDurInd">
+            <column name="unspec_dur_ind" />
+        </basic>
+
+        <basic name="ptIntprRefNo">
+            <column name="pt_intpr_ref_no" />
+        </basic>
+
+        <basic name="ptIntprName">
+            <column name="pt_intpr_name" />
+        </basic>
+
+        <basic name="ptIntprReqsRefNo">
+            <column name="pt_intpr_reqs_ref_no" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="estTimeLenHr">
+            <column name="est_time_len_hr" />
+        </basic>
+
+        <basic name="prosRefNo">
+            <column name="pros_ref_no" />
+        </basic>
+
+        <basic name="caseNatDesc">
+            <column name="case_nat_desc" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="reqsByPartcpRole" fetch="LAZY">
+        <join-column name="reqs_by_partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsForPartcpRole" fetch="LAZY">
+        <join-column name="reqs_for_partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnSchd" fetch="LAZY">
+        <join-column name="hrn_schd_id" referenced-column-name="hrn_schd_id" />
+    </many-to-one>
+
+    <many-to-one name="frLangType" fetch="LAZY">
+        <join-column name="fr_lang_type_id" referenced-column-name="trial_lang_id" />
+    </many-to-one>
+
+    <many-to-one name="toLangType" fetch="LAZY">
+        <join-column name="to_lang_type_id" referenced-column-name="trial_lang_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

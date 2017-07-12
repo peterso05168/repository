@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DocSecLvlDtl" access="FIELD">
+     <table name="tdoc_sec_lvl_dtl" />
+
+     <attributes>
+        <id name="docSecLvlDtlId">
+            <column name="doc_sec_lvl_dtl_id" />
+            <generated-value strategy="TABLE" generator="TDOC_SEC_LVL_DTL_SEQ" />
+            <table-generator name="TDOC_SEC_LVL_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdoc_sec_lvl_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="admisRestEventFlag">
+            <column name="admis_rest_event_flag" />
+        </basic>
+
+        <basic name="otherDesc">
+            <column name="other_desc" />
+        </basic>
+
+        <basic name="renewedVerFlag">
+            <column name="renewed_ver_flag" />
+        </basic>
+
+        <basic name="revisedVerFlag">
+            <column name="revised_ver_flag" />
+        </basic>
+
+        <basic name="seqNo">
+            <column name="seq_no" />
+        </basic>
+
+        <basic name="supplalFlag">
+            <column name="supplal_flag" />
+        </basic>
+
+        <basic name="withExbtAndAddlRmksFlag">
+            <column name="with_exbt_and_addl_rmks_flag" />
+        </basic>
+
+        <basic name="withNoStmtOfTurthFlag">
+            <column name="with_no_stmt_of_turth_flag" />
+        </basic>
+
+        <basic name="wholeOrPartClaimFlag">
+            <column name="whole_or_part_claim_flag" />
+        </basic>
+
+        <basic name="dateOfCert">
+            <column name="date_of_cert" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="dfltJudgtServFlag">
+            <column name="dflt_judgt_serv_flag" />
+        </basic>
+
+        <basic name="dfJudgtEnclosedFlag">
+            <column name="df_judgt_enclosed_flag" />
+        </basic>
+
+        <basic name="labrTribunalCaseNo">
+            <column name="labr_tribunal_case_no" />
+        </basic>
+
+        <basic name="runOrFixuListFlag">
+            <column name="run_or_fixu_list_flag" />
+        </basic>
+
+        <basic name="otherAppealAgstType">
+            <column name="other_appeal_agst_type" />
+        </basic>
+
+        <basic name="pymtProposalAcptFlag">
+            <column name="pymt_proposal_acpt_flag" />
+        </basic>
+
+        <basic name="claimAcptFlag">
+            <column name="claim_acpt_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="exparteAppNatType" fetch="LAZY">
+        <join-column name="exparte_app_nat_type_id" referenced-column-name="exparte_app_nat_type_id" />
+    </many-to-one>
+
+    <many-to-one name="pursuantToJudgtType" fetch="LAZY">
+        <join-column name="pursuant_to_judgt_type_id" referenced-column-name="pursuant_to_judgt_type_id" />
+    </many-to-one>
+
+    <many-to-one name="subpoenaType" fetch="LAZY">
+        <join-column name="subpoena_type_id" referenced-column-name="subpoena_type_id" />
+    </many-to-one>
+
+    <many-to-one name="appealAgstType" fetch="LAZY">
+        <join-column name="appeal_agst_type_id" referenced-column-name="appeal_agst_type_id" />
+    </many-to-one>
+
+    <many-to-one name="consentOrdrType" fetch="LAZY">
+        <join-column name="consent_ordr_type_id" referenced-column-name="consent_ordr_type_id" />
+    </many-to-one>
+
+    <many-to-one name="examOrdrType" fetch="LAZY">
+        <join-column name="exam_ordr_type_id" referenced-column-name="exam_ordr_type_id" />
+    </many-to-one>
+
+    <many-to-one name="exparteWayType" fetch="LAZY">
+        <join-column name="exparte_way_type_id" referenced-column-name="exparte_way_type_id" />
+    </many-to-one>
+
+    <many-to-one name="expertRptType" fetch="LAZY">
+        <join-column name="expert_rpt_type_id" referenced-column-name="expert_rpt_type_id" />
+    </many-to-one>
+
+    <many-to-one name="judgtType" fetch="LAZY">
+        <join-column name="judgt_type_id" referenced-column-name="judgt_type_id" />
+    </many-to-one>
+
+    <many-to-one name="ordr" fetch="LAZY">
+        <join-column name="ordr_id" referenced-column-name="ordr_id" />
+    </many-to-one>
+
+    <many-to-one name="chrgOrGrsheOrdrType" fetch="LAZY">
+        <join-column name="chrg_or_grshe_ordr_type_id" referenced-column-name="chrg_or_grshe_ordr_type_id" />
+    </many-to-one>
+
+    <many-to-one name="propPymtType" fetch="LAZY">
+        <join-column name="prop_pymt_type_id" referenced-column-name="admis_pymt_type_id" />
+    </many-to-one>
+
+    <many-to-one name="intendsToContstType" fetch="LAZY">
+        <join-column name="intends_to_contst_type_id" referenced-column-name="intend_to_contst_type_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsPymtType" fetch="LAZY">
+        <join-column name="reqs_pymt_type_id" referenced-column-name="admis_pymt_type_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="intendToAdmit"  mapped-by="docSecLvlDtl" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="doc" fetch="LAZY">
+        <join-column name="doc_id" referenced-column-name="doc_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

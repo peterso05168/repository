@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.CaseNoResv" access="FIELD">
+     <table name="tcase_no_resv" />
+
+     <attributes>
+        <id name="caseNoResvId">
+            <column name="case_no_resv_id" />
+            <generated-value strategy="TABLE" generator="TCASE_NO_RESV_SEQ" />
+            <table-generator name="TCASE_NO_RESV_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tcase_no_resv_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="orgCd">
+            <column name="org_cd" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="applyPtySurname">
+            <column name="apply_pty_surname" />
+        </basic>
+
+        <basic name="applyPtyGivenName">
+            <column name="apply_pty_given_name" />
+        </basic>
+
+        <basic name="applyPtySurnameChin">
+            <column name="apply_pty_surname_chin" />
+        </basic>
+
+        <basic name="applyPtyGivenNameChin">
+            <column name="apply_pty_given_name_chin" />
+        </basic>
+
+        <basic name="ctatPhoneNo">
+            <column name="ctat_phone_no" />
+        </basic>
+
+        <basic name="appDt">
+            <column name="app_dt" />
+        </basic>
+
+        <basic name="exyDt">
+            <column name="exy_dt" />
+        </basic>
+
+        <basic name="rlseDt">
+            <column name="rlse_dt" />
+        </basic>
+
+        <basic name="txnRefNo">
+            <column name="txn_ref_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+    <many-to-one name="caseType" fetch="LAZY">
+        <join-column name="case_type_id" referenced-column-name="case_type_id" />
+    </many-to-one>
+
+    <many-to-one name="extUserAc" fetch="LAZY">
+        <join-column name="ext_user_ac_id" referenced-column-name="ext_user_ac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

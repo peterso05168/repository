@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ProofOfServReqs" access="FIELD">
+     <table name="tproof_of_serv_reqs" />
+
+     <attributes>
+        <id name="proofOfServReqsId">
+            <column name="proof_of_serv_reqs_id" />
+            <generated-value strategy="TABLE" generator="TPROOF_OF_SERV_REQS_SEQ" />
+            <table-generator name="TPROOF_OF_SERV_REQS_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tproof_of_serv_reqs_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="proofByDocDueDate">
+            <column name="proof_by_doc_due_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="proofOfServHrnDt">
+            <column name="proof_of_serv_hrn_dt" />
+        </basic>
+
+        <basic name="proofOfDocFlag">
+            <column name="proof_of_doc_flag" />
+        </basic>
+
+        <basic name="attdCourtInPersonFlag">
+            <column name="attd_court_in_person_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="proofByDocType" fetch="LAZY">
+        <join-column name="proof_by_doc_type_id" referenced-column-name="proof_of_serv_doc_type_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsBy" fetch="LAZY">
+        <join-column name="reqs_by" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="successTask" fetch="LAZY">
+        <join-column name="success_task_id" referenced-column-name="blf_task_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="reqs" fetch="LAZY">
+        <join-column name="reqs_id" referenced-column-name="reqs_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

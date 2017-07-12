@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ExtWebPtalUserAcAppv" access="FIELD">
+     <table name="text_web_ptal_user_ac_appv" />
+
+     <attributes>
+        <id name="ewpUserAcAppvId">
+            <column name="ewp_user_ac_appv_id" />
+            <generated-value strategy="TABLE" generator="TEXT_WEB_PTAL_USER_AC_APPV_SEQ" />
+            <table-generator name="TEXT_WEB_PTAL_USER_AC_APPV_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="text_web_ptal_user_ac_appv_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="procDate">
+            <column name="proc_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="appvDtl">
+            <column name="appv_dtl" />
+        </basic>
+
+        <basic name="rcmdOrgCd">
+            <column name="rcmd_org_cd" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="appvType" fetch="LAZY">
+        <join-column name="appv_type_id" referenced-column-name="appv_type_id" />
+    </many-to-one>
+
+    <many-to-one name="rejRsnType" fetch="LAZY">
+        <join-column name="rej_rsn_type_id" referenced-column-name="rej_rsn_type_id" />
+    </many-to-one>
+
+    <many-to-one name="ewpUserAcApp" fetch="LAZY">
+        <join-column name="ewp_user_ac_app_id" referenced-column-name="ewp_user_ac_app_id" />
+    </many-to-one>
+
+    <many-to-one name="procByIntlUserAc" fetch="LAZY">
+        <join-column name="proc_by_intl_user_ac_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

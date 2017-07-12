@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PartcpRole" access="FIELD">
+     <table name="tpartcp_role" />
+
+     <attributes>
+        <id name="partcpRoleId">
+            <column name="partcp_role_id" />
+            <generated-value strategy="TABLE" generator="TPARTCP_ROLE_SEQ" />
+            <table-generator name="TPARTCP_ROLE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpartcp_role_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="respondentSeqNo">
+            <column name="respondent_seq_no" />
+        </basic>
+
+        <basic name="litiInPersonFlag">
+            <column name="liti_in_person_flag" />
+        </basic>
+
+        <basic name="extRespondentSeqNo">
+            <column name="ext_respondent_seq_no" />
+        </basic>
+
+        <basic name="partcpConfidFlag">
+            <column name="partcp_confid_flag" />
+        </basic>
+
+        <basic name="intprToLangDesc">
+            <column name="intpr_to_lang_desc" />
+        </basic>
+
+        <basic name="partcpRoleDesc">
+            <column name="partcp_role_desc" />
+        </basic>
+
+        <basic name="partcpRoleDescChin">
+            <column name="partcp_role_desc_chin" />
+        </basic>
+
+        <basic name="respondentSubseqNo">
+            <column name="respondent_subseq_no" />
+        </basic>
+
+        <basic name="specialArrang">
+            <column name="special_arrang" />
+        </basic>
+
+        <basic name="ptyTitle">
+            <column name="pty_title" />
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="partcp" fetch="LAZY">
+        <join-column name="partcp_id" referenced-column-name="partcp_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRoleType" fetch="LAZY">
+        <join-column name="partcp_role_type_id" referenced-column-name="partcp_role_type_id" />
+    </many-to-one>
+
+    <many-to-one name="ptyCat" fetch="LAZY">
+        <join-column name="pty_cat_id" referenced-column-name="pty_cat_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="dirToPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="exbtRtnToPartcpRoleId"  mapped-by="rtnToPartcpRole" fetch="LAZY" />
+    <one-to-many name="exbtProvByPartcpRoleId"  mapped-by="provByPartcpRole" fetch="LAZY" />
+    <one-to-many name="hrnAttdForPartcpRoleId"  mapped-by="forPartcpRole" fetch="LAZY" />
+    <one-to-many name="hrnAttdPartcpRoleId"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="hrnPty"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="ordrToPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="ptIntprAttdDtl"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="ptIntprReqsReqsForPartcpRoleId"  mapped-by="reqsForPartcpRole" fetch="LAZY" />
+    <one-to-many name="ptIntprReqsReqsByPartcpRoleId"  mapped-by="reqsByPartcpRole" fetch="LAZY" />
+    <one-to-many name="taxPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="witnListPartcpRoleId"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="witnListReqsPartcpRoleId"  mapped-by="reqsPartcpRole" fetch="LAZY" />
+    <one-to-many name="casePtyDisp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="chrgToPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="claimToPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="war"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="doc"  mapped-by="fileByPartcpRole" fetch="LAZY" />
+    <one-to-many name="docInPartcpRole"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="docOutRecip"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="ecfPtyDtl"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="lglRep"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="partcpRoleRelshpPartcpRoleBId"  mapped-by="partcpRoleB" fetch="LAZY" />
+    <one-to-many name="partcpRoleRelshpPartcpRoleAId"  mapped-by="partcpRoleA" fetch="LAZY" />
+    <one-to-many name="reqsPartcpRole"  mapped-by="origPartcpRole" fetch="LAZY" />
+    <one-to-many name="epayInfEpsco"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="epayInfJetco"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="pymtInItem"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="polBailRegItem"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="extWebPtalUserAcApp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="lawAndLglRef"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="taxDtl"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="orgRecvCourtCaseMsg"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="moneBailCond"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="brToPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="surrenderReptToPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="hrnSchdPartcp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="docSecLvlDtl"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="exbtListRtnToPartcpRoleId"  mapped-by="rtnToPartcpRole" fetch="LAZY" />
+    <one-to-many name="exbtListProvByPartcpRoleId"  mapped-by="provByPartcpRole" fetch="LAZY" />
+    <one-to-many name="hrnAssoWitn"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="hrnAssoExbt"  mapped-by="rtnToPartcpRole" fetch="LAZY" />
+    <one-to-many name="prosExbtList"  mapped-by="prosPartcpRole" fetch="LAZY" />
+    <one-to-many name="mcAppealRegAppellant"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="mcAppAppl"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="warApp"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="warOrdr"  mapped-by="issueForPartcp" fetch="LAZY" />
+    <one-to-many name="intendToAdmit"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="pymtReqs"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="hrnDtlPartcpOtherFlag"  mapped-by="partcpRole" fetch="LAZY" />
+    <one-to-many name="adjtmentRegItem"  mapped-by="partcpRole" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="deftDtl"  mapped-by="partcpRole" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

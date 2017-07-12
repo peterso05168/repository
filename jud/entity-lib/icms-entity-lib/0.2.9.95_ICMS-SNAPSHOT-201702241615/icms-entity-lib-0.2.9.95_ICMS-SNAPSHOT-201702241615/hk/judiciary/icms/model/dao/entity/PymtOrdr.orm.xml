@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PymtOrdr" access="FIELD">
+     <table name="tpymt_ordr" />
+
+     <attributes>
+        <id name="pymtOrdrId">
+            <column name="pymt_ordr_id" />
+            <generated-value strategy="TABLE" generator="TPYMT_ORDR_SEQ" />
+            <table-generator name="TPYMT_ORDR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpymt_ordr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="pymtOrdrAmt">
+            <column name="pymt_ordr_amt" />
+        </basic>
+
+        <basic name="settlePrty">
+            <column name="settle_prty" />
+        </basic>
+
+        <basic name="deductFrBailFlag">
+            <column name="deduct_fr_bail_flag" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="previousBailAmt">
+            <column name="previous_bail_amt" />
+        </basic>
+
+        <basic name="recip">
+            <column name="recip" />
+        </basic>
+
+        <basic name="pymtDueDate">
+            <column name="pymt_due_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="pymtAdvNo">
+            <column name="pymt_adv_no" />
+        </basic>
+
+        <basic name="pymtByInstalFlag">
+            <column name="pymt_by_instal_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtSchd" fetch="LAZY">
+        <join-column name="pymt_schd_id" referenced-column-name="pymt_schd_id" />
+    </many-to-one>
+
+    <many-to-one name="curcyCd" fetch="LAZY">
+        <join-column name="curcy_cd_id" referenced-column-name="curcy_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtPty" fetch="LAZY">
+        <join-column name="pymt_pty_id" referenced-column-name="pymt_pty_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtReqs" fetch="LAZY">
+        <join-column name="pymt_reqs_id" referenced-column-name="pymt_reqs_id" />
+    </many-to-one>
+
+    <many-to-one name="stnceOrdr" fetch="LAZY">
+        <join-column name="stnce_ordr_id" referenced-column-name="stnce_ordr_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtOrdrSumy" fetch="LAZY">
+        <join-column name="pymt_ordr_sumy_id" referenced-column-name="pymt_ordr_sumy_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="stnceOrdrTmpl"  mapped-by="pymtOrdr" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

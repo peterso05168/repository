@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiMcDis001" access="FIELD">
+     <table name="tmi_mc_dis_001" />
+
+     <attributes>
+        <id name="miMcDis001Id">
+            <column name="mi_mc_dis_001_id" />
+            <generated-value strategy="TABLE" generator="TMI_MC_DIS_001_SEQ" />
+            <table-generator name="TMI_MC_DIS_001_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_mc_dis_001_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="rsltPreviousYr">
+            <column name="rslt_previous_yr" />
+        </basic>
+
+        <basic name="rsltFile">
+            <column name="rslt_file" />
+        </basic>
+
+        <basic name="rsltDisOf">
+            <column name="rslt_dis_of" />
+        </basic>
+
+        <basic name="rsltInactive">
+            <column name="rslt_inactive" />
+        </basic>
+
+        <basic name="rsltInProg">
+            <column name="rslt_in_prog" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

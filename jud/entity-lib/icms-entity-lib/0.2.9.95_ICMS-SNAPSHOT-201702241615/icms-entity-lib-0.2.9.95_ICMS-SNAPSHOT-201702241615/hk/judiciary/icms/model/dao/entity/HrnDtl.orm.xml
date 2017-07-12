@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.HrnDtl" access="FIELD">
+     <table name="thrn_dtl" />
+
+     <attributes>
+        <id name="hrnDtlId">
+            <column name="hrn_dtl_id" />
+            <generated-value strategy="TABLE" generator="THRN_DTL_SEQ" />
+            <table-generator name="THRN_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="thrn_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="jcVetCmplDate">
+            <column name="jc_vet_cmpl_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="jcVetStatus">
+            <column name="jc_vet_status" />
+        </basic>
+
+        <basic name="hrnDtlDate">
+            <column name="hrn_dtl_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="hrnIntlNo">
+            <column name="hrn_intl_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnSchd" fetch="LAZY">
+        <join-column name="hrn_schd_id" referenced-column-name="hrn_schd_id" />
+    </many-to-one>
+
+    <many-to-one name="courtRmChmbr" fetch="LAZY">
+        <join-column name="court_rm_chmbr_id" referenced-column-name="court_rm_chmbr_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="jjoProfile" fetch="LAZY">
+        <join-column name="jjo_profile_id" referenced-column-name="jjo_profile_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnStatusType" fetch="LAZY">
+        <join-column name="hrn_status_type_id" referenced-column-name="hrn_status_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="chkltForm"  mapped-by="hrnDtl" fetch="LAZY" />
+ <!--
+    <one-to-many name="claimRslt"  mapped-by="hrnDtl" fetch="LAZY" />
+ -->
+
+    <one-to-many name="dir"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="endorSheet"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="exbt"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="headsheet"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnAssoDoc"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnAttd"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnPty"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnRslt"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="jjoNote"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="ordr"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="ptIntprAttdDtl"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="stnceOrdr"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="taxHrn"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="br"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="surrenderRept"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnDtlAssoHrnNat"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnPrtyListSeq"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnDtlPartcpOtherFlag"  mapped-by="hrnDtl" fetch="LAZY" />
+    <one-to-many name="hrnRsltDoc"  mapped-by="hrnDtl" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

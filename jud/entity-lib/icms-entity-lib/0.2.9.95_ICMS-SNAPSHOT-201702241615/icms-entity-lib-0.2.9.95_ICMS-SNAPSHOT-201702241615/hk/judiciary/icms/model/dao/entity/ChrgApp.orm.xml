@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ChrgApp" access="FIELD">
+     <table name="tchrg_app" />
+
+     <attributes>
+        <id name="chrgAppId">
+            <column name="chrg_app_id" />
+            <generated-value strategy="TABLE" generator="TCHRG_APP_SEQ" />
+            <table-generator name="TCHRG_APP_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tchrg_app_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="seqNo">
+            <column name="seq_no" />
+        </basic>
+
+        <basic name="extSeqNo">
+            <column name="ext_seq_no" />
+        </basic>
+
+        <basic name="chrgVerNo">
+            <column name="chrg_ver_no" />
+        </basic>
+
+        <basic name="alterChrg">
+            <column name="alter_chrg" />
+        </basic>
+
+        <basic name="fixFmtFlag">
+            <column name="fix_fmt_flag" />
+        </basic>
+
+        <basic name="ofncVarFlag">
+            <column name="ofnc_var_flag" />
+        </basic>
+
+        <basic name="chapNo">
+            <column name="chap_no" />
+        </basic>
+
+        <basic name="subLeg">
+            <column name="sub_leg" />
+        </basic>
+
+        <basic name="sectNo">
+            <column name="sect_no" />
+        </basic>
+
+        <basic name="subsectNo">
+            <column name="subsect_no" />
+        </basic>
+
+        <basic name="regulationNo">
+            <column name="regulation_no" />
+        </basic>
+
+        <basic name="subRegulationNo">
+            <column name="sub_regulation_no" />
+        </basic>
+
+        <basic name="para">
+            <column name="para" />
+        </basic>
+
+        <basic name="subPara">
+            <column name="sub_para" />
+        </basic>
+
+        <basic name="supplCd">
+            <column name="suppl_cd" />
+        </basic>
+
+        <basic name="verNo">
+            <column name="ver_no" />
+        </basic>
+
+        <basic name="ofncDesc">
+            <column name="ofnc_desc" />
+        </basic>
+
+        <basic name="ofncDescChin">
+            <column name="ofnc_desc_chin" />
+        </basic>
+
+        <basic name="contryToLaw">
+            <column name="contry_to_law" />
+        </basic>
+
+        <basic name="contryToLawChin">
+            <column name="contry_to_law_chin" />
+        </basic>
+
+        <basic name="chrgPartcr">
+            <column name="chrg_partcr" />
+        </basic>
+
+        <basic name="chrgPartcrChin">
+            <column name="chrg_partcr_chin" />
+        </basic>
+
+        <basic name="dateOfOccStartDate">
+            <column name="date_of_occ_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="dateOfOccEndDate">
+            <column name="date_of_occ_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="dateOfOccYr">
+            <column name="date_of_occ_yr" />
+        </basic>
+
+        <basic name="dateOfOccMonth">
+            <column name="date_of_occ_month" />
+        </basic>
+
+        <basic name="dateOfOccTxt">
+            <column name="date_of_occ_txt" />
+        </basic>
+
+        <basic name="multpOfncLocFlag">
+            <column name="multp_ofnc_loc_flag" />
+        </basic>
+
+        <basic name="prosUnit">
+            <column name="pros_unit" />
+        </basic>
+
+        <basic name="prosRefNo">
+            <column name="pros_ref_no" />
+        </basic>
+
+        <basic name="officerInChrgNo">
+            <column name="officer_in_chrg_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="chrgType" fetch="LAZY">
+        <join-column name="chrg_type_id" referenced-column-name="chrg_type_id" />
+    </many-to-one>
+
+    <many-to-one name="relPriChrg" fetch="LAZY">
+        <join-column name="rel_pri_chrg_id" referenced-column-name="chrg_app_id" />
+    </many-to-one>
+
+    <many-to-one name="sod" fetch="LAZY">
+        <join-column name="sod_id" referenced-column-name="sod_id" />
+    </many-to-one>
+
+    <many-to-one name="casemanOfncCd" fetch="LAZY">
+        <join-column name="caseman_ofnc_cd_id" referenced-column-name="caseman_ofnc_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="ofncClass" fetch="LAZY">
+        <join-column name="ofnc_class_id" referenced-column-name="ofnc_class_id" />
+    </many-to-one>
+
+    <many-to-one name="chrgAppDateOfOccType" fetch="LAZY">
+        <join-column name="chrg_app_date_of_occ_type_id" referenced-column-name="chrg_app_date_of_occ_type_id" />
+    </many-to-one>
+
+    <many-to-one name="addr" fetch="LAZY">
+        <join-column name="addr_id" referenced-column-name="addr_id" />
+    </many-to-one>
+
+    <many-to-one name="pd" fetch="LAZY">
+        <join-column name="pd_id" referenced-column-name="pd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="chrgToDoc"  mapped-by="chrgApp" fetch="LAZY" />
+    <one-to-many name="chrgToPartcp"  mapped-by="chrgApp" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="chrgNat"  mapped-by="chrgApp" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

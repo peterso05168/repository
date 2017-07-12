@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.HrnPrtyListSeq" access="FIELD">
+     <table name="thrn_prty_list_seq" />
+
+     <attributes>
+        <id name="hrnPrtyListSeqId">
+            <column name="hrn_prty_list_seq_id" />
+            <generated-value strategy="TABLE" generator="THRN_PRTY_LIST_SEQ_SEQ" />
+            <table-generator name="THRN_PRTY_LIST_SEQ_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="thrn_prty_list_seq_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="hrnSeqNo">
+            <column name="hrn_seq_no" />
+        </basic>
+
+        <basic name="hrnStartTime">
+            <column name="hrn_start_time" />
+        </basic>
+
+        <basic name="mainHrnType">
+            <column name="main_hrn_type" />
+        </basic>
+
+        <basic name="dspDesc">
+            <column name="dsp_desc" />
+        </basic>
+
+        <basic name="noOfHrnWithinGrp">
+            <column name="no_of_hrn_within_grp" />
+        </basic>
+
+        <basic name="hrnDate">
+            <column name="hrn_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="fpAppPropOrdrGrp" fetch="LAZY">
+        <join-column name="fp_app_prop_ordr_grp_id" referenced-column-name="fp_app_prop_ordr_grp_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnSchd" fetch="LAZY">
+        <join-column name="hrn_schd_id" referenced-column-name="hrn_schd_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

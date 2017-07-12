@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DrvLicenceDisqualOrdr" access="FIELD">
+     <table name="tdrv_licence_disqual_ordr" />
+
+     <attributes>
+        <id name="drvLicenceDisqualOrdrId">
+            <column name="drv_licence_disqual_ordr_id" />
+            <generated-value strategy="TABLE" generator="TDRV_LICENCE_DISQUAL_ORDR_SEQ" />
+            <table-generator name="TDRV_LICENCE_DISQUAL_ORDR_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdrv_licence_disqual_ordr_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="dqFrLicenceClass">
+            <column name="dq_fr_licence_class" />
+        </basic>
+
+        <basic name="dqType">
+            <column name="dq_type" />
+        </basic>
+
+        <basic name="declareLossByTodayFlag">
+            <column name="declare_loss_by_today_flag" />
+        </basic>
+
+        <basic name="licenceDepType">
+            <column name="licence_dep_type" />
+        </basic>
+
+        <basic name="depWithinDay">
+            <column name="dep_within_day" />
+        </basic>
+
+        <basic name="depWithinHr">
+            <column name="dep_within_hr" />
+        </basic>
+
+        <basic name="depOnOrBefDate">
+            <column name="dep_on_or_bef_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="startDate">
+            <column name="start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="stnceOrdr" fetch="LAZY">
+        <join-column name="stnce_ordr_id" referenced-column-name="stnce_ordr_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

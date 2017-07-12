@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DocActAssign" access="FIELD">
+     <table name="tdoc_act_assign" />
+
+     <attributes>
+        <id name="docActAssignId">
+            <column name="doc_act_assign_id" />
+            <generated-value strategy="TABLE" generator="TDOC_ACT_ASSIGN_SEQ" />
+            <table-generator name="TDOC_ACT_ASSIGN_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdoc_act_assign_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="notifChId">
+            <column name="notif_ch_id" />
+        </basic>
+
+        <basic name="docActAssignDate">
+            <column name="doc_act_assign_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docTaskDesc">
+            <column name="doc_task_desc" />
+        </basic>
+
+        <basic name="docTaskExpectOutpDocDesc">
+            <column name="doc_task_expect_outp_doc_desc" />
+        </basic>
+
+        <basic name="docTaskMsgToAssignOfficer">
+            <column name="doc_task_msg_to_assign_officer" />
+        </basic>
+
+        <basic name="docTaskExpectCmplDate">
+            <column name="doc_task_expect_cmpl_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="priFlag">
+            <column name="pri_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="docRteHist" fetch="LAZY">
+        <join-column name="doc_rte_hist_id" referenced-column-name="doc_rte_hist_id" />
+    </many-to-one>
+
+    <many-to-one name="docStop" fetch="LAZY">
+        <join-column name="doc_stop_id" referenced-column-name="doc_stop_id" />
+    </many-to-one>
+
+    <many-to-one name="docTaskPur" fetch="LAZY">
+        <join-column name="doc_task_pur_id" referenced-column-name="doc_task_pur_id" />
+    </many-to-one>
+
+    <many-to-one name="assignOfficer" fetch="LAZY">
+        <join-column name="assign_officer" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="docStopAct" fetch="LAZY">
+        <join-column name="doc_stop_act_id" referenced-column-name="doc_stop_act_id" />
+    </many-to-one>
+
+    <many-to-one name="expectOutpDocType" fetch="LAZY">
+        <join-column name="expect_outp_doc_type_id" referenced-column-name="expect_outp_doc_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="expectOutpDocToAct"  mapped-by="docActAssign" fetch="LAZY" />
+    <one-to-many name="actAssignToProcGrp"  mapped-by="docActAssign" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

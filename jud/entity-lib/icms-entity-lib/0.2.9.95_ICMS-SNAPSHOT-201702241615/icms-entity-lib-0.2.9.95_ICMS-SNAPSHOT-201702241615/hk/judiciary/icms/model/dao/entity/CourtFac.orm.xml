@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.CourtFac" access="FIELD">
+     <table name="ccourt_fac" />
+
+     <attributes>
+        <id name="courtFacId">
+            <column name="court_fac_id" />
+            <generated-value strategy="TABLE" generator="CCOURT_FAC_SEQ" />
+            <table-generator name="CCOURT_FAC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="ccourt_fac_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="courtFacName">
+            <column name="court_fac_name" />
+        </basic>
+
+        <basic name="courtFacDesc">
+            <column name="court_fac_desc" />
+        </basic>
+
+        <basic name="totalQty">
+            <column name="total_qty" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="inCourtRmChmbr" fetch="LAZY">
+        <join-column name="in_court_rm_chmbr_id" referenced-column-name="court_rm_chmbr_id" />
+    </many-to-one>
+
+    <many-to-one name="courtFacType" fetch="LAZY">
+        <join-column name="court_fac_type_id" referenced-column-name="court_fac_type_id" />
+    </many-to-one>
+
+    <many-to-one name="inTrly" fetch="LAZY">
+        <join-column name="in_trly_id" referenced-column-name="in_trly_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

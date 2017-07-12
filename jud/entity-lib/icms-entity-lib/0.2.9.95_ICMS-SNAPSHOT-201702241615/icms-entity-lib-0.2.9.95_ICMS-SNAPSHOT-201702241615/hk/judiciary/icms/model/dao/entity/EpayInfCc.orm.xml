@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EpayInfCc" access="FIELD">
+     <table name="tepay_inf_cc" />
+
+     <attributes>
+        <id name="epayInfCcId">
+            <column name="epay_inf_cc_id" />
+            <generated-value strategy="TABLE" generator="TEPAY_INF_CC_SEQ" />
+            <table-generator name="TEPAY_INF_CC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tepay_inf_cc_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="finclInstCd">
+            <column name="fincl_inst_cd" />
+        </basic>
+
+        <basic name="ccMchNo">
+            <column name="cc_mch_no" />
+        </basic>
+
+        <basic name="batNo">
+            <column name="bat_no" />
+        </basic>
+
+        <basic name="settleDate">
+            <column name="settle_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ccTxnAmt">
+            <column name="cc_txn_amt" />
+        </basic>
+
+        <basic name="cardCat">
+            <column name="card_cat" />
+        </basic>
+
+        <basic name="appvCd">
+            <column name="appv_cd" />
+        </basic>
+
+        <basic name="acNoPrfx">
+            <column name="ac_no_prfx" />
+        </basic>
+
+        <basic name="xid">
+            <column name="xid" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="epayInfExpt"  mapped-by="epayInfCc" fetch="LAZY" />
+    <one-to-one name="epayOnlineTxn"  mapped-by="epayInfCc" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfStmtOfAcItem" access="FIELD">
+     <table name="tblf_stmt_of_ac_item" />
+
+     <attributes>
+        <id name="blfStmtOfAcItemId">
+            <column name="blf_stmt_of_ac_item_id" />
+            <generated-value strategy="TABLE" generator="TBLF_STMT_OF_AC_ITEM_SEQ" />
+            <table-generator name="TBLF_STMT_OF_AC_ITEM_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_stmt_of_ac_item_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="itemName">
+            <column name="item_name" />
+        </basic>
+
+        <basic name="itemQty">
+            <column name="item_qty" />
+        </basic>
+
+        <basic name="itemUnit">
+            <column name="item_unit" />
+        </basic>
+
+        <basic name="unitCost">
+            <column name="unit_cost" />
+        </basic>
+
+        <basic name="startDate">
+            <column name="start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="endDate">
+            <column name="end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="recvDate">
+            <column name="recv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="crDrInd">
+            <column name="cr_dr_ind" />
+        </basic>
+
+        <basic name="invReptNo">
+            <column name="inv_rept_no" />
+        </basic>
+
+        <basic name="blfStmtOfAcItemAmt">
+            <column name="blf_stmt_of_ac_item_amt" />
+        </basic>
+
+        <basic name="adjtHalfDay">
+            <column name="adjt_half_day" />
+        </basic>
+
+        <basic name="dailyCost">
+            <column name="daily_cost" />
+        </basic>
+
+        <basic name="prinAmt">
+            <column name="prin_amt" />
+        </basic>
+
+        <basic name="simplCompdIntInd">
+            <column name="simpl_compd_int_ind" />
+        </basic>
+
+        <basic name="verifDt">
+            <column name="verif_dt" />
+        </basic>
+
+        <basic name="payTo">
+            <column name="pay_to" />
+        </basic>
+
+        <basic name="partcr">
+            <column name="partcr" />
+        </basic>
+
+        <basic name="intRate">
+            <column name="int_rate" />
+        </basic>
+
+        <basic name="intRateType">
+            <column name="int_rate_type" />
+        </basic>
+
+        <basic name="pymtMean">
+            <column name="pymt_mean" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="verifBy" fetch="LAZY">
+        <join-column name="verif_by" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="blfStmtOfAc" fetch="LAZY">
+        <join-column name="blf_stmt_of_ac_id" referenced-column-name="blf_stmt_of_ac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ClaimApp" access="FIELD">
+     <table name="tclaim_app" />
+
+     <attributes>
+        <id name="claimAppId">
+            <column name="claim_app_id" />
+            <generated-value strategy="TABLE" generator="TCLAIM_APP_SEQ" />
+            <table-generator name="TCLAIM_APP_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tclaim_app_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="claimAppDate">
+            <column name="claim_app_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="claimAppStatus">
+            <column name="claim_app_status" />
+        </basic>
+
+        <basic name="orsOrdr">
+            <column name="ors_ordr" />
+        </basic>
+
+        <basic name="orsRule">
+            <column name="ors_rule" />
+        </basic>
+
+        <basic name="orsSubRule">
+            <column name="ors_sub_rule" />
+        </basic>
+
+        <basic name="cssCap">
+            <column name="css_cap" />
+        </basic>
+
+        <basic name="cssSectNo">
+            <column name="css_sect_no" />
+        </basic>
+
+        <basic name="cssSubsectNo">
+            <column name="css_subsect_no" />
+        </basic>
+
+        <basic name="otherNatDesc">
+            <column name="other_nat_desc" />
+        </basic>
+
+        <basic name="natOfReliefId">
+            <column name="nat_of_relief_id" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="claimAppNat" fetch="LAZY">
+        <join-column name="claim_app_nat_id" referenced-column-name="claim_app_nat_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+ <!--
+    <one-to-many name="claimRslt"  mapped-by="claimApp" fetch="LAZY" />
+ -->
+
+    <one-to-many name="claimToDoc"  mapped-by="claimApp" fetch="LAZY" />
+    <one-to-many name="claimToPartcp"  mapped-by="claimApp" fetch="LAZY" />
+    <one-to-many name="taxClaimIrdRef"  mapped-by="claimApp" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

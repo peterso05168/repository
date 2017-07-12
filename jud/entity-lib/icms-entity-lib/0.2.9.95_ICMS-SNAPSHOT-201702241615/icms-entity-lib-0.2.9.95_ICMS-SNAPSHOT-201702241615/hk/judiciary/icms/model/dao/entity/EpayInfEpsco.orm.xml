@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EpayInfEpsco" access="FIELD">
+     <table name="tepay_inf_epsco" />
+
+     <attributes>
+        <id name="infEpscoId">
+            <column name="inf_epsco_id" />
+            <generated-value strategy="TABLE" generator="TEPAY_INF_EPSCO_SEQ" />
+            <table-generator name="TEPAY_INF_EPSCO_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tepay_inf_epsco_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="epscoAtmPymtNo">
+            <column name="epsco_atm_pymt_no" />
+        </basic>
+
+        <basic name="epscoReptIntlNo">
+            <column name="epsco_rept_intl_no" />
+        </basic>
+
+        <basic name="bankValueDate">
+            <column name="bank_value_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="epscoClsgStatus">
+            <column name="epsco_clsg_status" />
+        </basic>
+
+        <basic name="epscoInfDate">
+            <column name="epsco_inf_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="epscoMchNo">
+            <column name="epsco_mch_no" />
+        </basic>
+
+        <basic name="epscoMchValueDate">
+            <column name="epsco_mch_value_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="epayInfEpscoPrtDate">
+            <column name="epay_inf_epsco_prt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="epayInfEpscoPrtStatus">
+            <column name="epay_inf_epsco_prt_status" />
+        </basic>
+
+        <basic name="epscoReptAmt">
+            <column name="epsco_rept_amt" />
+        </basic>
+
+        <basic name="epscoReptCentreNo">
+            <column name="epsco_rept_centre_no" />
+        </basic>
+
+        <basic name="epscoReptDate">
+            <column name="epsco_rept_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="epscoReptStatus">
+            <column name="epsco_rept_status" />
+        </basic>
+
+        <basic name="epscoClsgDate">
+            <column name="epsco_clsg_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="epscoSerNo">
+            <column name="epsco_ser_no" />
+        </basic>
+
+        <basic name="storeNo">
+            <column name="store_no" />
+        </basic>
+
+        <basic name="trmMchNo">
+            <column name="trm_mch_no" />
+        </basic>
+
+        <basic name="trmNo">
+            <column name="trm_no" />
+        </basic>
+
+        <basic name="epscoFileName">
+            <column name="epsco_file_name" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pymtInTxn" fetch="LAZY">
+        <join-column name="pymt_in_txn_id" referenced-column-name="pymt_in_txn_id" />
+    </many-to-one>
+
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="epayInfExpt"  mapped-by="infEpsco" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

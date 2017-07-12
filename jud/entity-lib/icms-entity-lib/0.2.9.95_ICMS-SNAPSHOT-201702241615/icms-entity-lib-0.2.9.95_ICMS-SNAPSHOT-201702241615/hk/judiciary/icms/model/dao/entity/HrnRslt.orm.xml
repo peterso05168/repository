@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.HrnRslt" access="FIELD">
+     <table name="thrn_rslt" />
+
+     <attributes>
+        <id name="hrnRsltId">
+            <column name="hrn_rslt_id" />
+            <generated-value strategy="TABLE" generator="THRN_RSLT_SEQ" />
+            <table-generator name="THRN_RSLT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="thrn_rslt_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="hrnRsltDate">
+            <column name="hrn_rslt_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="manuInputDurHrForSc">
+            <column name="manu_input_dur_hr_for_sc" />
+        </basic>
+
+        <basic name="manuInputDurMinuteForSc">
+            <column name="manu_input_dur_minute_for_sc" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="firstClerkName">
+            <column name="first_clerk_name" />
+        </basic>
+
+        <basic name="hrnStartDateTime">
+            <column name="hrn_start_date_time" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="hrnEndDateTime">
+            <column name="hrn_end_date_time" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="hrnDtl" fetch="LAZY">
+        <join-column name="hrn_dtl_id" referenced-column-name="hrn_dtl_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+ <!--
+    <one-to-many name="claimRslt"  mapped-by="hrnRslt" fetch="LAZY" />
+ -->
+
+    <one-to-many name="rsltFolupAct"  mapped-by="rsltFolupFr" fetch="LAZY" />
+    <one-to-many name="taxApp"  mapped-by="hrnRslt" fetch="LAZY" />
+    <one-to-many name="hrnRsltDtl"  mapped-by="hrnRslt" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ChrgNat" access="FIELD">
+     <table name="tchrg_nat" />
+
+     <attributes>
+        <id name="chrgNatId">
+            <column name="chrg_nat_id" />
+            <generated-value strategy="TABLE" generator="TCHRG_NAT_SEQ" />
+            <table-generator name="TCHRG_NAT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tchrg_nat_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="prosUnit">
+            <column name="pros_unit" />
+        </basic>
+
+        <basic name="prosRefNo">
+            <column name="pros_ref_no" />
+        </basic>
+
+        <basic name="officerInChrgNo">
+            <column name="officer_in_chrg_no" />
+        </basic>
+
+        <basic name="tgtFirstHrnDate">
+            <column name="tgt_first_hrn_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="pd" fetch="LAZY">
+        <join-column name="pd_id" referenced-column-name="pd_id" />
+    </many-to-one>
+
+    <many-to-one name="firstHrnTimeWgt" fetch="LAZY">
+        <join-column name="first_hrn_time_wgt_id" referenced-column-name="hrn_time_wgt_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </one-to-one>
+
+    <one-to-one name="chrgApp" fetch="LAZY">
+        <join-column name="chrg_app_id" referenced-column-name="chrg_app_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

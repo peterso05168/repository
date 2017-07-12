@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.JjoProfile" access="FIELD">
+     <table name="tjjo_profile" />
+
+     <attributes>
+        <id name="jjoProfileId">
+            <column name="jjo_profile_id" />
+            <generated-value strategy="TABLE" generator="TJJO_PROFILE_SEQ" />
+            <table-generator name="TJJO_PROFILE_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tjjo_profile_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="jjoPostingStartDate">
+            <column name="jjo_posting_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="jjoPostingEndDate">
+            <column name="jjo_posting_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="apptType">
+            <column name="appt_type" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="jjoSurname">
+            <column name="jjo_surname" />
+        </basic>
+
+        <basic name="jjoGivenName">
+            <column name="jjo_given_name" />
+        </basic>
+
+        <basic name="jjoGivenNameChin">
+            <column name="jjo_given_name_chin" />
+        </basic>
+
+        <basic name="jjoSpclsm">
+            <column name="jjo_spclsm" />
+        </basic>
+
+        <basic name="jjoSurnameChin">
+            <column name="jjo_surname_chin" />
+        </basic>
+
+        <basic name="jjoPrecedNo">
+            <column name="jjo_preced_no" />
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="jjoPostType" fetch="LAZY">
+        <join-column name="jjo_post_type_id" referenced-column-name="jjo_post_type_id" />
+    </many-to-one>
+
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="compsCourt" fetch="LAZY">
+        <join-column name="comps_court_id" referenced-column-name="comps_court_id" />
+    </many-to-one>
+
+    <many-to-one name="langPerference" fetch="LAZY">
+        <join-column name="lang_perference" referenced-column-name="trial_lang_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="jcToJjo"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="jjoEngag"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="jjoLeave"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="jjoRoster"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="jjoToList"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="hrnDtl"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="docRteHist"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="jjoAddrblTitle"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="jjoRosterPatnForPm"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="vexsLitiBlkDesigtJudge2Id"  mapped-by="vexsLitiBlkDesigtJudge2Id" fetch="LAZY" />
+    <one-to-many name="vexsLitiBlkDesigtJudge1Id"  mapped-by="vexsLitiBlkDesigtJudge1Id" fetch="LAZY" />
+    <one-to-many name="vexsLitiBlkDesigtJudge3Id"  mapped-by="vexsLitiBlkDesigtJudge3Id" fetch="LAZY" />
+    <one-to-many name="vexsLitiBlkOrdrById"  mapped-by="vexsLitiBlkOrdrById" fetch="LAZY" />
+    <one-to-many name="mcAppealReg"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="mcAppealRegAppellant"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="mcAppAppl"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="mcApps"  mapped-by="jjoProfile" fetch="LAZY" />
+    <one-to-many name="jjoSpecPymtOrdrAmt"  mapped-by="jjoProfile" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="jjoAc" fetch="LAZY">
+        <join-column name="jjo_ac_id" referenced-column-name="intl_user_ac_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

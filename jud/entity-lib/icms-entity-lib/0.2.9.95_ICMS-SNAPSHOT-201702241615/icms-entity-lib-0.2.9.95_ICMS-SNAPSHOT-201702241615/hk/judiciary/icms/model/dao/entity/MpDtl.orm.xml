@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MpDtl" access="FIELD">
+     <table name="tmp_dtl" />
+
+     <attributes>
+        <id name="mpDtlId">
+            <column name="mp_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMP_DTL_SEQ" />
+            <table-generator name="TMP_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmp_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="piClaimInd">
+            <column name="pi_claim_ind" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="disptType" fetch="LAZY">
+        <join-column name="dispt_type_id" referenced-column-name="dispt_type_id" />
+    </many-to-one>
+
+    <many-to-one name="mpCaseNatType" fetch="LAZY">
+        <join-column name="mp_case_nat_type_id" referenced-column-name="mp_case_nat_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

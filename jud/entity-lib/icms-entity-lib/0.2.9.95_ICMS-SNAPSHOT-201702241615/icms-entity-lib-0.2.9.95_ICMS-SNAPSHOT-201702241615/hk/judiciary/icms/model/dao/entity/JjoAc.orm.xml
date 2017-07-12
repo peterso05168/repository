@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.JjoAc" access="FIELD">
+     <table name="tjjo_ac" />
+
+     <attributes>
+        <id name="jjoAcId">
+            <column name="jjo_ac_id" />
+            <generated-value strategy="TABLE" generator="TJJO_AC_SEQ" />
+            <table-generator name="TJJO_AC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tjjo_ac_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="jjoId">
+            <column name="jjo_id" />
+        </basic>
+
+        <basic name="jjoPostTitle">
+            <column name="jjo_post_title" />
+        </basic>
+
+        <basic name="jjoRank">
+            <column name="jjo_rank" />
+        </basic>
+
+        <basic name="ipAddr">
+            <column name="ip_addr" />
+        </basic>
+
+        <basic name="loginName">
+            <column name="login_name" />
+        </basic>
+
+        <basic name="jjoPostTitleChin">
+            <column name="jjo_post_title_chin" />
+        </basic>
+
+        <basic name="jpmuCd">
+            <column name="jpmu_cd" />
+        </basic>
+
+        <basic name="romaStaffId">
+            <column name="roma_staff_id" />
+        </basic>
+
+        <basic name="activeFlag">
+            <column name="active_flag" />
+        </basic>
+
+        <basic name="jjoGivenName">
+            <column name="jjo_given_name" />
+        </basic>
+
+        <basic name="jjoSurname">
+            <column name="jjo_surname" />
+        </basic>
+
+        <basic name="jjoGivenNameChin">
+            <column name="jjo_given_name_chin" />
+        </basic>
+
+        <basic name="acUid">
+            <column name="ac_uid" />
+        </basic>
+
+        <basic name="emailAddr">
+            <column name="email_addr" />
+        </basic>
+
+        <basic name="jjoSurnameChin">
+            <column name="jjo_surname_chin" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="jjoRolePreced" fetch="LAZY">
+        <join-column name="jjo_role_preced_id" referenced-column-name="jjo_role_preced_id" />
+    </many-to-one>
+
+    <many-to-one name="courtLvlType" fetch="LAZY">
+        <join-column name="court_lvl_type_id" referenced-column-name="court_lvl_type_id" />
+    </many-to-one>
+
+    <many-to-one name="ws" fetch="LAZY">
+        <join-column name="ws_id" referenced-column-name="ws_id" />
+    </many-to-one>
+
+    <many-to-one name="titleType" fetch="LAZY">
+        <join-column name="title_type_id" referenced-column-name="title_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="dstrntEpAppList"  mapped-by="jjoAc" fetch="LAZY" />
+ <!--
+    <one-to-many name="claimRslt"  mapped-by="jjoAc" fetch="LAZY" />
+ -->
+
+    <one-to-many name="dir"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="ordr"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="stnceOrdr"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="appUserGrpToJjo"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="apptToJjo"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="jjoToCourtLvl"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="jjoToGrp"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="jjoToRole"  mapped-by="jjoAc" fetch="LAZY" />
+ <!--
+    <one-to-many name="rptTypeToJjo"  mapped-by="jjoAc" fetch="LAZY" />
+ -->
+
+    <one-to-many name="jjoActingApptActingJjoAcId"  mapped-by="actingJjoAc" fetch="LAZY" />
+    <one-to-many name="jjoActingApptJjoAcId"  mapped-by="jjoAc" fetch="LAZY" />
+    <one-to-many name="jjoCtat"  mapped-by="jjoAc" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

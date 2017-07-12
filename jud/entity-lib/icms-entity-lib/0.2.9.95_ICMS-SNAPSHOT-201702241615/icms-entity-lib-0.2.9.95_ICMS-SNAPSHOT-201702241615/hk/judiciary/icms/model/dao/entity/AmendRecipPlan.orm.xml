@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.AmendRecipPlan" access="FIELD">
+     <table name="tamend_recip_plan" />
+
+     <attributes>
+        <id name="amendRecipPlanId">
+            <column name="amend_recip_plan_id" />
+            <generated-value strategy="TABLE" generator="TAMEND_RECIP_PLAN_SEQ" />
+            <table-generator name="TAMEND_RECIP_PLAN_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tamend_recip_plan_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="planDispDate">
+            <column name="plan_disp_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="planDispAmt">
+            <column name="plan_disp_amt" />
+        </basic>
+
+        <basic name="planActiveFlag">
+            <column name="plan_active_flag" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="baDeporRecip" fetch="LAZY">
+        <join-column name="ba_depor_recip_id" referenced-column-name="ba_depor_recip_id" />
+    </many-to-one>
+
+    <many-to-one name="dispPymtOutTxn" fetch="LAZY">
+        <join-column name="disp_pymt_out_txn_id" referenced-column-name="pymt_out_txn_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

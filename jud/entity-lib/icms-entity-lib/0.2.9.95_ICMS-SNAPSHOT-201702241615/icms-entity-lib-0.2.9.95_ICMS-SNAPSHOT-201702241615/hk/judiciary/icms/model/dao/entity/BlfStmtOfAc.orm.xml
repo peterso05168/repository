@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfStmtOfAc" access="FIELD">
+     <table name="tblf_stmt_of_ac" />
+
+     <attributes>
+        <id name="blfStmtOfAcId">
+            <column name="blf_stmt_of_ac_id" />
+            <generated-value strategy="TABLE" generator="TBLF_STMT_OF_AC_SEQ" />
+            <table-generator name="TBLF_STMT_OF_AC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_stmt_of_ac_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="finalDate">
+            <column name="final_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="appvDate">
+            <column name="appv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="blfStmtOfAcAppvBy" fetch="LAZY">
+        <join-column name="blf_stmt_of_ac_appv_by" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="finalBy" fetch="LAZY">
+        <join-column name="final_by" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="blfStmtOfAcHist"  mapped-by="blfStmtOfAc" fetch="LAZY" />
+    <one-to-many name="blfStmtOfAcItem"  mapped-by="blfStmtOfAc" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="blfReqs" fetch="LAZY">
+        <join-column name="blf_reqs_id" referenced-column-name="reqs_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EpayInfExpt" access="FIELD">
+     <table name="tepay_inf_expt" />
+
+     <attributes>
+        <id name="exptId">
+            <column name="expt_id" />
+            <generated-value strategy="TABLE" generator="TEPAY_INF_EXPT_SEQ" />
+            <table-generator name="TEPAY_INF_EXPT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tepay_inf_expt_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="exptInfType">
+            <column name="expt_inf_type" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="epayInfCc" fetch="LAZY">
+        <join-column name="epay_inf_cc_id" referenced-column-name="epay_inf_cc_id" />
+    </one-to-one>
+
+    <one-to-one name="epayInfPpsb" fetch="LAZY">
+        <join-column name="epay_inf_ppsb_id" referenced-column-name="epay_inf_ppsb_id" />
+    </one-to-one>
+
+    <one-to-one name="infJetco" fetch="LAZY">
+        <join-column name="inf_jetco_id" referenced-column-name="inf_jetco_id" />
+    </one-to-one>
+
+    <one-to-one name="infEpsco" fetch="LAZY">
+        <join-column name="inf_epsco_id" referenced-column-name="inf_epsco_id" />
+    </one-to-one>
+
+    <one-to-one name="epymtExptRsn" fetch="LAZY">
+        <join-column name="epymt_expt_rsn_id" referenced-column-name="epymt_expt_rsn_id" />
+    </one-to-one>
+
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

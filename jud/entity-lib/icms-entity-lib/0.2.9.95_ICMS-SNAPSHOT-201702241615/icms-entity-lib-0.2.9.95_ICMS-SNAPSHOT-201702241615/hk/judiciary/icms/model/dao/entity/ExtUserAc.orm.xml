@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.ExtUserAc" access="FIELD">
+     <table name="text_user_ac" />
+
+     <attributes>
+        <id name="extUserAcId">
+            <column name="ext_user_ac_id" />
+            <generated-value strategy="TABLE" generator="TEXT_USER_AC_SEQ" />
+            <table-generator name="TEXT_USER_AC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="text_user_ac_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+        <basic name="givenName">
+            <column name="given_name" />
+        </basic>
+
+        <basic name="effvStartDate">
+            <column name="effv_start_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="emailAddr">
+            <column name="email_addr" />
+        </basic>
+
+        <basic name="jobTitle">
+            <column name="job_title" />
+        </basic>
+
+        <basic name="personIdentNo">
+            <column name="person_ident_no" />
+        </basic>
+
+        <basic name="telNo">
+            <column name="tel_no" />
+        </basic>
+
+        <basic name="surname">
+            <column name="surname" />
+        </basic>
+
+        <basic name="givenNameChin">
+            <column name="given_name_chin" />
+        </basic>
+
+        <basic name="surnameChin">
+            <column name="surname_chin" />
+        </basic>
+
+        <basic name="loginName">
+            <column name="login_name" />
+        </basic>
+
+        <basic name="effvEndDate">
+            <column name="effv_end_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="acActivDate">
+            <column name="ac_activ_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="solFlag">
+            <column name="sol_flag" />
+        </basic>
+
+        <basic name="dfltRecvCourtMsgFlag">
+            <column name="dflt_recv_court_msg_flag" />
+        </basic>
+
+        <basic name="faxNo">
+            <column name="fax_no" />
+        </basic>
+
+        <basic name="staffIdCardNo">
+            <column name="staff_id_card_no" />
+        </basic>
+
+        <basic name="jobTitleChin">
+            <column name="job_title_chin" />
+        </basic>
+
+        <basic name="mobiNo">
+            <column name="mobi_no" />
+        </basic>
+
+        <basic name="personIdTypeOther">
+            <column name="person_id_type_other" />
+        </basic>
+
+        <basic name="personIdTypeOtherChin">
+            <column name="person_id_type_other_chin" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="acType" fetch="LAZY">
+        <join-column name="ac_type_id" referenced-column-name="ac_type_id" />
+    </many-to-one>
+
+    <many-to-one name="personIdType" fetch="LAZY">
+        <join-column name="person_id_type_id" referenced-column-name="person_id_type_id" />
+    </many-to-one>
+
+    <many-to-one name="titleType" fetch="LAZY">
+        <join-column name="title_type_id" referenced-column-name="title_type_id" />
+    </many-to-one>
+
+    <many-to-one name="addrRole" fetch="LAZY">
+        <join-column name="addr_role_id" referenced-column-name="addr_role_id" />
+    </many-to-one>
+
+    <many-to-one name="ewpUserAcApp" fetch="LAZY">
+        <join-column name="ewp_user_ac_app_id" referenced-column-name="ewp_user_ac_app_id" />
+    </many-to-one>
+
+    <many-to-one name="ewpOrgBrch" fetch="LAZY">
+        <join-column name="ewp_org_brch_id" referenced-column-name="ewp_org_brch_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="docFlrAcsRight"  mapped-by="extUserAc" fetch="LAZY" />
+    <one-to-many name="org"  mapped-by="extUserAc" fetch="LAZY" />
+    <one-to-many name="person"  mapped-by="extUserAc" fetch="LAZY" />
+    <one-to-many name="orgAcLimitApp"  mapped-by="submitByExtUserAc" fetch="LAZY" />
+    <one-to-many name="orgRecvCourtCaseMsg"  mapped-by="extUserAc" fetch="LAZY" />
+    <one-to-many name="extUserAcToRole"  mapped-by="extUserAc" fetch="LAZY" />
+    <one-to-many name="personImage"  mapped-by="imageUldUser" fetch="LAZY" />
+    <one-to-many name="caseNoResv"  mapped-by="extUserAc" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

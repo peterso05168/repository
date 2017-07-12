@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.BlfTaskSecuGuard" access="FIELD">
+     <table name="tblf_task_secu_guard" />
+
+     <attributes>
+        <id name="blfTaskSecuGuardId">
+            <column name="blf_task_secu_guard_id" />
+            <generated-value strategy="TABLE" generator="TBLF_TASK_SECU_GUARD_SEQ" />
+            <table-generator name="TBLF_TASK_SECU_GUARD_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tblf_task_secu_guard_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="guardNo">
+            <column name="guard_no" />
+        </basic>
+
+        <basic name="watchmanPermit">
+            <column name="watchman_permit" />
+        </basic>
+
+        <basic name="notCntInd">
+            <column name="not_cnt_ind" />
+        </basic>
+
+        <basic name="guardType">
+            <column name="guard_type" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="asgset" fetch="LAZY">
+        <join-column name="asgset_id" referenced-column-name="blf_asgset_id" />
+    </many-to-one>
+
+    <many-to-one name="blfTask" fetch="LAZY">
+        <join-column name="blf_task_id" referenced-column-name="blf_task_id" />
+    </many-to-one>
+
+    <many-to-one name="contr" fetch="LAZY">
+        <join-column name="contr_id" referenced-column-name="contr_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="blfTaskPartcp"  mapped-by="blfTaskSecuGuard" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

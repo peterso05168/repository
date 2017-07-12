@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcCjr008Dtl" access="FIELD">
+     <table name="tmi_dc_cjr_008_dtl" />
+
+     <attributes>
+        <id name="miDcCjr008DtlId">
+            <column name="mi_dc_cjr_008_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_CJR_008_DTL_SEQ" />
+            <table-generator name="TMI_DC_CJR_008_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_cjr_008_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="taxBy">
+            <column name="tax_by" />
+        </basic>
+
+        <basic name="taxDate">
+            <column name="tax_date" />
+        </basic>
+
+        <basic name="ordrCd">
+            <column name="ordr_cd" />
+        </basic>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="taxBillNo">
+            <column name="tax_bill_no" />
+        </basic>
+
+        <basic name="taxBillDesc">
+            <column name="tax_bill_desc" />
+        </basic>
+
+        <basic name="billDate">
+            <column name="bill_date" />
+        </basic>
+
+        <basic name="claimAmt">
+            <column name="claim_amt" />
+        </basic>
+
+        <basic name="claimGrp">
+            <column name="claim_grp" />
+        </basic>
+
+        <basic name="costAllow">
+            <column name="cost_allow" />
+        </basic>
+
+        <basic name="pctAllow">
+            <column name="pct_allow" />
+        </basic>
+
+        <basic name="pctAllowGrp">
+            <column name="pct_allow_grp" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

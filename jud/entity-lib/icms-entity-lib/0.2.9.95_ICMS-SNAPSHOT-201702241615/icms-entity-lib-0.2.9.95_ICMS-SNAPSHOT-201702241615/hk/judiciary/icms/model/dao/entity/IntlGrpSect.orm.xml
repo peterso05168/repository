@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.IntlGrpSect" access="FIELD">
+     <table name="tintl_grp_sect" />
+
+     <attributes>
+        <id name="intlGrpSectId">
+            <column name="intl_grp_sect_id" />
+            <generated-value strategy="TABLE" generator="TINTL_GRP_SECT_SEQ" />
+            <table-generator name="TINTL_GRP_SECT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tintl_grp_sect_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="intlGrpSectDesc">
+            <column name="intl_grp_sect_desc" />
+        </basic>
+
+        <basic name="intlGrpSectName">
+            <column name="intl_grp_sect_name" />
+        </basic>
+
+        <basic name="intlGrpSectCd">
+            <column name="intl_grp_sect_cd" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="roleToCourtSeal"  mapped-by="intlGrpSect" fetch="LAZY" />
+    <one-to-many name="intlCgs"  mapped-by="intlGrpSect" fetch="LAZY" />
+    <one-to-many name="pendIntlUap"  mapped-by="intlGrpSect" fetch="LAZY" />
+    <one-to-many name="syncUap"  mapped-by="intlGrpSect" fetch="LAZY" />
+    <one-to-many name="intlUserToCgs"  mapped-by="intlGrpSect" fetch="LAZY" />
+    <one-to-many name="intlUap"  mapped-by="intlGrpSect" fetch="LAZY" />
+    <one-to-many name="intlRp"  mapped-by="intlGrpSect" fetch="LAZY" />
+    <one-to-many name="intlUserGrpToGrpSect"  mapped-by="intlGrpSect" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

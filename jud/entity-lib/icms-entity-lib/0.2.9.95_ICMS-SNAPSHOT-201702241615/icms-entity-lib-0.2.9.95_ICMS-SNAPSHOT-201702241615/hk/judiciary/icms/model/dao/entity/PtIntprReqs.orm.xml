@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PtIntprReqs" access="FIELD">
+     <table name="tpt_intpr_reqs" />
+
+     <attributes>
+        <id name="ptIntprReqsId">
+            <column name="pt_intpr_reqs_id" />
+            <generated-value strategy="TABLE" generator="TPT_INTPR_REQS_SEQ" />
+            <table-generator name="TPT_INTPR_REQS_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpt_intpr_reqs_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="ptIntprRaiseDate">
+            <column name="pt_intpr_raise_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="estTimeLenHr">
+            <column name="est_time_len_hr" />
+        </basic>
+
+        <basic name="estTimeLenMinute">
+            <column name="est_time_len_minute" />
+        </basic>
+
+        <basic name="reqsStartDt">
+            <column name="reqs_start_dt" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ptIntprRefNo">
+            <column name="pt_intpr_ref_no" />
+        </basic>
+
+        <basic name="assignIntprIntlNo">
+            <column name="assign_intpr_intl_no" />
+        </basic>
+
+        <basic name="assignIntprName">
+            <column name="assign_intpr_name" />
+        </basic>
+
+        <basic name="paidByFees">
+            <column name="paid_by_fees" />
+        </basic>
+
+        <basic name="fiReqsRefNo">
+            <column name="fi_reqs_ref_no" />
+        </basic>
+
+        <basic name="previousIntprName">
+            <column name="previous_intpr_name" />
+        </basic>
+
+        <basic name="previousIntprRefNo">
+            <column name="previous_intpr_ref_no" />
+        </basic>
+
+        <basic name="avoidIndOfPreviousIntpr">
+            <column name="avoid_ind_of_previous_intpr" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="toLangType" fetch="LAZY">
+        <join-column name="to_lang_type_id" referenced-column-name="lang_type_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsByPartcpRole" fetch="LAZY">
+        <join-column name="reqs_by_partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="hrnSchd" fetch="LAZY">
+        <join-column name="hrn_schd_id" referenced-column-name="hrn_schd_id" />
+    </many-to-one>
+
+    <many-to-one name="reqsForPartcpRole" fetch="LAZY">
+        <join-column name="reqs_for_partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="frLangType" fetch="LAZY">
+        <join-column name="fr_lang_type_id" referenced-column-name="lang_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+    <one-to-one name="ptIntprAttdDtl"  mapped-by="ptIntprReqs" fetch="LAZY" />
+    <one-to-one name="ptIntprReqsOtherInfo"  mapped-by="ptIntprReqs" fetch="LAZY" />
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

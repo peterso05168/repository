@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiMcOther103" access="FIELD">
+     <table name="tmi_mc_other_103" />
+
+     <attributes>
+        <id name="miMcOther103Id">
+            <column name="mi_mc_other_103_id" />
+            <generated-value strategy="TABLE" generator="TMI_MC_OTHER_103_SEQ" />
+            <table-generator name="TMI_MC_OTHER_103_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_mc_other_103_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="rsltCaseNo">
+            <column name="rslt_case_no" />
+        </basic>
+
+        <basic name="rsltDeftName">
+            <column name="rslt_deft_name" />
+        </basic>
+
+        <basic name="rsltOrdrDate">
+            <column name="rslt_ordr_date" />
+        </basic>
+
+        <basic name="rsltFine">
+            <column name="rslt_fine" />
+        </basic>
+
+        <basic name="rsltCourtCost">
+            <column name="rslt_court_cost" />
+        </basic>
+
+        <basic name="rsltAmend">
+            <column name="rslt_amend" />
+        </basic>
+
+        <basic name="rsltDateOfWriteOff">
+            <column name="rslt_date_of_write_off" />
+        </basic>
+
+        <basic name="rsltWrtnOffFineAmt">
+            <column name="rslt_wrtn_off_fine_amt" />
+        </basic>
+
+        <basic name="rsltWrtnOffCourtCostAmt">
+            <column name="rslt_wrtn_off_court_cost_amt" />
+        </basic>
+
+        <basic name="rsltOutstandingAmendAmt">
+            <column name="rslt_outstanding_amend_amt" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

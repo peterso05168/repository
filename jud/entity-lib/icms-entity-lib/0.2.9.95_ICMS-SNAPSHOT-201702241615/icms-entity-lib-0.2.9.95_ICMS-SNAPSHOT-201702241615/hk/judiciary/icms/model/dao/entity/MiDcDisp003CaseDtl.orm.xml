@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiDcDisp003CaseDtl" access="FIELD">
+     <table name="tmi_dc_disp_003_case_dtl" />
+
+     <attributes>
+        <id name="miDcDisp003CaseDtlId">
+            <column name="mi_dc_disp_003_case_dtl_id" />
+            <generated-value strategy="TABLE" generator="TMI_DC_DISP_003_CASE_DTL_SEQ" />
+            <table-generator name="TMI_DC_DISP_003_CASE_DTL_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_dc_disp_003_case_dtl_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="courtSys">
+            <column name="court_sys" />
+        </basic>
+
+        <basic name="caseType">
+            <column name="case_type" />
+        </basic>
+
+        <basic name="caseSerNo">
+            <column name="case_ser_no" />
+        </basic>
+
+        <basic name="caseYr">
+            <column name="case_yr" />
+        </basic>
+
+        <basic name="originatingDoc">
+            <column name="originating_doc" />
+        </basic>
+
+        <basic name="dateOfCommencementOfProcs">
+            <column name="date_of_commencement_of_procs" />
+        </basic>
+
+        <basic name="caseDispDate">
+            <column name="case_disp_date" />
+        </basic>
+
+        <basic name="noOfPartiesInTheCase">
+            <column name="no_of_parties_in_the_case" />
+        </basic>
+
+        <basic name="noOfDisParties">
+            <column name="no_of_dis_parties" />
+        </basic>
+
+        <basic name="lastDispStage">
+            <column name="last_disp_stage" />
+        </basic>
+
+        <basic name="lastDispMode">
+            <column name="last_disp_mode" />
+        </basic>
+
+        <basic name="judgeMasterName">
+            <column name="judge_master_name" />
+        </basic>
+
+        <basic name="caseLastUpdBy">
+            <column name="case_last_upd_by" />
+        </basic>
+
+        <basic name="rmk">
+            <column name="rmk" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="miDcDisp003PtyDtl"  mapped-by="miDcDisp003CaseDtl" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

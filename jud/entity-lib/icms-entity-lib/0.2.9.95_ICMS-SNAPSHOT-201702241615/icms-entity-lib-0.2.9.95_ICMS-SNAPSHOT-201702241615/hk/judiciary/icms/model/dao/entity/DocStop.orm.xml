@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.DocStop" access="FIELD">
+     <table name="tdoc_stop" />
+
+     <attributes>
+        <id name="docStopId">
+            <column name="doc_stop_id" />
+            <generated-value strategy="TABLE" generator="TDOC_STOP_SEQ" />
+            <table-generator name="TDOC_STOP_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tdoc_stop_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="docStopCmplDate">
+            <column name="doc_stop_cmpl_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="actlStopSeqNo">
+            <column name="actl_stop_seq_no" />
+        </basic>
+
+        <basic name="docStopMsg">
+            <column name="doc_stop_msg" />
+        </basic>
+
+        <basic name="docStopStatus">
+            <column name="doc_stop_status" />
+        </basic>
+
+        <basic name="pickUpDate">
+            <column name="pick_up_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="docTypePropStop" fetch="LAZY">
+        <join-column name="doc_type_prop_stop_id" referenced-column-name="doc_type_prop_stop_id" />
+    </many-to-one>
+
+    <many-to-one name="docRteHist" fetch="LAZY">
+        <join-column name="doc_rte_hist_id" referenced-column-name="doc_rte_hist_id" />
+    </many-to-one>
+
+    <many-to-one name="pickUpUserAc" fetch="LAZY">
+        <join-column name="pick_up_user_ac_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="cmplUserAc" fetch="LAZY">
+        <join-column name="cmpl_user_ac_id" referenced-column-name="intl_user_ac_id" />
+    </many-to-one>
+
+    <many-to-one name="docStopAct" fetch="LAZY">
+        <join-column name="doc_stop_act_id" referenced-column-name="doc_stop_act_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="docActAssign"  mapped-by="docStop" fetch="LAZY" />
+    <one-to-many name="docTaskAct"  mapped-by="docStop" fetch="LAZY" />
+    <one-to-many name="docStopRqusDtl"  mapped-by="docStop" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

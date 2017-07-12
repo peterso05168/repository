@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.EndorSheetEvent" access="FIELD">
+     <table name="tendor_sheet_event" />
+
+     <attributes>
+        <id name="endorSheetEventId">
+            <column name="endor_sheet_event_id" />
+            <generated-value strategy="TABLE" generator="TENDOR_SHEET_EVENT_SEQ" />
+            <table-generator name="TENDOR_SHEET_EVENT_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tendor_sheet_event_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="endorSheetEventDate">
+            <column name="endor_sheet_event_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="endorSheetEventStartTime">
+            <column name="endor_sheet_event_start_time" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="endorSheetEventEndTime">
+            <column name="endor_sheet_event_end_time" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="endorSheetEventCont">
+            <column name="endor_sheet_event_cont" />
+        </basic>
+
+        <basic name="eventActEditblInd">
+            <column name="event_act_editbl_ind" />
+        </basic>
+
+        <basic name="status">
+            <column name="status" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="endorSheet" fetch="LAZY">
+        <join-column name="endor_sheet_id" referenced-column-name="endor_sheet_id" />
+    </many-to-one>
+
+    <many-to-one name="eventActCd" fetch="LAZY">
+        <join-column name="event_act_cd_id" referenced-column-name="endor_sheet_event_act_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

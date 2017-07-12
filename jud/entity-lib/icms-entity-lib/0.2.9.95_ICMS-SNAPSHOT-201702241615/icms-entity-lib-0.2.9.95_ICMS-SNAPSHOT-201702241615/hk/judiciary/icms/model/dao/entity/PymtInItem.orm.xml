@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.PymtInItem" access="FIELD">
+     <table name="tpymt_in_item" />
+
+     <attributes>
+        <id name="pymtInItemId">
+            <column name="pymt_in_item_id" />
+            <generated-value strategy="TABLE" generator="TPYMT_IN_ITEM_SEQ" />
+            <table-generator name="TPYMT_IN_ITEM_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tpymt_in_item_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="pymtInItemIssueDate">
+            <column name="pymt_in_item_issue_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="pymtAdvNo">
+            <column name="pymt_adv_no" />
+        </basic>
+
+        <basic name="atmPymtNo">
+            <column name="atm_pymt_no" />
+        </basic>
+
+        <basic name="pymtInItemAmt">
+            <column name="pymt_in_item_amt" />
+        </basic>
+
+        <basic name="pymtInItemDueDate">
+            <column name="pymt_in_item_due_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="ptyGivenName">
+            <column name="pty_given_name" />
+        </basic>
+
+        <basic name="ptySurname">
+            <column name="pty_surname" />
+        </basic>
+
+        <basic name="ptyOrgName">
+            <column name="pty_org_name" />
+        </basic>
+
+        <basic name="ptyDocNo">
+            <column name="pty_doc_no" />
+        </basic>
+
+        <basic name="pymtAdvDate">
+            <column name="pymt_adv_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docRefNo">
+            <column name="doc_ref_no" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="vcase" fetch="LAZY">
+        <join-column name="case_id" referenced-column-name="case_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtReqs" fetch="LAZY">
+        <join-column name="pymt_reqs_id" referenced-column-name="pymt_reqs_id" />
+    </many-to-one>
+
+    <many-to-one name="txnFundAcType" fetch="LAZY">
+        <join-column name="txn_fund_ac_type_id" referenced-column-name="txn_fund_ac_type_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtStatusType" fetch="LAZY">
+        <join-column name="pymt_status_type_id" referenced-column-name="pymt_status_type_id" />
+    </many-to-one>
+
+    <many-to-one name="partcpRole" fetch="LAZY">
+        <join-column name="partcp_role_id" referenced-column-name="partcp_role_id" />
+    </many-to-one>
+
+    <many-to-one name="doc" fetch="LAZY">
+        <join-column name="doc_id" referenced-column-name="doc_id" />
+    </many-to-one>
+
+    <many-to-one name="curcyCd" fetch="LAZY">
+        <join-column name="curcy_cd_id" referenced-column-name="curcy_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="war" fetch="LAZY">
+        <join-column name="war_id" referenced-column-name="war_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtSubCd" fetch="LAZY">
+        <join-column name="pymt_sub_cd_id" referenced-column-name="pymt_sub_cd_id" />
+    </many-to-one>
+
+    <many-to-one name="ptyDocType" fetch="LAZY">
+        <join-column name="pty_doc_type_id" referenced-column-name="pty_doc_type_id" />
+    </many-to-one>
+
+    <many-to-one name="intmCase" fetch="LAZY">
+        <join-column name="intm_case_id" referenced-column-name="intm_case_id" />
+    </many-to-one>
+
+    <many-to-one name="ptyRole" fetch="LAZY">
+        <join-column name="pty_role_id" referenced-column-name="pty_role_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtInstal" fetch="LAZY">
+        <join-column name="pymt_instal_id" referenced-column-name="pymt_instal_id" />
+    </many-to-one>
+
+    <many-to-one name="pymtCd" fetch="LAZY">
+        <join-column name="pymt_cd_id" referenced-column-name="pymt_cd_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+    <one-to-many name="baRegItem"  mapped-by="pymtInItem" fetch="LAZY" />
+    <one-to-many name="pymtInTxnItemHist"  mapped-by="pymtInItem" fetch="LAZY" />
+    <one-to-many name="intmTordr"  mapped-by="pymtInItem" fetch="LAZY" />
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.SurrenderDoc" access="FIELD">
+     <table name="tsurrender_doc" />
+
+     <attributes>
+        <id name="surrenderDocId">
+            <column name="surrender_doc_id" />
+            <generated-value strategy="TABLE" generator="TSURRENDER_DOC_SEQ" />
+            <table-generator name="TSURRENDER_DOC_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tsurrender_doc_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="otherDocType">
+            <column name="other_doc_type" />
+        </basic>
+
+        <basic name="otherDocTypeTradChin">
+            <column name="other_doc_type_trad_chin" />
+        </basic>
+
+        <basic name="docNo">
+            <column name="doc_no" />
+        </basic>
+
+        <basic name="surrenderDate">
+            <column name="surrender_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docRlseDate">
+            <column name="doc_rlse_date" />
+            <temporal>TIMESTAMP</temporal>
+        </basic>
+
+        <basic name="docDtl">
+            <column name="doc_dtl" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+    <many-to-one name="surrenderRept" fetch="LAZY">
+        <join-column name="surrender_rept_id" referenced-column-name="surrender_rept_id" />
+    </many-to-one>
+
+    <many-to-one name="surrenderDocType" fetch="LAZY">
+        <join-column name="surrender_doc_type_id" referenced-column-name="surrender_doc_type_id" />
+    </many-to-one>
+
+    <many-to-one name="surrenderDocRlseType" fetch="LAZY">
+        <join-column name="surrender_doc_rlse_type_id" referenced-column-name="surrender_doc_rlse_type_id" />
+    </many-to-one>
+
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

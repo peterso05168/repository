@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiMcCwt002" access="FIELD">
+     <table name="tmi_mc_cwt_002" />
+
+     <attributes>
+        <id name="miMcCwt002Id">
+            <column name="mi_mc_cwt_002_id" />
+            <generated-value strategy="TABLE" generator="TMI_MC_CWT_002_SEQ" />
+            <table-generator name="TMI_MC_CWT_002_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_mc_cwt_002_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="month">
+            <column name="month" />
+        </basic>
+
+        <basic name="rsltCasesListed">
+            <column name="rslt_cases_listed" />
+        </basic>
+
+        <basic name="rsltPledge">
+            <column name="rslt_pledge" />
+        </basic>
+
+        <basic name="rsltCwt">
+            <column name="rslt_cwt" />
+        </basic>
+
+        <basic name="rslt12MonthsWithinTgt">
+            <column name="rslt_12_months_within_tgt" />
+        </basic>
+
+        <basic name="rslt12Months51To60">
+            <column name="rslt_12_months_51_to_60" />
+        </basic>
+
+        <basic name="rslt12Months61To90">
+            <column name="rslt_12_months_61_to_90" />
+        </basic>
+
+        <basic name="rslt12MonthsOver90">
+            <column name="rslt_12_months_over_90" />
+        </basic>
+
+        <basic name="rsltTgtMonthsWithinTgt">
+            <column name="rslt_tgt_months_within_tgt" />
+        </basic>
+
+        <basic name="rsltTgtMonths51To60">
+            <column name="rslt_tgt_months_51_to_60" />
+        </basic>
+
+        <basic name="rsltTgtMonths61To90">
+            <column name="rslt_tgt_months_61_to_90" />
+        </basic>
+
+        <basic name="rsltTgtMonthsOver90">
+            <column name="rslt_tgt_months_over_90" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>

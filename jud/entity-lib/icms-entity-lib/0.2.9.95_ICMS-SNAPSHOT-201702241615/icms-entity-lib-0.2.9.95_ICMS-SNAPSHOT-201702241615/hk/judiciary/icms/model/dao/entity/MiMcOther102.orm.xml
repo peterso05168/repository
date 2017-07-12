@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+     <entity class="hk.judiciary.icms.model.dao.entity.MiMcOther102" access="FIELD">
+     <table name="tmi_mc_other_102" />
+
+     <attributes>
+        <id name="miMcOther102Id">
+            <column name="mi_mc_other_102_id" />
+            <generated-value strategy="TABLE" generator="TMI_MC_OTHER_102_SEQ" />
+            <table-generator name="TMI_MC_OTHER_102_SEQ" table="TFMK_SEQ_NO" 
+                pk-column-name="seq_name" pk-column-value="tmi_mc_other_102_id" 
+                value-column-name="SEQ_CNT" allocation-size="1" />
+        </id>
+
+        <basic name="rsltPd">
+            <column name="rslt_pd" />
+        </basic>
+
+        <basic name="rsltFpnNo">
+            <column name="rslt_fpn_no" />
+        </basic>
+
+        <basic name="rsltMagCourt">
+            <column name="rslt_mag_court" />
+        </basic>
+
+        <basic name="rsltCaseNo">
+            <column name="rslt_case_no" />
+        </basic>
+
+        <basic name="rsltDeftName">
+            <column name="rslt_deft_name" />
+        </basic>
+
+        <basic name="rsltOrdrAmtPnlty">
+            <column name="rslt_ordr_amt_pnlty" />
+        </basic>
+
+        <basic name="rsltOrdrAmtAddPnlty">
+            <column name="rslt_ordr_amt_add_pnlty" />
+        </basic>
+
+        <basic name="rsltOrdrAmtCost">
+            <column name="rslt_ordr_amt_cost" />
+        </basic>
+
+        <basic name="rsltPaidAmtPnlty">
+            <column name="rslt_paid_amt_pnlty" />
+        </basic>
+
+        <basic name="rsltPaidAmtAddPnlty">
+            <column name="rslt_paid_amt_add_pnlty" />
+        </basic>
+
+        <basic name="rsltPaidAmtCost">
+            <column name="rslt_paid_amt_cost" />
+        </basic>
+
+        <basic name="rsltDfltAmtPnlty">
+            <column name="rslt_dflt_amt_pnlty" />
+        </basic>
+
+        <basic name="rsltDfltAmtAddPnlty">
+            <column name="rslt_dflt_amt_add_pnlty" />
+        </basic>
+
+        <basic name="rsltDfltAmtCost">
+            <column name="rslt_dflt_amt_cost" />
+        </basic>
+
+        <basic name="rsltOutstandingAmtPnlty">
+            <column name="rslt_outstanding_amt_pnlty" />
+        </basic>
+
+        <basic name="rsltOutstandingAmtAddPnlty">
+            <column name="rslt_outstanding_amt_add_pnlty" />
+        </basic>
+
+        <basic name="rsltOutstandingAmtCost">
+            <column name="rslt_outstanding_amt_cost" />
+        </basic>
+
+        <basic name="rsltDfltDate">
+            <column name="rslt_dflt_date" />
+        </basic>
+
+
+        <version name="version">
+            <column name="version_dt" />
+        </version>
+
+
+<!-- Foreign key many-to-one -->
+
+<!-- Foreign key one-to-many -->
+
+<!-- Foreign key one-to-one -->
+
+<!-- Foreign key many-to-many -->
+     </attributes>
+     </entity>
+</entity-mappings>
